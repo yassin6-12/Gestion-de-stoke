@@ -19,7 +19,6 @@
           <th>ID</th>
           <th>Catégorie</th>
           <th>Date</th>
-          <th>Statut</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -28,7 +27,6 @@
           <td>#0001</td>
           <td>Montre</td>
           <td>13 mars 2021</td>
-          <td>Publié</td>
           <td class="action">
             <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier la catégorie">
               <i class="bi bi-pencil"></i>
