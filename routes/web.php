@@ -19,4 +19,19 @@ Route::get('/catégorie.Liste',[CatégorieController::class,'index'])->name('Lis
 Route::get('/catégorie.Ajouter',[CatégorieController::class,'create'])->name('AjouterCatégorie');
 Route::post('/catégorie.store',[CatégorieController::class,'store'])->name('store');
 Route::get('/Profile',[ProfileController::class,'index'])->name('Profile');
-Route::get('/Setting',[ProfileController::class,'update'])->name('Setting');
+
+Route::get('/Setting', function () {
+    return view('Setting');
+})->name('Setting');
+
+Route::get('/Authentification.Seconnecter', function () {
+    return view('Authentification.Seconnecter');
+})->name('Seconnecter');
+
+Route::get('/produit.Panier', function () {
+    return view('produit.Panier');
+})->name('Panier');
+
+Route::get('/produit.Facture', function () {
+    return view('produit.Facture');
+})->name('facture');

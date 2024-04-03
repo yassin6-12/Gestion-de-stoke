@@ -19,7 +19,7 @@
                 <div class="card-header">
                     <div class="card-title">Liste par exempl(Pc)</div>
                     <div class="ml-auto">
-                        <a href="view-cart.html" class="btn btn-dark"><span class="badge shade-red me-2">20</span>VoirPanier</a>
+                        <a href="{{route('Panier')}}" class="btn btn-dark"><span class="badge shade-red me-2">20</span>VoirPanier</a>
                     </div>
                 </div>
                 <div class="card-body">

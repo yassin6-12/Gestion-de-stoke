@@ -11,8 +11,15 @@
 @endsection
 @section('main')
 <div class="container">
-    <h2>Liste des catégories</h2>
-    <button type="button" class="btn btn-primary" id="add-category">Ajouter une catégorie</button>
+  
+  <div class="row align-items-center mb-3">
+    <div class="col">
+        <h2>Liste des catégories</h2>
+    </div>
+    <div class="col-auto">
+        <button type="button" class="btn btn-primary" id="add-category">Ajouter catégorie</button>
+    </div>
+</div>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -38,6 +45,6 @@
         </tr>
         </tbody>
     </table>
-  </div>
+</div>
   
 @endsection
