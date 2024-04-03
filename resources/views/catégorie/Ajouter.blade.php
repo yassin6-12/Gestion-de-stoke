@@ -10,6 +10,11 @@
 </ol>
 @endsection
 @section('main')
+<style>
+    #demo-upload {
+        border: none !important;
+    }
+</style>
 <div class="row">
     <div class="col-sm-12 col-12">
         <div class="card">
@@ -17,7 +22,7 @@
                 <div class="card-title">Product Information</div>
             </div> --}}
             <div class="card-body">
-
+                <form action="/upload" id="demo-upload" class="dropzone">
                 <div class="row">
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
@@ -62,7 +67,7 @@
                             <div class="card-border-body">
 
                                 <div id="dropzone" class="dropzone-dark">
-                                    {{-- <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload"> --}}
+                                    
                                         <div class="dropzone needsclick dz-clickable">
                                         <div class="dz-message needsclick">
                                             <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
@@ -71,7 +76,7 @@
                                         </div>
                                     </div>
                                         
-                                    {{-- </form> --}}
+                                   
                                 </div>
 
                             </div>
@@ -84,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-
+            </form>
             </div>
         </div>
     </div>
