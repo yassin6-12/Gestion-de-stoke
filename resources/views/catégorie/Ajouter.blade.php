@@ -62,15 +62,16 @@
                             <div class="card-border-body">
 
                                 <div id="dropzone" class="dropzone-dark">
-                                    <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
-
+                                    {{-- <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload"> --}}
+                                        <div class="dropzone needsclick dz-clickable">
                                         <div class="dz-message needsclick">
                                             <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                             <span class="note needsclick">(Il ne s’agit que d’une zone de dépôt de démonstration. Les fichiers sélectionnés
                                                 <strong>ne sont pas</strong> réellement téléchargés.)</span>
                                         </div>
+                                    </div>
                                         
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
 
                             </div>
@@ -88,4 +89,5 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
 @endsection
