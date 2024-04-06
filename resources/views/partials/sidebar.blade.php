@@ -46,15 +46,15 @@
 										<li>
 											<a href="#">Supprimer Produit</a>
 										</li>
-										
+
 									</ul>
 								</div>
 							</li>
-							
+
 							{{-- Catégorie --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
-									
+
 									<i class="bi bi-folder"></i>
 
 									<span class="menu-text">Catégorie</span>
@@ -62,12 +62,12 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{Route('catégorie.index')}}">Liste des catégories</a> 
+											<a href="{{Route('catégorie.index')}}">Liste des catégories</a>
 										</li>
-										<li>											
+										<li>
 											<a href="{{Route('catégorie.create')}}">Ajouter Catégorie</a>
 										</li>
-										
+
 									</ul>
 								</div>
 							</li>

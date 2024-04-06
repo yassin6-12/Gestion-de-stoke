@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-sm-12 col-12">
         <div class="card">
-          
+
             <div class="card-body">
                 <form action="/upload" id="demo-upload" class="dropzone">
                 <div class="row">
@@ -36,24 +36,24 @@
                                         </div>
                                     </div>
                                     <div id="dropzone" class="dropzone dropzone-dark">
-                                    
+
                                         <div class="dz-message needsclick">
                                             <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                             <span class="note needsclick">(Il ne s’agit que d’une zone de dépôt de démonstration. Les fichiers sélectionnés
                                                 <strong>ne sont pas</strong> réellement téléchargés.)</span>
                                         </div>
-                                    
-                                        
-                                   
+
+
+
                                 </div>
-                                    
-                                  
+
+
                                 </div>
 
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
 
                     {{-- <div class="col-sm-12 col-12">
@@ -62,15 +62,15 @@
                             <div class="card-border-body">
 
                                 <div id="dropzone" class="dropzone dropzone-dark">
-                                    
+
                                         <div class="dz-message needsclick">
                                             <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                             <span class="note needsclick">(Il ne s’agit que d’une zone de dépôt de démonstration. Les fichiers sélectionnés
                                                 <strong>ne sont pas</strong> réellement téléchargés.)</span>
                                         </div>
-                                    
-                                        
-                                   
+
+
+
                                 </div>
 
                             </div>
@@ -93,6 +93,6 @@
 		<!-- Dropzone JS -->
 		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
 
-		
+
 
 @endsection
