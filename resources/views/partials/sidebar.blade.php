@@ -62,7 +62,7 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{Route('catégorie.index')}}">Liste des catégories</a>
+											<a href="{{Route('Catégorie.index')}}">Liste des catégories</a>
 										</li>
 										<li>
 											<a href="{{Route('catégorie.create')}}">Ajouter Catégorie</a>
