@@ -38,7 +38,7 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{route('produit.list')}}">Liste des Produits</a>
+											<a href="{{route('produit.liste')}}">Liste des Produits</a>
 										</li>
 										<li>
 											<a href="{{route('Produit.ajouter')}}">Ajouter Produit</a>
@@ -62,12 +62,12 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{route('Catégorie.liste')}}">Liste des catégories</a>
+											<a href="{{Route('catégorie.index')}}">Liste des catégories</a> 
 										</li>
-										<li>
-											
-											<a href="{{route('Catégorie.ajouter')}}">Ajouter Catégorie</a>
+										<li>											
+											<a href="{{Route('catégorie.create')}}">Ajouter Catégorie</a>
 										</li>
+										
 									</ul>
 								</div>
 							</li>

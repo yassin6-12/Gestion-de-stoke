@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-   
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
         Schema::create('produits', function (Blueprint $table) {
@@ -14,11 +16,15 @@ return new class extends Migration
             $table->string('nom');
             $table->string('description');
             $table->integer('prix');
-            $table->string('quantite');
+            $table->integer('qte_stock');
+            $table->integer('qte_min');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('produits');
