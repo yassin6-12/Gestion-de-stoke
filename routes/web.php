@@ -12,7 +12,15 @@ Route::get('/', function () {
     return view('home');
 });
 //produits
+Route::get('/produit.Panier', function () {
+    return view('/produit.Panier');
+})->name('panier');
+Route::get('/produit.facture', function () {
+    return view('/produit.facture');
+})->name('facture');
+
 Route::get('/Produit', [ProduitController::class,'index2'])->name('Produit');
+// Route::get('/produit.Panier',[ProduitController::class,'panier'])->name('panier');
 Route::get('/produit.Liste', [ProduitController::class,'index'])->name('produit.liste');
 Route::get('/produit.create',[ProduitController::class,'create'])->name('produit.ajouter');
 // Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');

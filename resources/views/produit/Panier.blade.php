@@ -41,7 +41,7 @@
                     <div class="col-sm-12 col-12">
                         <div class="sub-total-container">
                             <div class="total">Order Total: $90.00</div>
-                            <a href="{{route('produit.facture')}}" class="btn btn-success btn-lg">Caisse</a>
+                            <a href="{{route('facture')}}" class="btn btn-success btn-lg">Caisse</a>
                         </div>
                     </div>
                 </div>
