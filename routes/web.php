@@ -26,3 +26,11 @@ Route::get('/catégorie.create',[CatégorieController::class,'create'])->name('c
 //home
 Route::get('/Profile',[ProfileController::class,'index'])->name('Profile');
 Route::get('/Setting',[ProfileController::class,'update'])->name('Setting');
+
+//---------------------------------Authentification-----------------------------------
+Route::get('/Authentification.Seconnecter', function () {
+    return view('Authentification.Seconnecter');
+})->name('Seconnecter');
+Route::get('/Authentification.Inscrire', function () {
+    return view('Authentification.Inscrire');
+})->name('S’inscrire');

@@ -10,6 +10,11 @@
     </ol>
 @endsection
 @section('main')
+<style>
+    #demo-upload {
+        border: none !important;
+    }
+</style>
 <div class="row">
     <div class="col-sm-12 col-12">
         <div class="card">
@@ -17,9 +22,9 @@
                 <div class="card-title">Informations sur le produit</div>
             </div>
             <div class="card-body">
-
+                <form action="/upload" class="dropzone " id="demo-upload" multiple>
                 <div class="row">
-                    <div class="col-sm-6 col-12">
+                    <div class="col-sm-12 col-12">
                         <div class="card-border">
                             <div class="card-border-title">Informations générales</div>
                             <div class="card-border-body">
@@ -57,6 +62,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-sm-6 col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Quantiter max <span class="text-red">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Quantiter max du produit">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Quantiter max <span class="text-red">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Quantiter max du produit">
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12 col-12">
                                         <div class="mb-0">
                                             <label class="form-label">Description du produit<span class="text-red">*</span></label>
@@ -69,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-12">
+                    {{-- <div class="col-sm-6 col-12">
                         <div class="card-border">
                             <div class="card-border-title">Meta Data</div>
                             <div class="card-border-body">
@@ -103,22 +120,20 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
                             <div class="card-border-title">Images du produit</div>
                             <div class="card-border-body">
 
                                 <div id="dropzone" class="dropzone-dark">
-                                    <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
-
-                                        <div class="dz-message needsclick">
-                                            <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
-                                            <span class="note needsclick">(Il ne s’agit que d’une zone de dépôt de démonstration. Les fichiers sélectionnés
-                                                <strong>ne sont pas</strong> réellement téléchargés.)</span>
+                                        <div class="dropzone needsclick dz-clickable">
+                                            <div class="dz-message needsclick">
+                                                <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
+                                                <span class="note needsclick">(Vous pouvez télécharger jusqu'à 5 photos à la fois. Les fichiers sélectionnés
+                                                    <strong>ne sont pas</strong> réellement téléchargés.)</span>
+                                            </div>
                                         </div>
-
-                                    </form>
                                 </div>
 
                             </div>
@@ -126,14 +141,16 @@
                     </div>
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
-                            <button type="button" class="btn btn-light">Cancel</button>
-                            <a href="products.html" class="btn btn-success">Add Product</a>
+                            <button type="button" class="btn btn-light">Annuler</button>
+                            <a href="products.html" class="btn btn-success">Ajouter produit</a>
                         </div>
                     </div>
                 </div>
+                </form>
 
             </div>
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
 @endsection
