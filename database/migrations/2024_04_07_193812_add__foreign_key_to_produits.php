@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('produits', function (Blueprint $table) {
-            $table->unsignedInteger('categorie_id');
+        Schema::table('produits', function (Blueprint $table) {            
+            $table->unsignedInteger('categorie_id', 20);
             $table->foreign('categorie_id')->references('id')->on('categories')
                                                           ->onUpdate('cascade')
                                                           ->onDelete('cascade');
@@ -26,10 +26,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        /*
         Schema::table('produits', function (Blueprint $table) {
             Schema::disableForeignKeyConstraints();  //pour dsactiver les contraintes des clé étrangeres 
             $table->dropForeign(['categorie_id']);
 
-        });
+        });  */
     }
 };
