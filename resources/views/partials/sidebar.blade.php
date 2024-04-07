@@ -46,15 +46,15 @@
 										<li>
 											<a href="#">Supprimer Produit</a>
 										</li>
-										
+
 									</ul>
 								</div>
 							</li>
-							
+
 							{{-- Catégorie --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
-									
+
 									<i class="bi bi-folder"></i>
 
 									<span class="menu-text">Catégorie</span>
@@ -62,34 +62,13 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{route('catégorie.liste')}}">Liste des catégories</a>
+											<a href="{{route('Catégorie.liste')}}">Liste des catégories</a>
 										</li>
 										<li>
 											
-											<a href="{{route('catégorie.ajouter')}}">Ajouter Catégorie</a>
+											<a href="{{route('Catégorie.ajouter')}}">Ajouter Catégorie</a>
 										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="sidebar-dropdown">
-								<a href="#">
-									<i class="bi bi-x-diamond"></i>
-									<span class="menu-text">Authentication</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li>
-											<a href="{{route('S’inscrire')}}">S’inscrire </a>
-										</li>
-										<li>
-											<a href="signup.html">Signup</a>
-										</li>
-										<li>
-											<a href="error.html">Error</a>
-										</li>
-										<li>
-											<a href="maintenance.html">Maintenance</a>
-										</li>
+
 									</ul>
 								</div>
 							</li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\view;
 
 class ProduitController extends Controller
 {
@@ -17,7 +18,7 @@ class ProduitController extends Controller
     {
         return view('produit.produit');
     }
-    
+
 
     /**
      * Show the form for creating a new resource.

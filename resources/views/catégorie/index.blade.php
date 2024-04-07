@@ -11,17 +11,8 @@
 @endsection
 @section('main')
 <div class="container">
-  
-  <div class="row align-items-center mb-3">
-    <div class="col">
-        <h2>Liste des catégories</h2>
-    </div>
-    <div class="col-auto">
-      <a href="{{route('catégorie.ajouter')}}">
-        <button type="button" class="btn btn-primary" id="add-category">Ajouter catégorie</button>
-      </a>
-    </div>
-</div>
+    <h2>Liste des catégories</h2>
+    <button type="button" class="btn btn-primary" id="add-category">Ajouter une catégorie</button>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -37,18 +28,16 @@
           <td>Montre</td>
           <td>13 mars 2021</td>
           <td class="action">
-            <a href="#" style="font-size: 7px" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier la catégorie">
+            <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier la catégorie">
               <i class="bi bi-pencil"></i>
             </a>
-            <a href="#" style="font-size: 7px" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer la catégorie">
+            <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer la catégorie">
               <i class="bi bi-trash"></i>
             </a>
           </td>
         </tr>
-        
-        
         </tbody>
     </table>
-</div>
+  </div>
   
 @endsection
