@@ -21,7 +21,8 @@
         <div class="card">
 
             <div class="card-body">
-                <form action="/upload" id="demo-upload" class="dropzone">
+                <form action="{{route('catégorie.store')}}" id="demo-upload" class="dropzone" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
@@ -31,8 +32,11 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Nom de la Catégorie <span class="text-red">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Entrez le nom de la catégorie">
+                                            <label for="categorie_name" class="form-label">Nom de la Catégorie <span class="text-red">*</span></label>
+                                            <input id="categorie_name" name="categorie_name" type="text" class="form-control" placeholder="Entrez le nom de la catégorie"  >
+                                        </div>
+                                        <div>
+                                        <button type="submit" class="btn btn-primary" >ajouter</button>
                                         </div>
                                     </div>
                                     <div id="dropzone" class="dropzone dropzone-dark">
@@ -79,11 +83,11 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="products.html" class="btn btn-success">Ajouter produit</a>
+                            <a href="products.html" class="btn btn-success">Ajouter </a> 
                         </div>
                     </div>
                 </div>
-            </form>
+              </form>
             </div>
         </div>
     </div>

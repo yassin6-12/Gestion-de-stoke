@@ -17,7 +17,8 @@
                 <div class="card-title">Informations sur le produit</div>
             </div>
             <div class="card-body">
-
+            <form action="{{Route('Produit.store')}}" id="demo-upload" class="dropzone" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col-sm-6 col-12">
                         <div class="card-border">
@@ -28,7 +29,7 @@
                                     <div class="col-sm-6 col-12">
                                         <div class="mb-3">
                                             <label class="form-label">Nom du produit<span class="text-red">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Entrez le nom du produit">
+                                            <input type="text" class="form-control" name=product_name placeholder="Entrez le nom du produit">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-12">
@@ -37,15 +38,14 @@
                                             <select class="form-control">
                                                 <option value="Select Product Category">Sélectionner une catégorie de produit</option>
                                                 <option value="Mobiles">Mobiles</option>
-                                                <option value="Books">laptop</option>
-                                    
+                                                <option value="Books">laptop</option>                                    
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-12">
                                         <div class="mb-3">
                                             <label class="form-label">Prix du produit <span class="text-red">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Entrez le prix du produit">
+                                            <input type="text" class="form-control" name="product_price" placeholder="Entrez le prix du produit">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-12">
@@ -60,9 +60,12 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="mb-0">
                                             <label class="form-label">Description du produit<span class="text-red">*</span></label>
-                                            <textarea rows="4" class="form-control"
-                                                placeholder="Entrez la description du produit"></textarea>
+                                            <textarea rows="4" class="form-control" name="product_description"
+                                                      placeholder="Entrez la description du produit"></textarea>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" >ajouter</button>
                                     </div>
                                 </div>
 
@@ -131,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-
+             </form>
             </div>
         </div>
     </div>

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\view;
+use App\Http\Controllers\save;
 
 class ProduitController extends Controller
 {
@@ -12,6 +13,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
+        
         return view('produit.index');
     }
 
@@ -32,9 +34,14 @@ class ProduitController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(request $request)
     {
-        //
+        $produit = new Produit();
+        $produit->nom = $request->input('product_name');
+        $produit->prix = $request->input('product_price');
+        $produit->description = $request->input('product_description');
+        $produit->save();
+        return redirect()->Route('produit.index'); 
     }
 
     /**

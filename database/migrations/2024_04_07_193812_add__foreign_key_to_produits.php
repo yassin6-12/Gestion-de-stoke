@@ -26,11 +26,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        /*
+        
         Schema::table('produits', function (Blueprint $table) {
             Schema::disableForeignKeyConstraints();  //pour dsactiver les contraintes des clé étrangeres 
             $table->dropForeign(['categorie_id']);
 
-        });  */
+        });  
     }
 };
