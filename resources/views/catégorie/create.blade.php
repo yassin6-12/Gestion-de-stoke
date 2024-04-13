@@ -17,7 +17,7 @@
                 <div class="card-title">Product Information</div>
             </div> --}}
             <div class="card-body">
-
+                <form action="/upload" id="demo-upload" class="dropzone">
                 <div class="row">
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
@@ -27,8 +27,8 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Nom du Catégorie <span class="text-red">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Entrez le nom du catégorie">
+                                            <label class="form-label">Nom de la Catégorie <span class="text-red">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Entrez le nom de la catégorie">
                                         </div>
                                     </div>
                                     <div class="col-sm-4 col-12">
@@ -79,11 +79,11 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="products.html" class="btn btn-success">Ajouter</a>
+                            <a href="products.html" class="btn btn-success">Ajouter produit</a>
                         </div>
                     </div>
                 </div>
-
+            </form>
             </div>
         </div>
     </div>

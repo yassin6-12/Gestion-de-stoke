@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Categorie;
 use Illuminate\Http\Request;
+use App\Http\Controllers\view;
 
 class CatégorieController extends Controller
 {
@@ -11,7 +12,8 @@ class CatégorieController extends Controller
      */
     public function index()
     {
-        return view('catégorie.index');
+        $categories = Categorie::all();
+        return view('catégorie.index',compact('categories'));
     }
 
     /**
@@ -27,7 +29,13 @@ class CatégorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$cat= $request->input('categorie_name');
+        dd($cat );*/
+        
+        $categorie = new Categorie();
+        $categorie->nom = $request->input('categorie_name');
+        $categorie->save(); 
+        return redirect() -> Route('catégorie.index');
     }
 
     /**

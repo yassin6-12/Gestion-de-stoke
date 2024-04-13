@@ -24,9 +24,10 @@
       </thead>
       <tbody>
         <tr>
-          <td>#0001</td>
-          <td>Montre</td>
-          <td>13 mars 2021</td>
+          @foreach($categories as $cat)
+          <td>{{$cat->id}}</td>
+          <td>{{$cat->nom}}</td>
+          <td>{{$cat->created_at}}</td>
           <td class="action">
             <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier la catégorie">
               <i class="bi bi-pencil"></i>
@@ -35,6 +36,7 @@
               <i class="bi bi-trash"></i>
             </a>
           </td>
+          @endforeach
         </tr>
         </tbody>
     </table>

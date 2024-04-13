@@ -38,10 +38,10 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{route('produit.liste')}}">Liste des Produits</a>
+											<a href="{{route('produit.index')}}">Liste des Produits</a>
 										</li>
 										<li>
-											<a href="{{route('produit.ajouter')}}">Ajouter Produit</a>
+											<a href="{{route('Produit.ajouter')}}">Ajouter Produit</a>
 										</li>
 										<li>
 											<a href="#">Supprimer Produit</a>
