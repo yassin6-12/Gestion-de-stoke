@@ -39,7 +39,7 @@
 
 	<body class="login-container">
 
-		<!-- Loading wrapper start -->
+		 {{-- Loading wrapper start  --}}
 		<!-- <div id="loading-wrapper">
 			<div class="spinner">
                 <div class="line1"></div>
@@ -76,8 +76,9 @@
 					
 					<div class="login-form-actions">
 						<a href="forgot-password.html" class="btn-link ml-auto">Mot de passe oublié ?</a>
-						<button type="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
-							Connectez-vous</button>
+						<a href="/"><button type="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+							Connectez-vous</button></a>
+						
 					</div>
 					
 				</div>

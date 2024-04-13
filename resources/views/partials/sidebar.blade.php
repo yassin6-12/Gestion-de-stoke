@@ -72,6 +72,24 @@
 									</ul>
 								</div>
 							</li>
+							{{-- Authentication --}}
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="bi bi-x-diamond"></i>
+									<span class="menu-text">Authentication</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li>
+											<a href="{{route('Seconnecter')}}">Login</a>
+										</li>
+										<li>
+											<a href="{{route('S’inscrire')}}">Signup</a>
+										</li>
+										
+									</ul>
+								</div>
+							</li>
 							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-gem"></i>

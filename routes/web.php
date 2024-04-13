@@ -39,6 +39,6 @@ Route::get('/Setting',[ProfileController::class,'update'])->name('Setting');
 Route::get('/Authentification.Seconnecter', function () {
     return view('Authentification.Seconnecter');
 })->name('Seconnecter');
-Route::get('/Authentification.Inscrire', function () {
+Route::post('/Authentification.Inscrire', function () {
     return view('Authentification.Inscrire');
 })->name('S’inscrire');

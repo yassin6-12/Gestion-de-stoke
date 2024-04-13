@@ -110,7 +110,7 @@
 
 												<!-- Products List -->
 												<div class="product-list-card" id="product-list">
-													<h5>Order List</h5>
+													<h5>Liste des commandes</h5>
 													<div class="product-list-block">
 														<img class="product-list-img" src="assets/images/food/img7.jpg" alt="Moonlight Admin">
 														<div class="product-list-details">

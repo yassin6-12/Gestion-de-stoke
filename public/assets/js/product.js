@@ -8,11 +8,11 @@ $('.addToCart').on('click', function () {
 	var $this = $(this);
 	$this.toggleClass('addToCart');
 	if($this.hasClass('addToCart')){
-		$this.text('Add To Cart');
+		$this.text('Ajouter au panier');
 		$this.removeClass('btn-warning');
 		$this.addClass('btn-success');
 	} else {
-		$this.text('Remove From Cart');
+		$this.text('Retirer du panier');
 		$this.addClass('btn-warning');
 		$this.removeClass('btn-success');
 	}
