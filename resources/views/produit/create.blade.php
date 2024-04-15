@@ -144,7 +144,7 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="products.html" class="btn btn-success">Ajouter produit</a>
+                            <a href="{{route('produit.index')}}" class="btn btn-success">Ajouter produit</a>
                         </div>
                     </div>
                 </div>
@@ -152,6 +152,6 @@
             </div>
         </div>
     </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+</div>	<!-- Dropzone JS -->
+<script src="assets/vendor/dropzone/dropzone.min.js"></script>
 @endsection

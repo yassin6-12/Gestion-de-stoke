@@ -19,7 +19,7 @@ class ProduitController extends Controller
 
     public function index2()
     {
-        return view('produit');
+        return view('Produit.produit');
     }
 
     // public function panier()
