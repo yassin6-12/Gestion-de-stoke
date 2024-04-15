@@ -23,8 +23,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          @foreach($categories as $cat)
+      @foreach($categories as $cat)  
+      <tr>
           <td>{{$cat->id}}</td>
           <td>{{$cat->nom}}</td>
           <td>{{$cat->created_at}}</td>
@@ -36,8 +36,8 @@
               <i class="bi bi-trash"></i>
             </a>
           </td>
-          @endforeach
         </tr>
+        @endforeach
         </tbody>
     </table>
   </div>
