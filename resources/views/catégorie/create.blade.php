@@ -35,9 +35,7 @@
                                             <label for="categorie_name" class="form-label">Nom de la Catégorie <span class="text-red">*</span></label>
                                             <input id="categorie_name" name="categorie_name" type="text" class="form-control" placeholder="Entrez le nom de la catégorie"  >
                                         </div>
-                                        <div>
-                                        <button type="submit" class="btn btn-primary" >ajouter</button>
-                                        </div>
+                                        
                                     </div>
                                     <div id="dropzone" class="dropzone dropzone-dark">
 
@@ -82,8 +80,8 @@
                     </div> --}}
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
-                            <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="products.html" class="btn btn-success">Ajouter </a> 
+                            <button type="button" class="btn btn-light">Annuler</button>                           
+                            <button type="submit" class="btn btn-success" >ajouter</button>            
                         </div>
                     </div>
                 </div>
