@@ -22,6 +22,11 @@ class ProduitController extends Controller
         return view('Produit.produit');
     }
 
+    // public function panier()
+    // {
+    //     return view('produit.Panier');
+    // }
+
 
     /**
      * Show the form for creating a new resource.

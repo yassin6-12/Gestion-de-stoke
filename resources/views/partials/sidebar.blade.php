@@ -62,12 +62,31 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{Route('catégorie.index')}}">Liste des catégories</a>
+											<a href="{{route('catégorie.index')}}">Liste des catégories</a>
 										</li>
 										<li>
-											<a href="{{Route('catégorie.create')}}">Ajouter Catégorie</a>
+											
+											<a href="{{route('catégorie.create')}}">Ajouter Catégorie</a>
 										</li>
 
+									</ul>
+								</div>
+							</li>
+							{{-- Authentication --}}
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="bi bi-x-diamond"></i>
+									<span class="menu-text">Authentication</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li>
+											<a href="{{route('Seconnecter')}}">Login</a>
+										</li>
+										<li>
+											<a href="{{route('S’inscrire')}}">Signup</a>
+										</li>
+										
 									</ul>
 								</div>
 							</li>
@@ -300,28 +319,7 @@
 									</ul>
 								</div>
 							</li>
-							<li class="sidebar-dropdown">
-								<a href="#">
-									<i class="bi bi-x-diamond"></i>
-									<span class="menu-text">Authentication</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li>
-											<a href="login.html">Login</a>
-										</li>
-										<li>
-											<a href="signup.html">Signup</a>
-										</li>
-										<li>
-											<a href="error.html">Error</a>
-										</li>
-										<li>
-											<a href="maintenance.html">Maintenance</a>
-										</li>
-									</ul>
-								</div>
-							</li>
+							
 							<li>
 								<a href="starter-page.html">
 									<i class="bi bi-hand-index-thumb"></i>

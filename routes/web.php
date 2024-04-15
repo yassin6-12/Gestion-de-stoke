@@ -16,7 +16,12 @@ Route::get('/Produit.produit', [ProduitController::class,'index2'])->name('Produ
 Route::get('/produit.index', [ProduitController::class,'index'])->name('produit.index');
 Route::get('/produit.create',[ProduitController::class,'create'])->name('Produit.create');
 Route::post('/produit.store',[ProduitController::class,'store'])->name('Produit.store');
-
+Route::get('/produit.Panier', function () {
+    return view('/produit.Panier');
+})->name('panier');
+Route::get('/produit.facture', function () {
+    return view('/produit.facture');
+})->name('facture');
 // Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');
 
 // categories
@@ -28,3 +33,10 @@ Route::post('/catégorie.store',[CatégorieController::class,'store'])->name('ca
 //home
 Route::get('/Profile',[ProfileController::class,'index'])->name('Profile');
 Route::get('/Setting',[ProfileController::class,'update'])->name('Setting');
+//---------------------------------Authentification-----------------------------------
+Route::get('/Authentification.Seconnecter', function () {
+    return view('Authentification.Seconnecter');
+})->name('Seconnecter');
+Route::post('/Authentification.Inscrire', function () {
+    return view('Authentification.Inscrire');
+})->name('S’inscrire');
