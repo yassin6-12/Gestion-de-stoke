@@ -66,14 +66,14 @@
                 <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
             @enderror
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="photo">Photo:</label>
             <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
             @error('photo')
                 <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Inscrire</button>
+        <button type="submit" class="btn btn-primary mt-3">Inscrire</button>
     </form>
 </div>
 
