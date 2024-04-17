@@ -62,7 +62,10 @@
 				<div class="header-profile-actions">
 					<a href="{{route('Profile')}}">Profile</a>
 					<a href="{{route('Setting')}}">Settings</a>
-					<a href="{{route('Seconnect')}}">Se déconnecter</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger btn-sm mt-2" type="submit">Logout</button>
+                    </form>
 				</div>
 			</div>
 		</li>

@@ -76,9 +76,9 @@
 
 					<div class="login-form-actions">
 						<a href="forgot-password.html" class="btn-link ml-auto">Mot de passe oublié ?</a>
-						<a href="/"><button type="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
-							Connectez-vous</button></a>
-						
+						<button type="submit" name="submit" value="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+							Connectez-vous</button>
+
 					</div>
 
 				</div>
