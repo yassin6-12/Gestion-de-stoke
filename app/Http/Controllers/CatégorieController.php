@@ -51,7 +51,8 @@ class CatégorieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categorie= categorie::find($id);
+        return view('catégorie.edit' ,['cat'=>$categorie]);
     }
 
     /**
@@ -59,7 +60,12 @@ class CatégorieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $categorie = categorie::find($id);
+        $categorie->id = $request -> input('categorie_Id');
+        $categorie->nom = $request -> input('categorie_name');
+        $categorie -> save();
+        return  redirect() -> Route('catégorie.index') -> with('success','categorie a jour ') ;
+
     }
 
     /**
@@ -67,6 +73,10 @@ class CatégorieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+      
+       $categorie = categorie::find($id);
+       $categorie -> delete();
+  
+       return redirect() -> Route('catégorie.index') -> with('success', 'catégorie supprimer avec succèss');  
     }
 }

@@ -80,7 +80,7 @@
                     </div> --}}
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
-                            <button type="button" class="btn btn-light">Annuler</button>                           
+                            <a href="catégorie.index" type="button" class="btn btn-light">Annuler</a>                           
                             <button type="submit" class="btn btn-success" >ajouter</button>            
                         </div>
                     </div>
