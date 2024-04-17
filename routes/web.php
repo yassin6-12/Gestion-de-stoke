@@ -1,16 +1,16 @@
 <?php
 
-
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ProduitController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Route;
 
 
-
-Route::get('/', function () {
+Route::get('/', function (){
     return view('home');
-});
+})->name('home');
 //produits
 Route::get('/produit.Panier', function () {
     return view('/produit.Panier');
@@ -32,13 +32,35 @@ Route::get('/catégorie.create',[CatégorieController::class,'create'])->name('c
 // Route::resource('catégorie',CatégorieController::class);
 
 //home
-Route::get('/Profile',[ProfileController::class,'index'])->name('Profile');
-Route::get('/Setting',[ProfileController::class,'update'])->name('Setting');
+Route::get('/Profile',[ProfilesController::class,'edit'])->name('Profile');
+Route::get('/Setting',[ProfilesController::class,'update'])->name('Setting');
+Route::post('/Setting',[ProfilesController::class,'update']);
 
 //---------------------------------Authentification-----------------------------------
-Route::get('/Authentification.Seconnecter', function () {
-    return view('Authentification.Seconnecter');
-})->name('Seconnecter');
-Route::get('/Authentification.Inscrire', function () {
-    return view('Authentification.Inscrire');
-})->name('S’inscrire');
+Route::get('/Authentification.Inscrire', [AuthController::class , 'register'])->name('Inscription');
+
+Route::post('/Authentification.Inscrire', [AuthController::class , 'store']);
+
+Route::get('/Authentification.Seconnecter', [AuthController::class ,'login'])->name('Seconnect');
+
+Route::post('/Authentification.Seconnecter', [AuthController::class ,'authenticate']);
+
+Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
+
+
+
+// Route::get('/', function () {
+//     return view('profilehome');
+// });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+//require __DIR__.'/auth.php';

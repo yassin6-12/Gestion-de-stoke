@@ -23,22 +23,35 @@
 
 <div class="container mt-5">
     <h2>Inscription Gestionnaire</h2>
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form class="form mt-5" action="{{ route('Inscription') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email" required>
+            @error('email')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="password">Mot de passe:</label>
             <input type="password" class="form-control" id="password" name="password" required>
+            @error('password')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
-            <label for="nom">Nom:</label>
-            <input type="text" class="form-control" id="nom" name="nom" required>
+            <label for="name">name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            @error('name')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="prenom">Prénom:</label>
             <input type="text" class="form-control" id="prenom" name="prenom" required>
+            @error('prenom')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="civilite">Civilité:</label>
@@ -51,14 +64,23 @@
         <div class="form-group">
             <label for="tel">Téléphone:</label>
             <input type="tel" class="form-control" id="tel" name="tel" required>
+            @error('tel')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="adresse">Adresse:</label>
             <textarea class="form-control" id="adresse" name="adresse" rows="3" required></textarea>
+            @error('adresse')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="photo">Photo:</label>
             <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
+            @error('photo')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <button type="submit" class="btn btn-primary">Inscrire</button>
     </form>

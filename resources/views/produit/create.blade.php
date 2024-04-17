@@ -43,7 +43,7 @@
                                                 <option value="Select Product Category">Sélectionner une catégorie de produit</option>
                                                 <option value="Mobiles">Mobiles</option>
                                                 <option value="Books">laptop</option>
-                                    
+
                                             </select>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="products.html" class="btn btn-success">Ajouter produit</a>
+                            <a href="{{route('produit.liste')}}" class="btn btn-success">Ajouter produit</a>
                         </div>
                     </div>
                 </div>

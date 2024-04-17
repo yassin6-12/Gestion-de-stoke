@@ -62,7 +62,7 @@
 				<div class="header-profile-actions">
 					<a href="{{route('Profile')}}">Profile</a>
 					<a href="{{route('Setting')}}">Settings</a>
-					<a href="{{route('Seconnecter')}}">Se déconnecter</a>
+					<a href="{{route('Seconnect')}}">Se déconnecter</a>
 				</div>
 			</div>
 		</li>

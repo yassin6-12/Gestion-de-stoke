@@ -53,7 +53,8 @@
 		<!-- Loading wrapper end -->
 
 		<!-- Login box start -->
-		<form action="index.html">
+        <form class="form mt-5" action="{{ route('Seconnect') }}" method="POST">
+            @csrf
 			<div class="login-box">
 				<div class="login-form">
 					<a href="index.html" class="login-logo">
@@ -63,23 +64,22 @@
 						Bienvenue à nouveau, <br />veuillez vous connecter à votre compte administrateur Moonlight.
 					</div>
 					<div class="mb-3">
-						<label class="form-label">Nom d’utilisateur</label>
-						<input type="text" class="form-control">
+						<label class="form-label" for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
 					</div>
 					<div class="mb-3">
 						<div class="d-flex justify-content-between">
 							<label class="form-label">Mot de passe</label>
-							
 						</div>
-						<input type="password" class="form-control">
+						<input type="password" name="password" class="form-control">
 					</div>
-					
+
 					<div class="login-form-actions">
 						<a href="forgot-password.html" class="btn-link ml-auto">Mot de passe oublié ?</a>
 						<button type="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
 							Connectez-vous</button>
 					</div>
-					
+
 				</div>
 			</div>
 		</form>
