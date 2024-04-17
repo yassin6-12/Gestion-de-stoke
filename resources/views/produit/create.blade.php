@@ -22,7 +22,7 @@
                 <div class="card-title">Informations sur le produit</div>
             </div>
             <div class="card-body">
-                <form action="/upload" class="dropzone " id="demo-upload" multiple>
+
                 <div class="row">
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
@@ -33,7 +33,7 @@
                                     <div class="col-sm-6 col-12">
                                         <div class="mb-3">
                                             <label class="form-label">Nom du produit<span class="text-red">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Entrez le nom du produit">
+                                            <input type="text" class="form-control" name=product_name placeholder="Entrez le nom du produit">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-12">
@@ -50,7 +50,7 @@
                                     <div class="col-sm-6 col-12">
                                         <div class="mb-3">
                                             <label class="form-label">Prix du produit <span class="text-red">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Entrez le prix du produit">
+                                            <input type="text" class="form-control" name="product_price" placeholder="Entrez le prix du produit">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-12">
@@ -77,9 +77,12 @@
                                     <div class="col-sm-12 col-12">
                                         <div class="mb-0">
                                             <label class="form-label">Description du produit<span class="text-red">*</span></label>
-                                            <textarea rows="4" class="form-control"
-                                                placeholder="Entrez la description du produit"></textarea>
+                                            <textarea rows="4" class="form-control" name="product_description"
+                                                      placeholder="Entrez la description du produit"></textarea>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" >ajouter</button>
                                     </div>
                                 </div>
 
@@ -146,11 +149,10 @@
                         </div>
                     </div>
                 </div>
-                </form>
 
             </div>
         </div>
     </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+</div>	<!-- Dropzone JS -->
+<script src="assets/vendor/dropzone/dropzone.min.js"></script>
 @endsection

@@ -38,10 +38,10 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{route('produit.liste')}}">Liste des Produits</a>
+											<a href="{{route('produit.index')}}">Liste des Produits</a>
 										</li>
 										<li>
-											<a href="{{route('produit.ajouter')}}">Ajouter Produit</a>
+											<a href="{{route('Produit.create')}}">Ajouter Produit</a>
 										</li>
 										<li>
 											<a href="#">Supprimer Produit</a>
@@ -69,6 +69,24 @@
 											<a href="{{route('catégorie.create')}}">Ajouter Catégorie</a>
 										</li>
 
+									</ul>
+								</div>
+							</li>
+							{{-- Authentication --}}
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="bi bi-x-diamond"></i>
+									<span class="menu-text">Authentication</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li>
+											<a href="{{route('Seconnecter')}}">Login</a>
+										</li>
+										<li>
+											<a href="{{route('S’inscrire')}}">Signup</a>
+										</li>
+										
 									</ul>
 								</div>
 							</li>
