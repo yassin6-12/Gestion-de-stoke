@@ -28,14 +28,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <form class="form mt-5" action="{{ route('SettingUpdate',$request->id) }}" method="POST">
+                @csrf
+                @method('put')
+                <div class="row">
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
-                    <form class="form mt-5" action="{{ route('Setting') }}" method="POST">
-                     @csrf
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Nom complet</label>
-                            <input type="text" class="form-control" id="fullName">
+                            <input type="text" class="form-control" id="fullName" name="name">
                         </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
@@ -88,10 +89,28 @@
                         <input type="password" class="form-control" id="enterPassword" placeholder="Enter Password">
                     </div>
                 </div>
-            </div>
+                <div class="col-sm-12 col-12">
+                    <hr>
+                    <button type="submit" class="btn btn-info">Save Settings</button>
+                </div>
+                </div>
+            </form>
         </div>
-        <div class="col-xxl-4 col-lg-5 col-md-6 col-sm-12 col-12">
-            <div class="account-settings-block">
+    </div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <!-- <div class="settings-block">
                         <div class="settings-block-title">Other Settings</div>
@@ -142,12 +161,10 @@
                             </div>
                         </div>
                     </div> -->
+
+                     {{-- <div class="col-xxl-4 col-lg-5 col-md-6 col-sm-12 col-12">
+            <div class="account-settings-block">
+
+
             </div>
-        </div>
-        <div class="col-sm-12 col-12">
-            <hr>
-            <button type="submit" class="btn btn-info">Save Settings</button>
-            </form>
-        </div>
-    </div>
-@endsection
+        </div> --}}

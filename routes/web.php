@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ProduitController;
-use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -36,10 +36,9 @@ Route::delete('/catégorie/destroy/{id}',[CatégorieController::class,'destroy']
 // Route::resource('catégories',CatégorieController);
 
 //home
-Route::get('/Profile',[ProfilesController::class,'edit'])->name('Profile');
-Route::get('/Setting',[ProfilesController::class,'update'])->name('Setting');
-Route::post('/Setting',[ProfilesController::class,'update']);
-
+Route::get('/Profile',[UserController::class,'profile'])->name('Profile');
+Route::put('/Setting',[UserController::class,'update'])->name('SettingUpdate');
+Route::get('/Setting',[UserController::class,'edit'])->name('SettingShow');
 //---------------------------------Authentification-----------------------------------
 Route::get('/Authentification.Inscrire', [AuthController::class , 'register'])->name('Inscription');
 
