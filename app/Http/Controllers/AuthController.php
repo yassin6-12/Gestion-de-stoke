@@ -48,7 +48,6 @@ class AuthController extends Controller
 
     public function authenticate()
     {
-
         $validated = request()->validate([
             'email' => 'required|email',
             'password' => 'required|min:8',

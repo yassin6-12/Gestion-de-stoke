@@ -67,16 +67,17 @@
 						<label class="form-label" for="email">Email:</label>
                         <input type="email" class="form-control" id="email" name="email" required>
 					</div>
-					<div class="mb-3">
-						<div class="d-flex justify-content-between">
-							<label class="form-label">Mot de passe</label>
-						</div>
-						<input type="password" name="password" class="form-control">
-					</div>
+					<div class="form-group mt-3">
+                        <label for="password" class="text-dark">Password:</label><br>
+                        <input type="password" name="password" id="password" class="form-control">
+                        @error('password')
+                            <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                        @enderror
+                    </div>
 
 					<div class="login-form-actions">
 						<a href="forgot-password.html" class="btn-link ml-auto">Mot de passe oublié ?</a>
-						<button type="submit" name="submit" value="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+						<button type="submit" name="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
 							Connectez-vous</button>
 
 					</div>
