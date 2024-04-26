@@ -24,6 +24,7 @@ class User extends Authenticatable
         'tel',
         'civilite',
         'adresse',
+        'state',
         'photo',
     ];
 
@@ -48,5 +49,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getImageURL(){
+        if($this->image){
+            return url('storage/',$this->image);
+        }
+        return "assets/images/user.png{$this->name}";
     }
 }

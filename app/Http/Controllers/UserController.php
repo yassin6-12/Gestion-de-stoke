@@ -13,7 +13,7 @@ class UserController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request)
+    public function show(Request $request)
     {
         return view('Setting', compact('request'));
     }
@@ -33,21 +33,19 @@ class UserController extends Controller
             'city' => 'required|min:3',
             'state' => 'required|min:3',
             'zipcode' => 'required|min:3',
+            'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        // if(request()->has('image')){
-        //     $imagePath=request()->file('image')->store('profile','public');
-        //     $validated['image']=$imagePath;
-        //     Storage::disk('public')->delete($user->image);
-        // }
+        if(request()->has('photo')){
+            $imagePath=request()->file('photo')->store('photos','public');
+            $validated['photo']=$imagePath;
+            Storage::disk('public')->delete($user->image);
+        }
 
         $user->update($validated);
         return redirect()->route('Profile');
     }
 
-    public function show()
-    {
-        return view('Setting');
-    }
+
 
     public function profile()
     {

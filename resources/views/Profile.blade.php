@@ -31,7 +31,7 @@
                                 <span class="icon">
                                     <i class="bi bi-pin-angle"></i>
                                 </span>
-                                <h6>Lieu - <span>Canada</span></h6>
+                                <h6>Lieu - <span>{{Auth::user()->adresse}}</span></h6>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
@@ -39,7 +39,7 @@
                                 <span class="icon">
                                     <i class="bi bi-telephone"></i>
                                 </span>
-                                <h6>Téléphoune - <span>1234567890</span></h6>
+                                <h6>Téléphoune - <span>{{Auth::user()->tel}}</span></h6>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
@@ -48,7 +48,7 @@
                                     <i class="bi bi-envelope"></i>
 
                                 </span>
-                                <h6>Email - <span>exmpl@gmail.com</span></h6>
+                                <h6>Email - <span>{{Auth::user()->email}}</span></h6>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
@@ -57,7 +57,7 @@
                                     <i class="bi bi-person"></i>
 
                                 </span>
-                                <h6>civilité - <span>exmpl@gmail.com</span></h6>
+                                <h6>civilité - <span>{{Auth::user()->civilite}}</span></h6>
                             </div>
                         </div>
                     </div>
