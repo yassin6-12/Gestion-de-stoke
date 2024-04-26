@@ -80,9 +80,7 @@
                                                       placeholder="Entrez la description du produit"></textarea>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-primary" >ajouter</button>
-                                    </div>
+                                    
                                 </div>
 
                             </div>
@@ -144,7 +142,9 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="{{route('produit.index')}}" class="btn btn-success">Ajouter produit</a>
+                           
+                                <button type="submit" class="btn btn-success" >Ajouter produit</button>
+                           
                         </div>
                     </div>
                 </div>

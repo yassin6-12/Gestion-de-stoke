@@ -27,17 +27,41 @@ class CatégorieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     /*$cat= $request->input('categorie_name');
+    //     dd($cat );*/
+        
+    //     $categorie = new Categorie();
+    //     $categorie->nom = $request->input('categorie_name');
+    //     $categorie->save(); 
+    //     return redirect() -> Route('catégorie.index');
+    // }
     public function store(Request $request)
     {
-        /*$cat= $request->input('categorie_name');
-        dd($cat );*/
-        
+        // Validation des données
+        dd(request()->all());
+        $request->validate([
+            'categorie_name' => 'required|string|max:255',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validation pour les images
+        ]);
+    
+        // Enregistrement de la catégorie
         $categorie = new Categorie();
         $categorie->nom = $request->input('categorie_name');
-        $categorie->save(); 
-        return redirect() -> Route('catégorie.index');
+    
+        // Traitement du téléchargement de la photo
+        if ($request->hasFile('photo')) {
+            // Stockage de la photo dans le dossier 'public/photos'
+            $path = $request->file('photo')->store('photos', 'public');
+            // Enregistrement du chemin de la photo dans la base de données
+            $categorie->photo = $path;
+        }
+    
+        $categorie->save();
+    
+        return redirect()->route('catégorie.index');
     }
-
     /**
      * Display the specified resource.
      */
