@@ -145,7 +145,7 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <button type="button" class="btn btn-light">Annuler</button>
-                            <a href="{{route('produit.liste')}}" class="btn btn-success">Ajouter produit</a>
+                            <a href="{{route('Produit.create')}}" class="btn btn-success">Ajouter produit</a>
                         </div>
                     </div>
                 </div>
