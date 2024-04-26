@@ -65,7 +65,7 @@
 											<a href="{{route('catégorie.index')}}">Liste des catégories</a>
 										</li>
 										<li>
-											
+
 											<a href="{{route('catégorie.create')}}">Ajouter Catégorie</a>
 										</li>
 
@@ -81,12 +81,12 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="{{route('Seconnecter')}}">Login</a>
+											<a href="{{route('Seconnect')}}">Login</a>
 										</li>
 										<li>
-											<a href="{{route('S’inscrire')}}">Signup</a>
+											<a href="{{route('Inscription')}}">Signup</a>
 										</li>
-										
+
 									</ul>
 								</div>
 							</li>
@@ -319,7 +319,7 @@
 									</ul>
 								</div>
 							</li>
-							
+
 							<li>
 								<a href="starter-page.html">
 									<i class="bi bi-hand-index-thumb"></i>

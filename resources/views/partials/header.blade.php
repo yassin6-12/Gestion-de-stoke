@@ -52,7 +52,7 @@
 		</li>
 		<li class="dropdown">
 			<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-				<span class="user-name d-none d-md-block">Abigale Heaney</span>
+				<span class="user-name d-none d-md-block">{{Auth::user()?->name}}</span>
 				<span class="avatar">
 					<img src="assets/images/user.png" alt="Admin Templates">
 					<span class="status online"></span>
@@ -61,8 +61,11 @@
 			<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
 				<div class="header-profile-actions">
 					<a href="{{route('Profile')}}">Profile</a>
-					<a href="{{route('Setting')}}">Settings</a>
-					<a href="{{route('Seconnecter')}}">Se déconnecter</a>
+					<a href="{{route('SettingShow')}}">Settings</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger btn-sm mt-2" type="submit">Logout</button>
+                    </form>
 				</div>
 			</div>
 		</li>

@@ -14,7 +14,7 @@
     <div class="col-sm-12 col-12">
 
         <div class="profile-header">
-            <h1>Welcome, Abigail</h1>
+            <h1>Welcome, {{Auth::user()?->name}}</h1>
             <div class="profile-header-content">
                 <div class="profile-header-tiles">
                     <div class="row gutters">
@@ -23,7 +23,7 @@
                                 <span class="icon">
                                     <i class="bi bi-pentagon"></i>
                                 </span>
-                                <h6>Nom - <span>Abigail Heaney</span></h6>
+                                <h6>Nom - <span>{{Auth::user()?->name}}</span></h6>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
