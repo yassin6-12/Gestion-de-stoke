@@ -81,9 +81,7 @@
                                                       placeholder="Entrez la description du produit"></textarea>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-primary" >ajouter</button>
-                                    </div>
+                                    
                                 </div>
 
                             </div>
