@@ -29,31 +29,55 @@
                             <div class="card-border-title">Ajouter votre catégorie</div>
                             <div class="card-border-body">
 
-                                 <div class="row">
-                                    
-                                   <div class="col-sm-4 col-12">
-                                         <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-sm-4 col-12">
+                                        <div class="mb-3">
                                             <label for="categorie_name" class="form-label">Nom de la Catégorie <span class="text-red">*</span></label>
                                             <input id="categorie_name" name="categorie_name" type="text" class="form-control" placeholder="Entrez le nom de la catégorie"  >
-                                        </div>   
-                                        <div class="form-group">
-                                            <label for="photo">Photo:</label>
-                                            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
-                                        </div>                                      
+                                        </div>
+                                        
                                     </div>
-                                    {{-- <div id="dropzone" class="dropzone dropzone-dark">
-                                       
+                                    <div id="dropzone" class="dropzone dropzone-dark">
+
                                         <div class="dz-message needsclick">
-                                            <button type="button" class="dz-button" name="photo">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
+                                            <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                             <span class="note needsclick">(Il ne s’agit que d’une zone de dépôt de démonstration. Les fichiers sélectionnés
                                                 <strong>ne sont pas</strong> réellement téléchargés.)</span>
                                         </div>
-                                </div> --}}
+
+
+
                                 </div>
+
+
+                                </div>
+
                             </div>
+
                         </div>
 
                     </div>
+
+                    {{-- <div class="col-sm-12 col-12">
+                        <div class="card-border">
+                            <div class="card-border-title">Images du produit</div>
+                            <div class="card-border-body">
+
+                                <div id="dropzone" class="dropzone dropzone-dark">
+
+                                        <div class="dz-message needsclick">
+                                            <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
+                                            <span class="note needsclick">(Il ne s’agit que d’une zone de dépôt de démonstration. Les fichiers sélectionnés
+                                                <strong>ne sont pas</strong> réellement téléchargés.)</span>
+                                        </div>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> --}}
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <a href="catégorie.index" type="button" class="btn btn-light">Annuler</a>                           
@@ -67,8 +91,8 @@
     </div>
 </div>
 
-      
-		<!-- Dropzone JS -->
-		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
-        <script src="assets/vendor/dropzone/dropzone.js"></script>
+
+<!-- Dropzone JS -->
+<script src="assets/vendor/dropzone/dropzone.min.js"></script>
+
 @endsection
