@@ -36,49 +36,49 @@
                     <!-- Form Field Start -->
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Nom complet</label>
-                            <input type="text" class="form-control" id="fullName" name="name">
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
                         <label for="emailID" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailID">
+                        <input type="email" name="email" class="form-control" id="email">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
                         <label for="phoneNo" class="form-label">Téléphone</label>
-                        <input type="tel" class="form-control" id="phoneNo">
+                        <input type="tel" name="tel" class="form-control" id="tel">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address">
+                        <input type="text" name="adresse" class="form-control" id="adresse">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="city" class="form-label">Ville</label>
-                        <input type="text" class="form-control" id="city">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" name="city" class="form-control" id="city">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="state" class="form-label">État</label>
-                        <input type="text" class="form-control" id="state">
+                        <label for="state" class="form-label">State</label>
+                        <input type="text" name="state" class="form-control" id="state">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
                         <label for="zipCode" class="form-label">Code postal</label>
-                        <input type="text" class="form-control" id="zipCode">
+                        <input type="text" name="zipcode" class="form-control" id="zipcode">
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                     <!-- Form Field Start -->
                     <div class="mb-3">
                         <label for="enterPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="enterPassword" placeholder="Enter Password">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
                     </div>
                 </div>
                 <div class="col-sm-12 col-12">

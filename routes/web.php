@@ -38,7 +38,7 @@ Route::delete('/catégorie/destroy/{id}',[CatégorieController::class,'destroy']
 //home
 Route::get('/Profile',[UserController::class,'profile'])->name('Profile');
 Route::put('/Setting',[UserController::class,'update'])->name('SettingUpdate');
-Route::get('/Setting',[UserController::class,'edit'])->name('SettingShow');
+Route::get('/Setting',[UserController::class,'show'])->name('SettingShow');
 //---------------------------------Authentification-----------------------------------
 Route::get('/Authentification.Inscrire', [AuthController::class , 'register'])->name('Inscription');
 
