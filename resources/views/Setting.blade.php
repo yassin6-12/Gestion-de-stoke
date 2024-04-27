@@ -97,6 +97,8 @@
             </form>
         </div>
     </div>
+    <!-- Dropzone JS -->
+		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
 @endsection
 
 
