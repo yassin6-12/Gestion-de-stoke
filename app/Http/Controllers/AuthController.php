@@ -25,6 +25,7 @@ class AuthController extends Controller
             'adresse' => 'required|min:5|max:255',
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        
         $photoPath = request('photo')->store('photos', 'public');
         User::create(
             [
