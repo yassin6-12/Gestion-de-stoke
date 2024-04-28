@@ -21,8 +21,20 @@
                                     <div class="card-header">
                                         <div class="card-title">Informations sur le produit</div>
                                     </div>
-                                    <form action="#" id="demo-upload" class="dropzone" method="POST">
-                                    <div class="card-body">
+                                        @if ($errors->any())
+                                            <div class="container">
+                                                <div class="danger alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{$error}}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    <form action="{{route('Produit.store')}}" id="demo-upload" class="dropzone" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="card-body">
                                        
                                         <div class="row">
                                            
@@ -35,16 +47,17 @@
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Nom du produit<span class="text-red">*</span></label>
-                                                                    <input type="text" class="form-control" name=product_name placeholder="Entrez le nom du produit">
+                                                                    <input type="text" class="form-control" name="product_name" placeholder="Entrez le nom du produit">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Catégorie de produit <span class="text-red">*</span></label>
-                                                                    <select class="form-control">
-                                                                        <option value="Select Product Category">Sélectionner une catégorie de produit</option>
-                                                                        <option value="Mobiles">Mobiles</option>
-                                                                        <option value="Books">laptop</option>
+                                                                    <select class="form-control" name="category_of_produit">
+                                                                        <option value="0">Sélectionner une catégorie de produit</option>
+                                                                        @foreach ($categories as $category)
+                                                                            <option value="{{$category->id}}">{{$category->nom}}</option>
+                                                                        @endforeach
                         
                                                                     </select>
                                                                 </div>
@@ -59,21 +72,21 @@
                                                                 <div class=" mb-3">
                                                                     <label class="form-label">Remise sur le produit</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="Définir la remise sur le produit">
+                                                                        <input type="text" class="form-control" name="produit_remise" placeholder="Définir la remise sur le produit">
                                                                         <span class="input-group-text">%</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label">Quantiter max <span class="text-red">*</span></label>
-                                                                    <input type="text" class="form-control" placeholder="Quantiter max du produit">
+                                                                    <label class="form-label">Quantiter stock <span class="text-red">*</span></label>
+                                                                    <input type="number" class="form-control" name="produit_stock_qt" placeholder="Stock du produit" min="1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label">Quantiter max <span class="text-red">*</span></label>
-                                                                    <input type="text" class="form-control" placeholder="Quantiter max du produit">
+                                                                    <label class="form-label">Quantiter min <span class="text-red">*</span></label>
+                                                                    <input type="number" class="form-control" name="produit_min_qt" placeholder="Quantiter min du produit" min="1">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-12">
@@ -129,13 +142,13 @@
                                                     <div class="card-border-title">Images du produit</div>
                                                     <div class="card-border-body">
                         
-                                                        <div id="dropzone" class="dropzone-dark">
-                                                                <div class="dropzone needsclick dz-clickable">
-                                                                    <div class="dz-message needsclick">
+                                                        <div id="dropzone" class="dropzone dropzone-dark">
+                                                                <div class="needsclick dz-message">
+                                                                    
                                                                         <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                                                         <span class="note needsclick">(Vous pouvez télécharger jusqu'à 5 photos à la fois. Les fichiers sélectionnés
                                                                             <strong>ne sont pas</strong> réellement téléchargés.)</span>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                         </div>
                         
@@ -145,7 +158,7 @@
                                             <div class="col-sm-12 col-12">
                                                 <div class="custom-btn-group flex-end">
                                                     <button type="button" class="btn btn-light">Annuler</button>
-                                                    <a href="{{route('Produit.create')}}" class="btn btn-success">Ajouter produit</a>
+                                                    <input type="submit" value="Ajouter produit" class="btn btn-success">
                                                 </div>
                                             </div>
                                             
@@ -158,5 +171,7 @@
                             </div>
                         </div>
 </div>	<!-- Dropzone JS -->
-		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
+<script>
+    var uploadUrl = "{{route('Produit.store')}}";
+</script>
 @endsection

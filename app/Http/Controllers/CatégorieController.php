@@ -24,9 +24,14 @@ class CatégorieController extends Controller
 // Store a newly created resource in storage./
   public function store(Request $request)
   {
+      request()->validate([
+        'categorie_name'=>['required','min:3']
+      ]);
     //   /$cat= $request->input('categorie_name');
     //   dd($cat );*/
-      $categorie = new Categorie();$categorie->nom = $request->input('categorie_name');$categorie->save(); 
+      $categorie = new Categorie();
+      $categorie->nom = $request->input('categorie_name');
+      $categorie->save(); 
       return redirect() -> Route('catégorie.index');}
 
     
