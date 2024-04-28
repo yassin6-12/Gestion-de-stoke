@@ -80,13 +80,14 @@
 								</a>
 								<div class="sidebar-submenu">
 									<ul>
+                                        @guest
 										<li>
-											<a href="{{route('Seconnect')}}">Login</a>
+											<a href="{{route('Seconnect')}}">Connexion</a>
 										</li>
+                                        @endguest
 										<li>
-											<a href="{{route('Inscription')}}">Signup</a>
+											<a href="{{route('Inscription')}}">Inscription</a>
 										</li>
-
 									</ul>
 								</div>
 							</li>
