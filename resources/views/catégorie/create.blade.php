@@ -93,7 +93,7 @@
 
 
 <!-- Dropzone JS -->
-    <script>
-        var uploadUrl = "{{ route('catégorie.store') }}";
-    </script>
+<script>
+    var uploadUrl = "{{ route('catégorie.store') }}";
+</script>
 @endsection

@@ -504,7 +504,9 @@
 		<script src="assets/vendor/jvectormap/custom/world-map-markers2.js"></script>
 
 		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
+		
 		<script src="assets/vendor/dropzone/dropzone.js"></script>
+		
 		<!-- Main Js Required -->
 		<script src="assets/js/main.js"></script>
 		
