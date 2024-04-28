@@ -17,6 +17,8 @@
 		<meta property="og:site_name" content="Bootstrap Gallery">
 		<link rel="shortcut icon" href="assets/images/favicon.svg">
 
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
 		<!-- Title -->
 		<title>Modern Admin Dashboards</title>
 
@@ -31,6 +33,8 @@
 
 		<!-- Bootstrap font icons css -->
 		<link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.css">
+
+		<link rel="stylesheet" href="assets/vendor/dropzone/dropzone.min.css">
 
 		<!-- Main css -->
 		<link rel="stylesheet" href="assets/css/main.min.css">
@@ -499,6 +503,10 @@
 		<script src="assets/vendor/jvectormap/gdp-data.js"></script>
 		<script src="assets/vendor/jvectormap/custom/world-map-markers2.js"></script>
 
+		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
+		
+		<script src="assets/vendor/dropzone/dropzone.js"></script>
+		
 		<!-- Main Js Required -->
 		<script src="assets/js/main.js"></script>
 		
