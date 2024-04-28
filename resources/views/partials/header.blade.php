@@ -58,16 +58,18 @@
 					<span class="status online"></span>
 				</span>
 			</a>
-			<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
-				<div class="header-profile-actions">
+            @auth()
+			    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
+                    <div class="header-profile-actions">
 					<a href="{{route('Profile')}}">Profile</a>
 					<a href="{{route('SettingShow')}}">Settings</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button class="btn btn-danger btn-sm mt-2" type="submit">Logout</button>
                     </form>
-				</div>
-			</div>
+				    </div>
+			    </div>
+            @endauth
 		</li>
 	</ul>
 	<!-- Header actions end -->
