@@ -32,7 +32,7 @@
                                                 </div>
                                             </div>
                                         @endif
-                                    <form action="{{route('Produit.store')}}" id="demo-upload" class="dropzone" method="POST">
+                                    <form action="{{route('Produit.store')}}" id="demo-upload" class="dropzone" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="card-body">
                                        
@@ -142,13 +142,13 @@
                                                     <div class="card-border-title">Images du produit</div>
                                                     <div class="card-border-body">
                         
-                                                        <div id="dropzone" class="dropzone-dark">
-                                                                <div class="dropzone needsclick dz-clickable">
-                                                                    <div class="dz-message needsclick">
+                                                        <div id="dropzone" class="dropzone dropzone-dark">
+                                                                <div class="needsclick dz-message">
+                                                                    
                                                                         <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                                                         <span class="note needsclick">(Vous pouvez télécharger jusqu'à 5 photos à la fois. Les fichiers sélectionnés
                                                                             <strong>ne sont pas</strong> réellement téléchargés.)</span>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                         </div>
                         
@@ -171,5 +171,7 @@
                             </div>
                         </div>
 </div>	<!-- Dropzone JS -->
-		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
+<script>
+    var uploadUrl = "{{route('Produit.store')}}";
+</script>
 @endsection
