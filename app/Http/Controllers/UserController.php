@@ -34,11 +34,11 @@ class UserController extends Controller
             'state' => 'required|min:3',
             'zipcode' => 'required|min:3',
         ]);
-        if(request()->has('photo')){
-            $imagePath=request()->file('photo')->store('photos','public');
-            $validated['photo']=$imagePath;
-            Storage::disk('public')->delete($user->image);
-        }
+        // if(request()->has('photo')){
+        //     $imagePath=request()->file('photo')->store('photos','public');
+        //     $validated['photo']=$imagePath;
+        //     Storage::disk('public')->delete($user->image);
+        // }
 
         $user->update($validated);
         return redirect()->route('Profile');
