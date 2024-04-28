@@ -21,7 +21,7 @@
         <div class="card">
 
             <div class="card-body">
-                <form action="{{route('catégorie.store')}}" id="demo-upload" class="dropzone" method="POST">
+                <form action="{{route('catégorie.store')}}" id="demo-upload" class="dropzone" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-sm-12 col-12">
@@ -93,6 +93,7 @@
 
 
 <!-- Dropzone JS -->
-<script src="assets/vendor/dropzone/dropzone.min.js"></script>
-
+    <script>
+        var uploadUrl = "{{ route('catégorie.store') }}";
+    </script>
 @endsection
