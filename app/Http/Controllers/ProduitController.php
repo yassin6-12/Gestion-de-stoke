@@ -47,7 +47,7 @@ class ProduitController extends Controller
             'produit_stock_qt'      =>['required'],
             'produit_min_qt'        =>['required'],
             'category_of_produit'   =>[Rule::notIn('0')],
-            'images'                  => ['required']
+            'images'                  =>['required'],
         ]); 
 
         $images = NULL;
@@ -68,6 +68,21 @@ class ProduitController extends Controller
 
             $images = json_encode($arrayImages);
         
+            $produit = new Produit();
+            $produit->nom           = $request->input('product_name');
+            $produit->prix          = $request->input('product_price');
+            $produit->description   = $request->input('product_description');
+            $produit->qte_stock     = $request->input('produit_stock_qt');
+            $produit->qte_min       = $request->input('produit_min_qt');
+            $produit->categorie_id  = $request->input('category_of_produit');
+            $produit->images        = $images;
+            $produit->save();
+
+            return to_route('produit.index');
+      }
+      else{
+        
+        return to_route('Produit.create');
       }
         
         
@@ -75,17 +90,9 @@ class ProduitController extends Controller
             'name'  => $name,
             'images' => $json,
         ]);*/
-        $produit = new Produit();
-        $produit->nom           = $request->input('product_name');
-        $produit->prix          = $request->input('product_price');
-        $produit->description   = $request->input('product_description');
-        $produit->qte_stock     = $request->input('produit_stock_qt');
-        $produit->qte_min       = $request->input('produit_min_qt');
-        $produit->categorie_id  = $request->input('category_of_produit');
-        $produit->images        = $images;
-        $produit->save();
         
-        return to_route('catégorie.index');
+        
+        
     }
 
     /**

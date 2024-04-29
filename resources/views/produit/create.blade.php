@@ -46,7 +46,7 @@
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Nom du produit<span class="text-red">*</span></label>
-                                                                    <input type="text" class="form-control" name="product_name" placeholder="Entrez le nom du produit">
+                                                                    <input type="text" class="form-control" name="product_name" placeholder="Entrez le nom du produit" value="{{old('product_name')}}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
@@ -64,14 +64,14 @@
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Prix du produit <span class="text-red">*</span></label>
-                                                                    <input type="text" class="form-control" name="product_price" placeholder="Entrez le prix du produit">
+                                                                    <input type="text" class="form-control" name="product_price" placeholder="Entrez le prix du produit" value="{{old('product_price')}}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class=" mb-3">
                                                                     <label class="form-label">Remise sur le produit</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" name="produit_remise" placeholder="Définir la remise sur le produit">
+                                                                        <input type="text" class="form-control" name="produit_remise" placeholder="Définir la remise sur le produit" value="{{old('produit_remise')}}">
                                                                         <span class="input-group-text">%</span>
                                                                     </div>
                                                                 </div>
@@ -79,20 +79,20 @@
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Quantiter stock <span class="text-red">*</span></label>
-                                                                    <input type="number" class="form-control" name="produit_stock_qt" placeholder="Stock du produit" min="1">
+                                                                    <input type="number" class="form-control" name="produit_stock_qt" placeholder="Stock du produit" min="1" value="{{old('produit_stock_qt')}}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6 col-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Quantiter min <span class="text-red">*</span></label>
-                                                                    <input type="number" class="form-control" name="produit_min_qt" placeholder="Quantiter min du produit" min="1">
+                                                                    <input type="number" class="form-control" name="produit_min_qt" placeholder="Quantiter min du produit" min="1" value="{{old('produit_min_qt')}}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-12 col-12">
                                                                 <div class="mb-0">
                                                                     <label class="form-label">Description du produit<span class="text-red">*</span></label>
                                                                     <textarea rows="4" class="form-control" name="product_description"
-                                                                              placeholder="Entrez la description du produit"></textarea>
+                                                                              placeholder="Entrez la description du produit">{{old('product_description')}}</textarea>
                                                                 </div>
                                                             </div>
                                                             
@@ -216,14 +216,6 @@
             console.log(response);
             return false;
         },
-        init: function () {
-        this.on("queuecomplete", function () {
-            if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0) {
-                // Queue is empty and no files are currently uploading
-                submitForm();
-            }
-        });
-    },
     });
     function submitForm() {
         var form = document.getElementById('myDropzone');
@@ -233,11 +225,8 @@
         e.preventDefault();
         e.stopPropagation();
         $('#produit-other-info').append($('.produit-other-external-info'));
-        if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0) {
-        // Queue is empty and no files are currently uploading
-            submitForm();
-        }
         myDropzone.processQueue(); // trigger file upload
+        submitForm();
     });
     
 
