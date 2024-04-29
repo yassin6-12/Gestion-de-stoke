@@ -10,14 +10,20 @@ class CatégorieController extends Controller
 //     /
      
 // Display a listing of the resource.*/
-  public function index(){$categories = Categorie::all();
-      return view('catégorie.index',compact('categories'));}
+  public function index(){
+      
+    $categories = Categorie::all();
+      
+    return view('catégorie.index',compact('categories'));
+  }
 
 //     /
      
 // Show the form for creating a new resource.*/
   public function create(){
-      return view('catégorie.create');}
+
+      return view('catégorie.create');
+  }
 
 //     /
      
@@ -29,12 +35,39 @@ class CatégorieController extends Controller
       ]);
     //   /$cat= $request->input('categorie_name');
     //   dd($cat );*/
-      $categorie = new Categorie();
-      $categorie->nom = $request->input('categorie_name');
-      $categorie->save(); 
-      return redirect() -> Route('catégorie.index');}
+      
 
-    
+        
+      $image = NULL;
+
+      if($request->hasFile('file')){
+
+        $uploadPath = 'uploads/gallery/';
+
+        $file = $request->file('file');
+
+        $extension = $file->getClientOriginalExtension();
+        $filename = time().'-'.rand(0,99).'.'.$extension;
+        $file->move($uploadPath,$filename);
+        $filename = "uploads/gallery/".$filename;
+             
+        $image = $filename;
+        
+      }
+        
+      $name = $request->input('categorie_name');
+        
+        /*Gallery::create([
+            'name'  => $name,
+            'images' => $json,
+        ]);*/
+        $categorie = new Categorie();
+        $categorie->nom = $name;
+        $categorie->photo = $image;
+        $categorie->save();
+        
+        return to_route('catégorie.index');
+      }
      
 // Display the specified resource.
   public function show(string $id){
@@ -66,6 +99,11 @@ class CatégorieController extends Controller
   {
 
      $categorie = categorie::find($id);
+
+     $photoLink = public_path($categorie->photo);
+     if(file_exists($photoLink)) {
+        unlink($photoLink);
+      }
      $categorie -> delete();
 
      return redirect() -> Route('catégorie.index') -> with('success', 'catégorie supprimer avec succèss');

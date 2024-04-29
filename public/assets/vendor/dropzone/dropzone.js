@@ -1,4 +1,4 @@
-Dropzone.options.dropzone = {
+/*Dropzone.options.dropzone = {
     url: uploadUrl, // Route Laravel pour gérer le téléchargement
     paramName: 'photo', // Nom du champ de fichier dans votre formulaire
     maxFilesize: 2, // Taille maximale du fichier en mégaoctets
@@ -14,4 +14,4 @@ Dropzone.options.dropzone = {
     error: function(file, response) {
         // Callback en cas d'erreur (vous pouvez afficher un message d'erreur ici si nécessaire)
     },
-};
+};*/
