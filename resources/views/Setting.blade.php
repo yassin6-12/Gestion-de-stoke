@@ -28,35 +28,35 @@
                     </div>
                 </div>
             </div>
-            <form class="form mt-5" action="{{ route('SettingUpdate',$request->id) }}" method="POST">
+            <form class="form mt-5" action="{{ route('SettingUpdate',$user->id) }}" method="POST">
                 @csrf
                 @method('put')
                 <div class="row">
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                         <div class="mb-3">
-                            <label for="fullName" class="form-label">Nom complet</label>
+                            <label for="name" class="form-label">Nom complet</label>
                             <input type="text" class="form-control" id="name" name="name">
                         </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="emailID" class="form-label">Email</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="email" name="email" class="form-control" id="email">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="phoneNo" class="form-label">Téléphone</label>
+                        <label for="tel" class="form-label">Téléphone</label>
                         <input type="tel" name="tel" class="form-control" id="tel">
                     </div>
                 </div>
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
+                        <label for="adresse" class="form-label">Address</label>
                         <input type="text" name="adresse" class="form-control" id="adresse">
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="enterPassword" class="form-label">Password</label>
+                        <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
                     </div>
                 </div>

@@ -62,9 +62,10 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="profile-avatar-tile">
-                    <img src="assets/images/user.png" class="img-fluid"
-                        alt="Bootstrap Gallery" />
+                    <img src="{{asset('storage/public/' . Auth::user()->photo)}}" class="img-fluid">
+                    {{-- <img src="{{asset('storage/' . Auth::user()->photo)}}" class="img-fluid" alt="Bootstrap Gallery" /> --}}
                 </div>
             </div>
         </div>
