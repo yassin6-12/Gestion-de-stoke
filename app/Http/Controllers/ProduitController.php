@@ -75,6 +75,11 @@ class ProduitController extends Controller
             $produit->qte_stock     = $request->input('produit_stock_qt');
             $produit->qte_min       = $request->input('produit_min_qt');
             $produit->categorie_id  = $request->input('category_of_produit');
+            if(!empty($request->input('produit_remise'))){
+                $produit->remise   = intval($request->input('produit_remise'));
+            }else{
+                $produit->remise   = 0;
+            }
             $produit->images        = $images;
             $produit->save();
 
@@ -103,7 +108,10 @@ class ProduitController extends Controller
         $produitsOfCat  = Produit::join('categories','produits.categorie_id','=','categories.id')->where('categories.nom',$nom)->select('Produits.*')->get();
         return view('Produit.show',['produits'=>$produitsOfCat,'nomCat'=>$nom]);
     }
-
+    public function showProduit($cat,$produit){
+        $getProduit = Produit::findOrFail($produit);
+        return view('Produit.produit',['nomCat'=>$cat,'produit'=>$getProduit]);
+    }
     /**
      * Show the form for editing the specified resource.
      */

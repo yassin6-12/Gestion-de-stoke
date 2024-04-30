@@ -38,7 +38,10 @@
 
 		<!-- Main css -->
 		<link rel="stylesheet" href="{{asset('assets/css/main.min.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/css/master.css')}}">
 
+
+		
 
 		<!-- *************
 			************ Vendor Css Files *************

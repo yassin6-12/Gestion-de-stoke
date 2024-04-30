@@ -16,6 +16,7 @@ Route::get('/produit', [ProduitController::class,'index'])->name('produit.index'
 Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit.create');
 Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
 Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
+Route::get('/produit/{cat}/{produit}',[ProduitController::class,'showProduit'])->name('Produit.produit');
 // panier
 Route::get('/produit.Panier', function () {
     return view('/produit.Panier');

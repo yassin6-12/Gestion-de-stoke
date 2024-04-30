@@ -25,19 +25,35 @@
                     
                         <div class="row">
                            @foreach ($produits as $produit)
-                            <div class="col-md-4 mb-3" style="height:320px;">
-                                <a href="" class="gallery-item card-img-top mb-3 w-100 h-100">
-                                    <div class="card">
-                                        <div class="card-body" style="height:300px;">
+                            <div class="col-xxl-3 col-md-4 col-sm-6 col-12 mb-5 gallery-item">
+
+                                    <div class="product-card">
+                                        @php
+                                            $firstImage = json_decode($produit->images)[0];
+                                        @endphp
+                                        <img class="product-card-img-top" src="{{asset($firstImage)}}" alt="Image of product">
+                                        <div class="product-card-body">
                                             
-                                            <img src="" alt="Image" class="w-100 h-100" />
-                                            
-                                            <h3 class="card-title text-capitalize">{{$produit->nom}}</h3>
-                                            <p class="card-text">{{$produit->description}}</p>
-                                            <h6 class="border-secondary bg-secondary px-2 py-1 rounded d-inline-block text-white">$ {{$produit->prix}}</h6>
+                                            <h3 class="product-title text-capitalize">{{$produit->nom}}</h3>
+                                            <div class="product-price">
+                                                <span class="disount-price">
+                                                    ${{$produit->prix  - ($produit->prix * $produit->remise / 100)}}
+                                                </span>
+                                                <span class="actucal-price">@if ($produit->remise)
+                                                    ${{$produit->prix}}
+                                                @endif</span>
+                                                <span class="off-price">@if ($produit->remise)
+                                                    {{$produit->remise}}% Off
+                                                @endif</span>
+                                            </div>
+                                            <p class="produit-description" id="produit-desc">{{$produit->description}}</p>
+                                            <div class="product-actions">
+                                                <a href="{{route('Produit.produit',[$nomCat,$produit->id])}}" class="btn btn-sm btn-success text-capitalize ">voir le produit</a>
+                                                
+                                            </div>
                                         </div>
                                     </div>
-                                </a>
+                                
                             </div>
                            @endforeach
                            
@@ -55,4 +71,14 @@
  
 
 
+@endsection
+@section('script')
+    <script>
+        // limit the number of characters print in product description
+        var maxLength = 60;
+            var text = document.getElementById('produit-desc').innerText;
+            if (text.length > maxLength) {
+                document.getElementById('produit-desc').innerText = text.substring(0, maxLength) + '...';
+            }
+    </script>
 @endsection
