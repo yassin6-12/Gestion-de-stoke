@@ -24,6 +24,8 @@ class AuthController extends Controller
             'tel' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'adresse' => 'required|min:5|max:255',
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'city' => 'min:3',
+            'state' => 'min:3',
         ]);
 
         $photoPath = request('photo')->store('photos', 'public');
@@ -37,6 +39,8 @@ class AuthController extends Controller
                 'tel' => $validated['tel'],
                 'adresse' => $validated['adresse'],
                 'photo' => $photoPath,
+                'state'=>'state',
+                'city' =>'city',
             ]
         );
         return redirect()->route('home')->with('success', 'Account created Successefully!');

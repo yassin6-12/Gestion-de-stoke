@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-sm-6 col-12">
                     <div class="d-flex flex-row">
-                        <img src="assets/images/user2.png" class="img-fluid change-img-avatar" alt="Image">
+                        <img src="{{asset('storage/' . Auth::user()->photo)}}" class="img-fluid change-img-avatar" alt="Image">
                         <div id="dropzone-sm" class="mb-4 dropzone-dark">
                             <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
 
@@ -77,7 +77,7 @@
                 <div class="col-xxl-4 col-sm-6 col-12">
                     <!-- Form Field Start -->
                     <div class="mb-3">
-                        <label for="zipCode" class="form-label">Code postal</label>
+                        <label for="zipcode" class="form-label">Code postal</label>
                         <input type="text" name="zipcode" class="form-control" id="zipcode">
                     </div>
                 </div>

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('civilite');
             $table->string('tel');
             $table->string('adresse');
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
             $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();

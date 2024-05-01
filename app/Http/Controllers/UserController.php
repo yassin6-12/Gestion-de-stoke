@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -21,8 +22,10 @@ class UserController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(User $user)
+    public function update(Request $request)
     {
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
         $validated=request()->validate(
         [
             'name'=>'required|min:3|max:40',
@@ -32,15 +35,24 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'city' => 'required|min:3',
             'state' => 'required|min:3',
-            'zipcode' => 'required|min:3',
+            // 'zipcode' => 'required|min:3',
         ]);
         // if(request()->has('photo')){
         //     $imagePath=request()->file('photo')->store('photos','public');
         //     $validated['photo']=$imagePath;
         //     Storage::disk('public')->delete($user->image);
         // }
-
+        $user->fill([
+            'name' => $request->name,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'adresse' => $request->adresse,
+            'password' => $request->password,
+            'city' => $request->city,
+            'state' => $request->state
+        ]);
         $user->update($validated);
+        $user->save();
         return redirect()->route('Profile');
     }
 
