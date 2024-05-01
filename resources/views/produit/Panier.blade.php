@@ -16,7 +16,7 @@
             <div class="card-header">
                 <div class="card-title">Éléments ajoutés</div>
                 <div class="ml-auto">
-                    <a href="{{route('Produit')}}" class="btn btn-dark">Retour aux produits</a>
+                    <a href="{{route('produit.index')}}" class="btn btn-dark">Retour aux produits</a>
                 </div>
             </div>
             <div class="card-body">

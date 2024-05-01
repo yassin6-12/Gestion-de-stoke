@@ -28,27 +28,30 @@
 		************ -->
 
 		<!-- Animated css -->
-		<link rel="stylesheet" href="assets/css/animate.css">
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
 		<!-- Bootstrap font icons css -->
-		<link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.css">
+		<link rel="stylesheet" href="{{asset('assets/fonts/bootstrap/bootstrap-icons.css')}}">
 
-		<link rel="stylesheet" href="assets/vendor/dropzone/dropzone.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 		<!-- Main css -->
-		<link rel="stylesheet" href="assets/css/main.min.css">
+		<link rel="stylesheet" href="{{asset('assets/css/main.min.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/css/master.css')}}">
 
+
+		
 
 		<!-- *************
 			************ Vendor Css Files *************
 		************ -->
 
 		<!-- Scrollbar CSS -->
-		<link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
+		<link rel="stylesheet" href="{{asset('assets/vendor/overlay-scroll/OverlayScrollbars.min.css')}}">
 
 		<!-- tagsCloud Keywords CSS -->
-		<link rel="stylesheet" href="assets/vendor/tagsCloud/tagsCloud.css" />
+		<link rel="stylesheet" href="{{asset('assets/vendor/tagsCloud/tagsCloud.css')}}" />
 
 	</head>
 
@@ -475,41 +478,39 @@
 			************ Required JavaScript Files *************
 		************* -->
 		<!-- Required jQuery first, then Bootstrap Bundle JS -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/js/modernizr.js"></script>
-		<script src="assets/js/moment.js"></script>
+		<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+		<script src="{{asset('assets/js/modernizr.js')}}"></script>
+		<script src="{{asset('assets/js/moment.js')}}"></script>
 
 		<!-- *************
 			************ Vendor Js Files *************
 		************* -->
 
 		<!-- Overlay Scroll JS -->
-		<script src="assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
-		<script src="assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+		<script src="{{asset('assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js')}}"></script>
+		<script src="{{asset('assets/vendor/overlay-scroll/custom-scrollbar.js')}}"></script>
 
 		<!-- Apex Charts -->
-		<script src="assets/vendor/apex/apexcharts.min.js"></script>
-		<script src="assets/vendor/apex/custom/ecommerce/orders-visits.js"></script>
-		<script src="assets/vendor/apex/custom/ecommerce/visitors.js"></script>
-		<script src="assets/vendor/apex/custom/ecommerce/customers.js"></script>
+		<script src="{{asset('assets/vendor/apex/apexcharts.min.js')}}"></script>
+		<script src="{{asset('assets/vendor/apex/custom/ecommerce/orders-visits.js')}}"></script>
+		<script src="{{asset('assets/vendor/apex/custom/ecommerce/visitors.js')}}"></script>
+		<script src="{{asset('assets/vendor/apex/custom/ecommerce/customers.js')}}"></script>
 
 		<!-- jQcloud Keywords -->
-		<script src="assets/vendor/tagsCloud/tagsCloud.js"></script>
+		<script src="{{asset('assets/vendor/tagsCloud/tagsCloud.js')}}"></script>
 
 		<!-- Vector Maps -->
-		<script src="assets/vendor/jvectormap/jquery-jvectormap-2.0.5.min.js"></script>
-		<script src="assets/vendor/jvectormap/world-mill-en.js"></script>
-		<script src="assets/vendor/jvectormap/gdp-data.js"></script>
-		<script src="assets/vendor/jvectormap/custom/world-map-markers2.js"></script>
+		<script src="{{asset('assets/vendor/jvectormap/jquery-jvectormap-2.0.5.min.js')}}"></script>
+		<script src="{{asset('assets/vendor/jvectormap/world-mill-en.js')}}"></script>
+		<script src="{{asset('assets/vendor/jvectormap/gdp-data.js')}}"></script>
+		<script src="{{asset('assets/vendor/jvectormap/custom/world-map-markers2.js')}}"></script>
 
-		<script src="assets/vendor/dropzone/dropzone.min.js"></script>
-		
-		<script src="assets/vendor/dropzone/dropzone.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		
 		<!-- Main Js Required -->
-		<script src="assets/js/main.js"></script>
-		
+		<script src="{{asset('assets/js/main.js')}}"></script>
+		@yield('script')
 
 	</body>
 

@@ -3,7 +3,7 @@
 				<!-- Sidebar brand starts -->
 				<div class="sidebar-brand">
 					<a href="/" class="logo">
-						<img src="assets/images/logo.svg" alt="Moonlight Admin Dashboard" />
+						<img src="{{asset('assets/images/logo.svg')}}" alt="Moonlight Admin Dashboard" />
 					</a>
 				</div>
 				<!-- Sidebar brand starts -->
