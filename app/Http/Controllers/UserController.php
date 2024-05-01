@@ -26,6 +26,17 @@ class UserController extends Controller
     {
         $userId = Auth::id();
         $user = User::findOrFail($userId);
+        // if(request()->has('photo')){
+        //     $imagePath=request()->file('photo')->store('photos','public');
+        //     $validated['photo']=$imagePath;
+        //     Storage::disk('public')->delete($user->image);
+        //     $user->fill([
+        //         'photo' => $request->zipcode
+        //     ]);
+        //     $user->save();
+        //     return redirect()->route('Profile');
+        // }
+
         $validated=request()->validate(
         [
             'name'=>'required|min:3|max:40',
@@ -37,22 +48,7 @@ class UserController extends Controller
             'state' => 'required|min:3',
             'zipcode' => 'required|min:3',
         ]);
-        if(request()->has('photo')){
-            $imagePath=request()->file('photo')->store('photos','public');
-            $validated['photo']=$imagePath;
-            Storage::disk('public')->delete($user->image);
-        }
-        $user->fill([
-            'name' => $request->name,
-            'email' => $request->email,
-            'tel' => $request->tel,
-            'adresse' => $request->adresse,
-            'password' => $request->password,
-            'city' => $request->city,
-            'state' => $request->state,
-            'zipcode' => $request->zipcode
-        ]);
-        $user->update($validated);
+        $user->fill($validated);
         $user->save();
         return redirect()->route('Profile');
     }
