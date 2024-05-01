@@ -35,13 +35,13 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'city' => 'required|min:3',
             'state' => 'required|min:3',
-            // 'zipcode' => 'required|min:3',
+            'zipcode' => 'required|min:3',
         ]);
-        // if(request()->has('photo')){
-        //     $imagePath=request()->file('photo')->store('photos','public');
-        //     $validated['photo']=$imagePath;
-        //     Storage::disk('public')->delete($user->image);
-        // }
+        if(request()->has('photo')){
+            $imagePath=request()->file('photo')->store('photos','public');
+            $validated['photo']=$imagePath;
+            Storage::disk('public')->delete($user->image);
+        }
         $user->fill([
             'name' => $request->name,
             'email' => $request->email,
@@ -49,7 +49,8 @@ class UserController extends Controller
             'adresse' => $request->adresse,
             'password' => $request->password,
             'city' => $request->city,
-            'state' => $request->state
+            'state' => $request->state,
+            'zipcode' => $request->zipcode
         ]);
         $user->update($validated);
         $user->save();
