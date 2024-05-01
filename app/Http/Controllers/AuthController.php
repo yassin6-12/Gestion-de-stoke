@@ -25,7 +25,7 @@ class AuthController extends Controller
             'adresse' => 'required|min:5|max:255',
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
+
         $photoPath = request('photo')->store('photos', 'public');
         User::create(
             [
@@ -36,7 +36,7 @@ class AuthController extends Controller
                 'civilite' => $validated['civilite'],
                 'tel' => $validated['tel'],
                 'adresse' => $validated['adresse'],
-                'photo' => $validated['photo'],
+                'photo' => $photoPath,
             ]
         );
         return redirect()->route('home')->with('success', 'Account created Successefully!');

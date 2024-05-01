@@ -54,7 +54,7 @@
 			<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
 				<span class="user-name d-none d-md-block">{{Auth::user()?->name}}</span>
 				<span class="avatar">
-					<img src="{{asset('assets/images/user.png')}}" alt="Admin Templates">
+					<img src="{{asset('storage/' . Auth::user()->photo)}}" alt="Admin Templates">
 					<span class="status online"></span>
 				</span>
 			</a>
