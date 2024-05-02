@@ -36,13 +36,13 @@ background-color:#eee;
 <div class="card">
 <div class="card-body">
 <div class="invoice-title">
-<h4 class="float-end font-size-15">Invoice #DS0204 <span class="badge bg-success font-size-12 ms-2">Paid</span></h4>
+<h4 class="float-end font-size-15">Facture #DS0204 <span class="badge bg-success font-size-12 ms-2">Paid</span></h4>
 <div class="mb-4">
-<h2 class="mb-1 text-muted">Bootdey.com</h2>
+<h2 class="mb-1 text-muted">Electro.</h2>
 </div>
 <div class="text-muted">
 <p class="mb-1">3184 Spruce Drive Pittsburgh, PA 15201</p>
-<p class="mb-1"><i class="uil uil-envelope-alt me-1"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cdb5b4b78df4f5fae3aea2a0">[email&#160;protected]</a></p>
+<p class="mb-1"><i class="uil uil-envelope-alt me-1"></i> </p>
 <p><i class="uil uil-phone me-1"></i> 012-345-6789</p>
 </div>
 </div>
@@ -50,10 +50,10 @@ background-color:#eee;
 <div class="row">
 <div class="col-sm-6">
 <div class="text-muted">
-<h5 class="font-size-16 mb-3">Billed To:</h5>
-<h5 class="font-size-15 mb-2">Preston Miller</h5>
+<h5 class="font-size-16 mb-3">Facturé à :</h5>
+<h5 class="font-size-15 mb-2">BELGACEM YASSINE</h5>
 <p class="mb-1">4068 Post Avenue Newfolden, MN 56738</p>
-<p class="mb-1"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2373514650574c4d6e4a4f4f46516342514e5a50535a0d404c4e">[email&#160;protected]</a></p>
+<p class="mb-1"></p>
 <p>001-234-5678</p>
 </div>
 </div>
@@ -61,15 +61,15 @@ background-color:#eee;
 <div class="col-sm-6">
 <div class="text-muted text-sm-end">
 <div>
-<h5 class="font-size-15 mb-1">Invoice No:</h5>
+<h5 class="font-size-15 mb-1">N° de facture:</h5>
 <p>#DZ0112</p>
 </div>
 <div class="mt-4">
-<h5 class="font-size-15 mb-1">Invoice Date:</h5>
+<h5 class="font-size-15 mb-1">Date de facturation:</h5>
 <p>12 Oct, 2020</p>
 </div>
 <div class="mt-4">
-<h5 class="font-size-15 mb-1">Order No:</h5>
+<h5 class="font-size-15 mb-1">N° de commande:</h5>
 <p>#1123456</p>
 </div>
 </div>
@@ -78,15 +78,15 @@ background-color:#eee;
 </div>
 
 <div class="py-2">
-<h5 class="font-size-15">Order Summary</h5>
+<h5 class="font-size-15">Récapitulatif de la commande</h5>
 <div class="table-responsive">
 <table class="table align-middle table-nowrap table-centered mb-0">
 <thead>
 <tr>
-<th style="width: 70px;">No.</th>
-<th>Item</th>
-<th>Price</th>
-<th>Quantity</th>
+<th style="width: 70px;">Non.</th>
+<th>Article</th>
+<th>Prix</th>
+<th>Quantité</th>
 <th class="text-end" style="width: 120px;">Total</th>
 </tr>
 </thead>
@@ -118,13 +118,13 @@ background-color:#eee;
 </tr>
 
 <tr>
-<th scope="row" colspan="4" class="text-end">Sub Total</th>
+<th scope="row" colspan="4" class="text-end">Sous-total</th>
 <td class="text-end">$732.50</td>
 </tr>
 
 <tr>
 <th scope="row" colspan="4" class="border-0 text-end">
-Discount :</th>
+    Rabais:</th>
 <td class="border-0 text-end">- $25.50</td>
 </tr>
 
@@ -150,8 +150,9 @@ Tax</th>
 </div>
 <div class="d-print-none mt-4">
 <div class="float-end">
-<a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a>
-<a href="#" class="btn btn-primary w-md">Send</a>
+{{-- <a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a> --}}
+<a href="#" class="btn btn-danger me-1">Annuler</a>
+<a href="#" class="btn btn-success me-1">Valider</a>
 </div>
 </div>
 </div>
