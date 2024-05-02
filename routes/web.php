@@ -24,6 +24,9 @@ Route::get('/produit.Panier', function () {
 Route::get('/produit.facture', function () {
     return view('/produit.facture');
 })->name('facture');
+Route::get('/produit.Dfacture', function () {
+    return view('/produit.Dfacture');
+})->name('dfacture');
 // Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');
 
 // categories

@@ -31,27 +31,28 @@
 													</div>
 													<div class="col-sm-4 col-12">
 														<div class="mb-3">
-															<label class="form-label">Last Name</label>
+															<label class="form-label">Nom</label>
 															<input type="text" class="form-control" value="Heaney">
 														</div>
 													</div>
 													<div class="col-sm-4 col-12">
 														<div class="mb-3">
-															<label class="form-label">Company Name</label>
-															<input type="text" class="form-control" value="Moonlight">
-														</div>
-													</div>
-													<div class="col-sm-4 col-12">
-														<div class="mb-3">
-															<label class="form-label">House No</label>
-															<input type="text" class="form-control" value="27-950">
-														</div>
-													</div>
-													<div class="col-sm-4 col-12">
-														<div class="mb-3">
-															<label class="form-label">Select Country</label>
+															<label class="form-label">Sélectionner un nom utilisateur</label>
 															<select class="form-select">
-																<option value="">Select Country</option>
+																<option value="">Nom Utilisateur</option>
+																<option value="" selected="">USA</option>
+																<option value="">Belcine</option>
+																<option value="">mokamin</option>
+																<option value="">lazanewfel</option>
+																<option value="">United Kingdom</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-4 col-12">
+														<div class="mb-3">
+															<label class="form-label">Sélectionner une ville</label>
+															<select class="form-select">
+																<option value="">Sélectionner une ville</option>
 																<option value="" selected="">USA</option>
 																<option value="">Brazil</option>
 																<option value="">India</option>
@@ -62,47 +63,23 @@
 													</div>
 													<div class="col-sm-4 col-12">
 														<div class="mb-3">
-															<label class="form-label">Select City</label>
-															<select class="form-select">
-																<option value="">Select City</option>
-																<option value="" selected="">Chicago</option>
-																<option value="">San Diego</option>
-																<option value="">Houston</option>
-																<option value="">New York</option>
-																<option value="">Los Angeles</option>
-															</select>
+															<label class="form-label">Téléphone</label>
+															<input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
 														</div>
 													</div>
 													<div class="col-sm-4 col-12">
 														<div class="mb-3">
-															<label class="form-label">Postal Code</label>
-															<input type="text" class="form-control" value="98980">
-														</div>
-													</div>
-													<div class="col-sm-4 col-12">
-														<div class="mb-3">
-															<label class="form-label">Phone</label>
-															<input type="text" class="form-control" value="0000-0000-00">
-														</div>
-													</div>
-													<div class="col-sm-4 col-12">
-														<div class="mb-3">
-															<label class="form-label">Email </label>
+															<label class="form-label">Messagerie électronique </label>
 															<input type="email" class="form-control" value="info@example.com">
 														</div>
 													</div>
 													<div class="col-sm-12 col-12">
 														<div class="mb-2">
-															<label class="form-label">Notes about your order</label>
-															<textarea rows="3" class="form-control">Quick Delivery</textarea>
+															<label class="form-label">Remarques sur votre commande</label>
+															<textarea rows="3" class="form-control"></textarea>
 														</div>
 													</div>
-													<div class="col-sm-12 col-12">
-														<div class="form-check">
-															<input class="form-check-input" type="checkbox" value="" checked="">
-															<label class="form-check-label">Save this Address</label>
-														</div>
-													</div>
+													
 												</div>
 												<!-- Row end -->
 											</div>
@@ -133,14 +110,6 @@
 															<div class="product-list-price">$28.00</div>
 														</div>
 													</div>
-													<div class="product-list-block">
-														<img class="product-list-img" src="assets/images/food/img6.jpg" alt="Moonlight Admin">
-														<div class="product-list-details">
-															<h5 class="product-list-title">Garden Chickpea Salad</h5>
-															<div class="product-list-price">$22.00</div>
-														</div>
-													</div>
-													
 												</div>
 												<div class="mb-2">
 													<div class="form-check form-check-inline">
@@ -162,8 +131,8 @@
 										<div class="row">
 											<div class="col-xxl-12">
 												<div class="sub-total-container">
-													<div class="total">Order Total: $90.00</div>
-													<a href="thank-you.html" class="btn btn-success btn-lg">Place Order</a>
+													<div class="total">Total de la commande: $90.00</div>
+													<a href="{{route('dfacture')}}" class="btn btn-success btn-lg">Passer la commande</a>
 												</div>
 											</div>
 										</div>
@@ -178,8 +147,8 @@
 								const productList = document.getElementById('product-list');
 								const productBlocks = productList.querySelectorAll('.product-list-block');
 								
-								if (productBlocks.length > 4) {
-									productList.style.height = '410px'; // Définir la hauteur fixe
+								if (productBlocks.length > 3) {
+									productList.style.height = '310px'; // Définir la hauteur fixe
 									productList.style.overflowY = 'auto'; // Activer le défilement vertical
 								}
 							});
