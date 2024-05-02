@@ -93,13 +93,13 @@
 							</li>
 							<li class="sidebar-dropdown">
 								<a href="#">
-									<i class="bi bi-gem"></i>
-									<span class="menu-text">Widgets</span>
+									<i class="bi bi-bar-chart"></i>
+									<span class="menu-text">Inventaire</span>
 								</a>
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="widgets.html">Widgets</a>
+											<a href="widgets.html">Liste des stocks</a>
 										</li>
 										<li>
 											<a href="graph-widgets.html">Graph Widgets</a>
