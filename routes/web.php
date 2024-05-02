@@ -55,6 +55,13 @@ Route::post('/Authentification.Seconnecter', [AuthController::class ,'authentica
 Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
 
 
+//----------------------Touts les Route du client----------------------
+Route::get('/client.index', function () {
+    return view('/client.index');
+})->name('Electro');
+
+
+
 
 // Route::get('/', function () {
 //     return view('profilehome');
