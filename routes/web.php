@@ -64,7 +64,7 @@ Route::get('/client.index', function () {
 //---------------------Route pour inventaire-------------------
 Route::get('/admin.stocks.liste', function () {
     return view('/admin.stocks.liste');
-});
+})->name('StocksListe');
 
 // Route::get('/', function () {
 //     return view('profilehome');

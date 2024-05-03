@@ -99,7 +99,7 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="widgets.html">Liste des stocks</a>
+											<a href="{{route('StocksListe')}}">Liste des stocks</a>
 										</li>
 										<li>
 											<a href="graph-widgets.html">Graph Widgets</a>
