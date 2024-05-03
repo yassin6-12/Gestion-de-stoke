@@ -60,7 +60,10 @@ Route::get('/client.index', function () {
 })->name('Electro');
 
 
-
+//---------------------Route pour inventaire-------------------
+Route::get('/admin.stocks.liste', function () {
+    return view('/admin.stocks.liste');
+});
 
 // Route::get('/', function () {
 //     return view('profilehome');
