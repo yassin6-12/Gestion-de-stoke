@@ -5,8 +5,8 @@
             <i class="bi bi-house"></i>
             <a href="/">Domicile</a>
         </li>
-        <li class="breadcrumb-item">Produit</li>
-        <li class="breadcrumb-item breadcrumb-active" aria-current="page">Categories</li>
+        <li class="breadcrumb-item">Produits</li>
+        
     </ol>
 @endsection
 @section('main')
@@ -25,11 +25,11 @@
                     
                         <div class="row">
                            @foreach ($get_cats as $cat)
-                           <div class="col-md-4 mb-3" style="height:320px;">
+                           <div class="col-md-4 mb-3">
                                <div class="card">
-                                <div class="card-body" style="height:300px;">
-                                    <a href="{{route('Produit.show',$cat->nom)}}" class="gallery-item card-img-top mb-3 w-100 h-100">
-                                        <img src="{{asset($cat->photo)}}" alt="Image {{$cat->id}}" class="w-100 h-100" />
+                                <div class="card-body">
+                                    <a href="{{route('Produit.show',$cat->nom)}}" class="gallery-item card-img-top mb-3">
+                                        <img src="{{asset($cat->photo)}}" alt="Image {{$cat->id}}" style="height:200px;object-fit:contain" />
                                     </a>
                                     <h3 class="card-title text-center text-capitalize">{{$cat->nom}}</h3>
                                 </div>
