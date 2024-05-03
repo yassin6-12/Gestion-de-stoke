@@ -102,7 +102,7 @@
 											<a href="{{route('StocksListe')}}">Liste des stocks</a>
 										</li>
 										<li>
-											<a href="graph-widgets.html">Graph Widgets</a>
+											<a href="{{route('StocksRetour')}}">Retours</a>
 										</li>
 									</ul>
 								</div>

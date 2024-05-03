@@ -64,6 +64,9 @@ Route::get('/client.index', function () {
 Route::get('/admin.stocks.liste', function () {
     return view('/admin.stocks.liste');
 })->name('StocksListe');
+Route::get('/admin.stocks.retour', function () {
+    return view('/admin.stocks.retour');
+})->name('StocksRetour');
 
 // Route::get('/', function () {
 //     return view('profilehome');
