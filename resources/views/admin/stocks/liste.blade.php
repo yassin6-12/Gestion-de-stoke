@@ -13,7 +13,7 @@
 <div class="container">
     <h2>Liste d’inventaire des stocks</h2>
     <table class="table table-striped table-bordered">
-      <thead>
+      
         <tr>
           <th>ID</th>
           <th>Produits</th>
@@ -21,7 +21,7 @@
           <th>Date d’ajout</th>
           <th>Stock</th>
         </tr>
-      </thead>
+      
       <tbody>
     </table>
   </div>
