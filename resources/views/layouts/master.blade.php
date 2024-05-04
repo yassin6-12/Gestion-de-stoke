@@ -479,6 +479,7 @@
 		************* -->
 		<!-- Required jQuery first, then Bootstrap Bundle JS -->
 		<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 		<script src="{{asset('assets/js/modernizr.js')}}"></script>
 		<script src="{{asset('assets/js/moment.js')}}"></script>
@@ -489,7 +490,9 @@
 
 		<!-- Overlay Scroll JS -->
 		<script src="{{asset('assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js')}}"></script>
-		<script src="{{asset('assets/vendor/overlay-scroll/custom-scrollbar.js')}}"></script>
+		
+		<!-- This make problem with modal , modal we use in inventaire->retoure->Ajouter un article retourne
+		{{-- <script src="{{asset('assets/vendor/overlay-scroll/custom-scrollbar.js')}}"></script> --}}
 
 		<!-- Apex Charts -->
 		<script src="{{asset('assets/vendor/apex/apexcharts.min.js')}}"></script>
