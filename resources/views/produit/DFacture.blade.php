@@ -150,7 +150,7 @@ Tax</th>
 </div>
 <div class="d-print-none mt-4">
 <div class="float-end">
-{{-- <a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a> --}}
+<a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a>
 <a href="#" class="btn btn-danger me-1">Annuler</a>
 <a href="#" class="btn btn-success me-1">Valider</a>
 </div>
