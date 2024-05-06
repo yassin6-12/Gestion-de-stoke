@@ -24,7 +24,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="" method="POST">
+              <form action="" method="POST" id="form-ajouter-produiter-retourner">
                 @csrf
                 <div class="mb-4">
                     <label class="fw-bold my-2">Item</label>
@@ -52,7 +52,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Ajouter</button>
+              <button type="button" class="btn btn-primary" id="ajouter-produit-retourner">Ajouter</button>
             </div>
           </div>
         </div>

@@ -13,8 +13,13 @@
 
 
 <div class="container mt-5">
-    <h2>Inscription Gestionnaire</h2>
-    <form class="form mt-5" action="{{ route('Inscription') }}" method="POST" enctype="multipart/form-data">
+    @if (Auth::user() && Auth::user()->type_user == 'admin')
+        <h2>Inscription Nouveau Utilisateur</h2>
+    @else
+        <h2>Inscription Client</h2>
+    @endif
+    
+    <form class="form mt-5" action="{{ route('Inscription.new') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="email">Email:</label>
@@ -66,6 +71,21 @@
                 <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
             @enderror
         </div>
+        @if (!Auth::user() || Auth::user()->type_user == 'admin')
+            <div class="form-group">
+                <label for="type_user">Type</label>
+                <select name="type_user" id="type_user" class="form-select">
+                    <option hidden>Chose the type</option>
+                    <option value="admin">Admin</option>
+                    <option value="gestionaire">Gestionaire</option>
+                </select>
+                @error('type_user')
+                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                @enderror
+            </div>
+        @else
+            <input type="hidden" name="type_user" value="client">
+        @endif
         <div class="form-group mt-3">
             <label for="photo">Photo:</label>
             <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>

@@ -45,7 +45,7 @@ Route::get('/Setting',[UserController::class,'show'])->name('SettingShow');
 //---------------------------------Authentification-----------------------------------
 Route::get('/Authentification.Inscrire', [AuthController::class , 'register'])->name('Inscription');
 
-Route::post('/Authentification.Inscrire', [AuthController::class , 'store']);
+Route::post('/Authentification.Inscrire', [AuthController::class , 'store'])->name('Inscription.new');
 
 Route::get('/Authentification.Seconnecter', [AuthController::class ,'login'])->name('Seconnect');
 

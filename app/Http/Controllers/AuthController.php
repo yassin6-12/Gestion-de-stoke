@@ -23,6 +23,7 @@ class AuthController extends Controller
             'civilite' => 'required|in:M,Mme,Mlle',
             'tel' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'adresse' => 'required|min:5|max:255',
+            'type_user'  => 'required|in:admin,gestionaire,client',
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'city' => 'min:3',
             'state' => 'min:3',
@@ -41,6 +42,7 @@ class AuthController extends Controller
                 'photo' => $photoPath,
                 'state'=>'state',
                 'city' =>'city',
+                'type_user'=> $validated['type_user']
             ]
         );
         return redirect()->route('home')->with('success', 'Account created Successefully!');
