@@ -91,6 +91,24 @@
 									</ul>
 								</div>
 							</li>
+							{{-- Clientèle --}}
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="bi bi-people"></i>
+									<span class="menu-text">Clientèle</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul> 
+										<li>
+											<a href="{{route('ListeClinet')}}">Liste des clients</a>
+										</li>
+										<li>
+											<a href="#">Inscription</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							{{-- Inventaire --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-bar-chart"></i>

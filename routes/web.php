@@ -59,7 +59,10 @@ Route::get('/client.index', function () {
     return view('/client.index');
 })->name('Electro');
 
-
+//---------------------Route pour clientele-------------------
+Route::get('/admin.clientele.liste', function () {
+    return view('/admin.clientele.liste');
+})->name('ListeClinet');
 //---------------------Route pour inventaire-------------------
 Route::get('/admin.stocks.liste', function () {
     return view('/admin.stocks.liste');
