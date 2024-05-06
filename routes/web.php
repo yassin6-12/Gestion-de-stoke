@@ -17,15 +17,21 @@ Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit
 Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
 Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
 // panier
-Route::get('/produit.Panier', function () {
-    return view('/produit.Panier');
-})->name('panier');
-Route::get('/produit.facture', function () {
-    return view('/produit.facture');
-})->name('facture');
-Route::get('/produit.Dfacture', function () {
-    return view('/produit.Dfacture');
-})->name('dfacture');
+// Route::get('/produit.Panier', function () {
+//     return view('/produit.Panier');
+// })->name('panier');
+Route::get('produit.Panier',[ProduitController::class,'panier'])->name('panier');
+// Route::get('/produit.facture', function () {
+//     return view('/produit.facture');
+// })->name('facture');
+Route::post('/produit.facture',[ProduitController::class,'facture'])->name('facture');
+
+// Route::get('/produit.Dfacture', function () {
+//     return view('/produit.Dfacture');
+// })->name('dfacture');
+
+Route::post('/produit.Dfacture',[ProduitController::class,'dfacture'])->name('dfacture');
+
 // Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');
 
 // categories
@@ -60,9 +66,12 @@ Route::get('/client.index', function () {
 })->name('Electro');
 
 //---------------------Route pour clientele-------------------
-Route::get('/admin.clientele.liste', function () {
-    return view('/admin.clientele.liste');
-})->name('ListeClinet');
+// Route::get('/admin.clientele.liste', function () {
+//     return view('/admin.clientele.liste');
+// })->name('ListeClinet');
+Route::get('/admin.clientele.liste',[UserController::class,'showClient'])->name('ListeClient');
+Route::put('/admin.clientele.liste/{user}',[UserController::class,'updateClient'])->name('updateClient');
+Route::delete('/admin.clientele.liste/{user}',[UserController::class,'destroyClient'])->name('destroyClient');
 //---------------------Route pour inventaire-------------------
 Route::get('/admin.stocks.liste', function () {
     return view('/admin.stocks.liste');

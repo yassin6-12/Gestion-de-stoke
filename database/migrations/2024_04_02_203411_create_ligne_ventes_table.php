@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('ligne_ventes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_vente');
+            $table->unsignedBigInteger('id_produit');
+            $table->foreign('id_vente')->references('id')->on('ventes');
+            $table->foreign('id_produit')->references('id')->on('produits');
             $table->integer('quantite');
             $table->timestamps();
         });

@@ -100,7 +100,7 @@
 								<div class="sidebar-submenu">
 									<ul> 
 										<li>
-											<a href="{{route('ListeClinet')}}">Liste des clients</a>
+											<a href="{{route('ListeClient')}}">Liste des clients</a>
 										</li>
 										<li>
 											<a href="#">Inscription</a>

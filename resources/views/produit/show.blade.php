@@ -155,7 +155,6 @@
                 $(this).before('<input type="hidden" name="id_products" value="'+localStorage.getItem('panier')+'" />');
             })
         })
-        console.log('amine mokeddem')
         
 
 

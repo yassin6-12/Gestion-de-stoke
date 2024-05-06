@@ -17,41 +17,75 @@
     </div>
     {{---------- box pour ajouter des client ----------}}
       <div class="modal fade mt-5" id="ModalDeleteItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm-4">
+        <div class="modal-dialog modal-sm-4 modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter des clients</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="" method="POST">
+              <form class="form mt-5" action="{{ route('Inscription.new') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-4">
-                    <label class="fw-bold my-2">Nom d'utilisateur</label>
-                    <input type="text" name="item-name" class="form-control">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    @error('email')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
                 </div>
-                <div class="row mb-4">
-                    <div class="col-12 col-md-6">
-                        <label class="fw-bold my-2">Profil des clients</label>
-                        <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
-                    </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    @error('password')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
                 </div>
-                <div class="mb-4">
-                    <label class="fw-bold my-2">Villes</label>
-                    <input type="text" name="" id="" class="form-control">
+                <div class="form-group">
+                    <label for="name">name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    @error('name')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
                 </div>
-                <div class="row mb-4">
-                    <div class="col-12 col-md-6">
-                        <label class="fw-bold my-2">Email</label>
-                        <input type="email" name="" id="" class="form-control">
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="fw-bold my-2">Téléphoun</label>
-                        <input type="tel" name="" id="" class="form-control">
-                    </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom:</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    @error('prenom')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
                 </div>
-               
-              </form>
+                <div class="form-group">
+                    <label for="civilite">Civilité:</label>
+                    <select class="form-control" id="civilite" name="civilite" required>
+                        <option value="M">M.</option>
+                        <option value="Mme">Mme</option>
+                        <option value="Mlle">Mlle</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tel">Téléphone:</label>
+                    <input type="tel" class="form-control" id="tel" name="tel" required>
+                    @error('tel')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse:</label>
+                    <textarea class="form-control" id="adresse" name="adresse" rows="3" required></textarea>
+                    @error('adresse')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
+                </div>
+                    <input type="hidden" name="type_user" value="client">
+                <div class="form-group mt-3">
+                    <label for="photo">Photo:</label>
+                    <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
+                    @error('photo')
+                        <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Inscrire</button>
+            </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -76,72 +110,113 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td style="vertical-align: middle;">#SKUN111</td>
-                <td style="vertical-align: middle;"><div class="d-flex align-items-center">
-                    <img src="assets/images/flags/1x1/gb.svg" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
-                    <span>yassien</span>
+            @foreach ($clients as $client)
+              <tr>
+                  <td style="vertical-align: middle;">#{{$client->id}}</td>
+                  <td style="vertical-align: middle;"><div class="d-flex align-items-center">
+                    <img src="{{asset('storage/' .$client->photo)}}" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
                 </div></td>
-                <td style="vertical-align: middle;">25/02/2021</td>
-                <td style="vertical-align: middle;">yassineclass@gmail.com</td>
-                <td style="vertical-align: middle;">0657328026</td>
-                <td style="vertical-align: middle;">ghazaouet</td>
-                <td style="vertical-align: middle;">5</td>
+                <td style="vertical-align: middle;">{{$client->created_at}}</td>
+                <td style="vertical-align: middle;">{{$client->email}}</td>
+                <td style="vertical-align: middle;">{{$client->tel}}</td>
+                <td style="vertical-align: middle;">{{$client->city}}</td>
+                <td style="vertical-align: middle;">Not Yet</td>
                 <td style="vertical-align: middle;"> 
-                  <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditItem">
+                  <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditClient-{{$client->id}}">
                     <i class="bi bi-pencil"></i>
                   </button> 
                   {{------------ box de modification  ------------}}
-                  <div class="modal fade mt-5" id="ModalEditItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade mt-5" id="ModalEditClient-{{$client->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg ">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Return Item</h1>
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Info Client</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <form action="" method="POST">
+                          <form class="form mt-5" action="{{ route('updateClient',$client->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="mb-4">
-                                <label class="fw-bold my-2">Item</label>
-                                <input type="text" name="item-name" class="form-control">
+                            @method('PUT')
+                            <input type="hidden" name="id" value="{{$client->id}}">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{$client->email}}" required>
+                                @error('email')
+                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                                @enderror
                             </div>
-                            <div class="row mb-4">
-                                <div class="col-12 col-md-6">
-                                    <label class="fw-bold my-2">Customer</label>
-                                    <select name="item-customer" class="form-select">
-                                        <option value="1">Phil Glover</option>
-                                        <option value="2">yacine</option>
-                                        <option value="3">newfel</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="fw-bold my-2">Return Date</label>
-                                    <input type="date" name="item-date-return" id="" class="form-control">
-                                </div>
+                            <div class="form-group">
+                                <label for="password">Mot de passe:</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Let it empty if you won\'t to modify">
+                                @error('password')
+                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                                @enderror
                             </div>
-                            <div class="mb-4">
-                                <label class="fw-bold my-2">Total</label>
-                                <input type="text" name="item-total" id="" class="form-control">
+                            <div class="form-group">
+                                <label for="name">name:</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{$client->name}}" required>
+                                @error('name')
+                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                                @enderror
                             </div>
-                          </form>
+                            <div class="form-group">
+                                <label for="prenom">Prénom:</label>
+                                <input type="text" class="form-control" id="prenom" name="prenom" value="{{$client->prenom}}" required>
+                                @error('prenom')
+                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="civilite">Civilité:</label>
+                                <select class="form-control" id="civilite" name="civilite" required>
+                                    <option value="M" @php
+                                        if($client->civilite == 'M')
+                                          echo ' checked ';
+                                    @endphp>M.</option>
+                                    <option value="Mme" @php
+                                    if($client->civilite == 'Mme')
+                                      echo ' checked ';
+                                @endphp>>Mme</option>
+                                    <option value="Mlle" @php
+                                    if($client->civilite == 'Mlle')
+                                      echo ' checked ';
+                                @endphp>>Mlle</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tel">Téléphone:</label>
+                                <input type="tel" class="form-control" id="tel" name="tel" value="{{$client->tel}}" required>
+                                @error('tel')
+                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse">Adresse:</label>
+                                <textarea class="form-control" id="adresse" name="adresse" rows="3" required>{{$client->adresse}}</textarea>
+                                @error('adresse')
+                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                                @enderror
+                            </div>
+                                <input type="hidden" name="type_user" value="client">
+                            <button type="submit" class="btn btn-primary mt-3">Update</button>
+                        </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Ajouter</button>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <form action="" method="POST" class="d-inline-block">
+                  <form action="{{route('destroyClient',$client->id)}}" method="POST" class="d-inline-block">
                     @csrf
-                    @method('DELTE')
-                    <a type="submit"  class="btn btn-sm btn-danger confirm-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer la catégorie">
+                    @method('DELETE')
+                    <button type="submit"  class=" btn btn-sm btn-danger confirm-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer le client">
                         <i class="bi bi-trash"></i>
-                    </a>
+                    </button>
                   </form>
                 </td>
-            </tr>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </main>

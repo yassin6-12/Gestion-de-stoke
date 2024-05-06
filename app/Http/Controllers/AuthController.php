@@ -13,7 +13,7 @@ class AuthController extends Controller
         return view('Authentification.Inscrire');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $validated = request()->validate([
             'email' => 'required|email|unique:users,email',
@@ -45,7 +45,10 @@ class AuthController extends Controller
                 'type_user'=> $validated['type_user']
             ]
         );
-        return redirect()->route('home')->with('success', 'Account created Successefully!');
+        if($request->input('type_user') == 'client')
+            return to_route('ListeClient');
+        else
+            return redirect()->route('home')->with('success', 'Account created Successefully!');
     }
 
     public function login()
