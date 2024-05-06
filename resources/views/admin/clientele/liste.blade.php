@@ -91,7 +91,7 @@
                   <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditItem">
                     <i class="bi bi-pencil"></i>
                   </button> 
-
+                  {{------------ box de modification  ------------}}
                   <div class="modal fade mt-5" id="ModalEditItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg ">
                       <div class="modal-content">
