@@ -55,7 +55,12 @@
                                                     </div>
                                                     <p class="produit-description" id="produit-desc">{{$produit->description}}</p>
                                                     <div class="product-actions">
+                                                        @if ($produit->qte_stock > 0)
                                                         <button  class="btn btn-sm btn-success text-capitalize ajouter-au-panier" data-idproduit="{{$produit->id}}">Ajouter au panier</button> 
+                                                        @else
+                                                            <button class="btn btn-sm btn-danger text-capitalize disabled">pas disponible</button>
+                                                        @endif
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

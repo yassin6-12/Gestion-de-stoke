@@ -46,12 +46,21 @@ class stocksretourController extends Controller
             ]
         );
 
-        // delete de vente of the product 
+        // delete de ligne_vente of the product 
         $getLigneVente = LigneVente::select('ligne_ventes.*')
                         ->join('ventes','ventes.id','=','ligne_ventes.id_vente')
                         ->where('ligne_ventes.id_produit','=',$validated['item-name'])
                         ->where('ventes.id_client','=',$validated['item-customer'])->first();
+        $get_idVente = $getLigneVente->id_vente;
         $getLigneVente->delete();
+
+        // delete de vente si il n y a aucun ligne_vente relie
+
+        $getVente = LigneVente::where('id_vente',$get_idVente);
+        if($getVente->count() === 0){
+            $vente = Vente::find($get_idVente);
+            $vente->delete();
+        }
 
         // add 1 to stock of the current product
 

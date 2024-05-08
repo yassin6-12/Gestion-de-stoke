@@ -42,7 +42,7 @@
                                     <div class="produtct-added-quantity my-2">
                                         <div class="d-flex align-items-center">
                                             <label for="quantity" class="label-control fw-bold me-3">quantity: </label>
-                                            <input type="number" name="quantity-{{$produit->id}}" id="{{$produit->id}}"  value="1" min="1"  placeholder="quantity" class="form-control quantity" />
+                                            <input type="number" name="quantity-{{$produit->id}}" id="{{$produit->id}}"  value="1" min="1" max="{{$produit->qte_stock}}"  placeholder="quantity" class="form-control quantity" />
                                         </div>
                                         
                                     </div>
@@ -53,7 +53,7 @@
                     <div class="col-sm-12 col-12">
                         <div class="sub-total-container">
                             <div class="total" >Order Total: $<span id="total-panier"></span></div>
-                            {{-- {{route('facture',$produits)}} --}}
+                            
                             <form action="{{route('facture')}}" method="POST" id="form-panier-to-facture">
                                 @csrf
                                 <button type="submit"  id="submit-panier" class="btn btn-success btn-lg">Caisse</button>
@@ -83,6 +83,10 @@
             // change price when change the quantity
 
             $('input.quantity').keyup(function(){
+                if(parseInt($(this).val())  > parseInt($(this).attr('max'))){
+                    $(this).val($(this).attr('max'));
+                }
+
                 if($(this).val() != '' && $(this).val() > 0){
                     total = 0;
                     $('.product-prix-unitaire').each(function(index,element){
@@ -91,6 +95,7 @@
                     })
                     $('#total-panier').text(total)
                 }
+                
             })
             $('input.quantity').change(function(){
                 if($(this).val() != '' && $(this).val() > 0){

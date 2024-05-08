@@ -72,11 +72,19 @@ class VenteController extends Controller
         // add ligne vente to DB
         $i = 0;
         foreach($products as $product){
+
             $ligneVente = new LigneVente();
             $ligneVente->id_vente       = $getIdVente;
             $ligneVente->id_produit     = $product->id;
             $ligneVente->quantite       = $quantities[$i];
             $ligneVente->save();
+
+             // decrement the stock of each product saled
+            
+            $getProduct = produit::find($product->id);
+            $getProduct->qte_stock -= $quantities[$i];
+            $getProduct->save();
+
             $i++;
         }
 
