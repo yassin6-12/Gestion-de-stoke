@@ -24,29 +24,35 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="" method="POST" id="form-ajouter-produiter-retourner">
+              <form action="{{route('StocksRetour.store')}}" method="POST" id="form-ajouter-produiter-retourner">
                 @csrf
                 <div class="mb-4">
                     <label class="fw-bold my-2">Item</label>
-                    <input type="text" name="item-name" class="form-control">
+                    <select name="item-name" class="form-select" id="item-name">
+                      <option hidden>Chose the item</option>
+                      @foreach ($products as $product)
+                          <option value="{{$product->id}}">{{$product->nom}}</option>
+                      @endforeach
+                    </select>
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-md-6">
                         <label class="fw-bold my-2">Customer</label>
-                        <select name="item-customer" class="form-select">
-                            <option value="1">Phil Glover</option>
-                            <option value="2">yacine</option>
-                            <option value="3">newfel</option>
+                        <select name="item-customer" id="item-customer" class="form-select">
+                            <option hidden>Chose a customer</option>
+                            @foreach ($customers as $customer)
+                                <option value="{{$customer->id}}">{{$customer->nom_utilisateur}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-12 col-md-6">
                         <label class="fw-bold my-2">Return Date</label>
-                        <input type="date" name="item-date-return" id="" class="form-control">
+                        <input type="date" name="item-date-return" class="form-control">
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="fw-bold my-2">Total</label>
-                    <input type="text" name="item-total" id="" class="form-control">
+                    <input type="text" name="item-total" class="form-control">
                 </div>
               </form>
             </div>
@@ -141,4 +147,33 @@
 
   <!-- Button trigger modal -->
   
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+          // change customer with change of the product
+          $('#item-name').change(function(){
+            console.log('changed');
+            $.ajax({
+              method:'GET',
+              url:'{{route("getCustomers")}}',
+              data:{
+                product_id:$(this).val()
+              },
+              success:function(data,status,xhr){
+                $('#item-customer').html(data);
+              },
+              error:function(xhr,status,err){
+                console.log(err);
+              }
+            })
+          })
+
+          // submit ajouter un produit retourner
+          $('#ajouter-produit-retourner').click(function(){
+            $('#form-ajouter-produiter-retourner').submit();
+          })
+
+        })
+    </script>
 @endsection

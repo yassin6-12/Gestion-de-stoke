@@ -5,8 +5,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\RetourProduitController;
+use App\Http\Controllers\stocksretourController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenteController;
+use App\Models\Client;
+use App\Models\produit;
+use App\Models\Vente;
 use Illuminate\Support\Facades\Route;
 
 
@@ -79,10 +84,15 @@ Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destro
 Route::get('/admin.stocks.liste', function () {
     return view('/admin.stocks.liste');
 })->name('StocksListe');
-Route::get('/admin.stocks.retour', function () {
-    return view('/admin.stocks.retour');
-})->name('StocksRetour');
 
+// Route::get('/admin.stocks.retour', function () {
+//     return view('/admin.stocks.retour');
+// })->name('StocksRetour');
+
+Route::get('/admin.stocks.retour',[stocksretourController::class,'index'])->name('StocksRetour');
+Route::post('/admin.stocks.retour',[stocksretourController::class,'store'])->name('StocksRetour.store');
+
+Route::get('/admin.stocks.getCustomers',[ClientController::class,'getCustomers'])->name('getCustomers');
 // Route::get('/', function () {
 //     return view('profilehome');
 // });

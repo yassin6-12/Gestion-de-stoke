@@ -81,4 +81,16 @@ class ClientController extends Controller
 
         return to_route('clientele.index');
     }
+
+    public function getCustomers(){
+
+        $productId = request()->input('product_id');
+
+        $getCustomers = Client::select('clients.*')
+                            ->join('ventes','ventes.id_client','=','clients.id')                            
+                            ->join('ligne_ventes','ligne_ventes.id_vente','=','ventes.id')
+                            ->where('ligne_ventes.id_produit','=',$productId)->get();
+
+        return view('/admin.stocks.getCustomers',['getCustomers'=>$getCustomers]);
+    }
 }
