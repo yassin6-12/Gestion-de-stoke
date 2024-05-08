@@ -50,8 +50,9 @@
 														<div class="mb-3">
 															<label class="form-label">Sélectionner un nom utilisateur</label>
 															<select class="form-select" name="client">
+																<option hidden>Chose a client</option>
 																@foreach ($clients as $client)
-																	<option value="{{$client->id}}">{{$client->name}}</option>
+																	<option value="{{$client->id}}">{{$client->nom_utilisateur}}</option>
 																@endforeach
 															</select>
 														</div>

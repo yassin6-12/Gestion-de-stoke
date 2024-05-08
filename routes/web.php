@@ -6,6 +6,7 @@ use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VenteController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,17 +22,17 @@ Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store'
 // Route::get('/produit.Panier', function () {
 //     return view('/produit.Panier');
 // })->name('panier');
-Route::get('produit.Panier',[ProduitController::class,'panier'])->name('panier');
+Route::get('produit.Panier',[VenteController::class,'panier'])->name('panier');
 // Route::get('/produit.facture', function () {
 //     return view('/produit.facture');
 // })->name('facture');
-Route::post('/produit.facture',[ProduitController::class,'facture'])->name('facture');
+Route::post('/produit.facture',[VenteController::class,'facture'])->name('facture');
 
 // Route::get('/produit.Dfacture', function () {
 //     return view('/produit.Dfacture');
 // })->name('dfacture');
 
-Route::post('/produit.Dfacture',[ProduitController::class,'dfacture'])->name('dfacture');
+Route::post('/produit.Dfacture',[VenteController::class,'dfacture'])->name('dfacture');
 
 // Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');
 

@@ -35,7 +35,7 @@
                 <td>{{$cat->created_at}}</td>
                 <td class="action">
                     <div class= "custom-btn-group flex-end">
-                        <form action="{{Route('catégorie.edit', $cat->id)}}" method = "">
+                        <form action="{{Route('catégorie.edit', $cat->id)}}" method = "GET">
                             @csrf
                             <button class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier la catégorie">
                                 <i class="bi bi-pencil"></i>
