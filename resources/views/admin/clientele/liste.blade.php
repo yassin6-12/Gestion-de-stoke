@@ -15,6 +15,15 @@
         <h2 class="mb-3">Informations sur les clients</h2>
         <button type="button" class="btn btn-primary" id="add-category" data-bs-toggle="modal" data-bs-target="#ModalDeleteItem">Ajouter des clients</button>
     </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+    @endif
     {{---------- box pour ajouter des client ----------}}
       <div class="modal fade mt-5" id="ModalDeleteItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm-4">
@@ -24,11 +33,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form action="" method="POST">
+              <form action="{{route('clientele.store')}}" method="POST" id="form-add-client" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
                     <label class="fw-bold my-2">Nom d'utilisateur</label>
-                    <input type="text" name="item-name" class="form-control">
+                    <input type="text" name="client-username" class="form-control">
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-md-6">
@@ -38,16 +47,16 @@
                 </div>
                 <div class="mb-4">
                     <label class="fw-bold my-2">Villes</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="ville" id="ville" class="form-control">
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-md-6">
                         <label class="fw-bold my-2">Email</label>
-                        <input type="email" name="" id="" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label class="fw-bold my-2">Téléphoun</label>
-                        <input type="tel" name="" id="" class="form-control">
+                        <label class="fw-bold my-2">Téléphone</label>
+                        <input type="tel" name="phone" id="phone" class="form-control">
                     </div>
                 </div>
 
@@ -55,7 +64,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Ajouter</button>
+              <button type="button" id="submit-add-client" class="btn btn-primary">Ajouter</button>
             </div>
           </div>
         </div>
@@ -76,72 +85,97 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td style="vertical-align: middle;">#SKUN111</td>
-                <td style="vertical-align: middle;"><div class="d-flex align-items-center">
-                    <img src="assets/images/flags/1x1/gb.svg" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
-                    <span>yassien</span>
-                </div></td>
-                <td style="vertical-align: middle;">25/02/2021</td>
-                <td style="vertical-align: middle;">yassineclass@gmail.com</td>
-                <td style="vertical-align: middle;">0657328026</td>
-                <td style="vertical-align: middle;">ghazaouet</td>
-                <td style="vertical-align: middle;">5</td>
-                <td style="vertical-align: middle;"> 
-                  <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditItem">
-                    <i class="bi bi-pencil"></i>
-                  </button> 
+          @foreach ($clients as $client)
+              <tr>
+                <td style="vertical-align: middle;">#{{$client->id}}</td>
+                <td style="vertical-align: middle;">
+                  <div class="d-flex align-items-center">
+                      @if (!empty($client->photo))
+                        @php
+                            $imageUrl = Storage::url($client->photo);
+                        @endphp
+                        <img src="{{$imageUrl}}" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
+                      @endif
+                      
+                      <span>
+                          @if (!empty($client->name))
+                            {{$client->name}}
+                            @else
+                            {{$client->nom_utilisateur}}
+                          @endif
+                      </span>
+                  </div>
+              </td>
+              <td style="vertical-align: middle;">{{$client->created_at->format('Y-m-d')}}</td>
+              <td style="vertical-align: middle;">@if (!empty($client->email))
+                  {{$client->email}}
+              @endif</td>
+              <td style="vertical-align: middle;">{{$client->tel}}</td>
+              <td style="vertical-align: middle;">{{$client->city}}</td>
+              <td style="vertical-align: middle;">0</td>
+              <td style="vertical-align: middle;"> 
+                <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditClient-{{$client->id}}">
+                  <i class="bi bi-pencil"></i>
+                </button> 
 
-                  <div class="modal fade mt-5" id="ModalEditItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg ">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Return Item</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <form action="" method="POST">
-                            @csrf
-                            <div class="mb-4">
-                                <label class="fw-bold my-2">Item</label>
-                                <input type="text" name="item-name" class="form-control">
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-12 col-md-6">
-                                    <label class="fw-bold my-2">Customer</label>
-                                    <select name="item-customer" class="form-select">
-                                        <option value="1">Phil Glover</option>
-                                        <option value="2">yacine</option>
-                                        <option value="3">newfel</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="fw-bold my-2">Return Date</label>
-                                    <input type="date" name="item-date-return" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <label class="fw-bold my-2">Total</label>
-                                <input type="text" name="item-total" id="" class="form-control">
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Ajouter</button>
-                        </div>
+                <div class="modal fade mt-5" id="ModalEditClient-{{$client->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Client</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="{{route('clientele.update',$client->id)}}" method="POST" class="form-update-client-{{$client->id}}" enctype="multipart/form-data">
+                          @csrf
+                          @method('PUT')
+                          <div class="mb-4">
+                              <label class="fw-bold my-2">Nom d'utilisateur</label>
+                              <input type="text" name="client-username" value="{{$client->nom_utilisateur}}" class="form-control">
+                          </div>
+                          <div class="row mb-4">
+                              <div class="col-12 col-md-6">
+                                  <label class="fw-bold my-2">Profil des clients</label>
+                                  <input type="file" class="form-control-file"  id="photo" name="photo" accept="image/*" required>
+                              </div>
+                          </div>
+                          <div class="mb-4">
+                              <label class="fw-bold my-2">Villes</label>
+                              <input type="text" name="ville" id="ville" value="{{$client->city}}" class="form-control">
+                          </div>
+                          <div class="row mb-4">
+                              <div class="col-12 col-md-6">
+                                  <label class="fw-bold my-2">Email</label>
+                                  
+                                  <input type="email" name="email" id="email" value="@if (!empty($client->email))
+                                      {{$client->email}}
+                                  @endif" class="form-control">
+                              </div>
+                              <div class="col-12 col-md-6">
+                                  <label class="fw-bold my-2">Téléphone</label>
+                                  <input type="tel" name="phone" id="phone" value="{{$client->tel}}" class="form-control">
+                              </div>
+                          </div>
+          
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" data-id="{{$client->id}}" class="btn btn-primary submit-update-client">Modifier</button>
                       </div>
                     </div>
                   </div>
-                  <form action="" method="POST" class="d-inline-block">
-                    @csrf
-                    @method('DELTE')
-                    <a type="submit"  class="btn btn-sm btn-danger confirm-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer la catégorie">
-                        <i class="bi bi-trash"></i>
-                    </a>
-                  </form>
-                </td>
-            </tr>
+                </div>
+                <form action="{{route('clientele.destroy',$client->id)}}" method="POST" class="d-inline-block">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit"  class="btn btn-sm btn-danger confirm-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer le client">
+                      <i class="bi bi-trash"></i>
+                  </button>
+                </form>
+              </td>
+              </tr>
+          @endforeach
         </tbody>
     </table>
 </main>
@@ -149,4 +183,17 @@
 
   <!-- Button trigger modal -->
 
+@endsection
+@section('script')
+    <script>
+      $(document).ready(function(){
+        $('#submit-add-client').click(function(){
+            $('#form-add-client').submit();
+        })
+
+        $('.submit-update-client').click(function(){
+            $('.form-update-client-'+$(this).data('id')).submit();
+        })
+      })
+    </script>
 @endsection

@@ -490,9 +490,8 @@
 
 		<!-- Overlay Scroll JS -->
 		<script src="{{asset('assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js')}}"></script>
-		
-		<!-- This make problem with modal , modal we use in inventaire->retoure->Ajouter un article retourne
-		{{-- <script src="{{asset('assets/vendor/overlay-scroll/custom-scrollbar.js')}}"></script> --}}
+
+		<script src="{{asset('assets/vendor/overlay-scroll/custom-scrollbar.js')}}"></script>
 
 		<!-- Apex Charts -->
 		<script src="{{asset('assets/vendor/apex/apexcharts.min.js')}}"></script>

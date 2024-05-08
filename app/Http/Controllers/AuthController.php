@@ -45,9 +45,6 @@ class AuthController extends Controller
                 'type_user'=> $validated['type_user']
             ]
         );
-        if($request->input('type_user') == 'client')
-            return to_route('ListeClient');
-        else
             return redirect()->route('home')->with('success', 'Account created Successefully!');
     }
 

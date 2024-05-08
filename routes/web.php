@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -69,9 +70,10 @@ Route::get('/client.index', function () {
 // Route::get('/admin.clientele.liste', function () {
 //     return view('/admin.clientele.liste');
 // })->name('ListeClinet');
-Route::get('/admin.clientele.liste',[UserController::class,'showClient'])->name('ListeClient');
-Route::put('/admin.clientele.liste/{user}',[UserController::class,'updateClient'])->name('updateClient');
-Route::delete('/admin.clientele.liste/{user}',[UserController::class,'destroyClient'])->name('destroyClient');
+Route::get('/admin.clientele.liste',[ClientController::class,'index'])->name('clientele.index');
+Route::post('/admin.clientele.liste',[ClientController::class,'store'])->name('clientele.store');
+Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])->name('clientele.update');
+Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destroy'])->name('clientele.destroy');
 //---------------------Route pour inventaire-------------------
 Route::get('/admin.stocks.liste', function () {
     return view('/admin.stocks.liste');
