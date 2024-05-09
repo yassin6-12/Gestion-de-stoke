@@ -91,6 +91,8 @@ Route::get('/admin.stocks.liste', function () {
 
 Route::get('/admin.stocks.retour',[stocksretourController::class,'index'])->name('StocksRetour');
 Route::post('/admin.stocks.retour',[stocksretourController::class,'store'])->name('StocksRetour.store');
+Route::put('/admin.stocks.retour/{product}',[stocksretourController::class,'update'])->name('StocksRetour.update');
+Route::delete('admin.stocks.retour/{product}',[stocksretourController::class,'destroy'])->name('StocksRetour.destroy');
 
 Route::get('/admin.stocks.getCustomers',[ClientController::class,'getCustomers'])->name('getCustomers');
 // Route::get('/', function () {

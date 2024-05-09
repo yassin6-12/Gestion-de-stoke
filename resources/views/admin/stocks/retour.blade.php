@@ -1,3 +1,8 @@
+<?php 
+  use App\Models\produit;
+  use App\Models\Client;
+?>
+
 @extends('layouts.master')
 @section('breadcrumb')
     <ol class="breadcrumb">
@@ -77,69 +82,90 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td style="vertical-align: middle;">#SKUN111</td>
-                <td style="vertical-align: middle;">Accessoire de jeu</td>
-                <td style="vertical-align: middle;"><div class="d-flex align-items-center">
-                    <img src="assets/images/flags/1x1/gb.svg" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
-                    <span>yassien</span>
-                </div></td>
-                <td style="vertical-align: middle;">13 juin 2021</td>
-                <td style="vertical-align: middle;">$150</td>
-                <td style="vertical-align: middle;"> 
-                  <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditItem">
-                    <i class="bi bi-pencil"></i>
-                  </button> 
-                  <div class="modal fade mt-5" id="ModalEditItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg ">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Return Item</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <form action="" method="POST">
-                            @csrf
-                            <div class="mb-4">
-                                <label class="fw-bold my-2">Item</label>
-                                <input type="text" name="item-name" class="form-control">
+            @if (count($returnedProducts) > 0)
+              @foreach ($returnedProducts as $product)
+                  @php
+                      $article = produit::where('id',$product->id_produit)->first();
+                      $client  = Client::where('id',$product->id_client)->first();
+                  @endphp
+                  <tr>
+                    <td style="vertical-align: middle;">#{{$product->id}}</td>
+                    <td style="vertical-align: middle;">{{$article->nom}}</td>
+                    <td style="vertical-align: middle;">
+                      <div class="d-flex align-items-center">
+                        <img src="{{asset('storage/'.$client->photo)}}" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
+                        <span>{{$client->nom_utilisateur}}</span>
+                      </div>
+                    </td>
+                    <td style="vertical-align: middle;">{{$product->created_at->format('Y-m-d')}}</td>
+                    <td style="vertical-align: middle;">${{$product->total}}</td>
+                    <td style="vertical-align: middle;"> 
+                      <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditProduct-{{$product->id}}">
+                        <i class="bi bi-pencil"></i>
+                      </button> 
+                      <div class="modal fade mt-5" id="ModalEditProduct-{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg ">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Retoure Produit</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="row mb-4">
-                                <div class="col-12 col-md-6">
-                                    <label class="fw-bold my-2">Customer</label>
-                                    <select name="item-customer" class="form-select">
-                                        <option value="1">Phil Glover</option>
-                                        <option value="2">yacine</option>
-                                        <option value="3">newfel</option>
+                            <div class="modal-body">
+                              <form action="{{route('StocksRetour.update',$product->id)}}" method="POST" id="stock-return-{{$product->id}}">
+                                @csrf
+                                @method('PUT')
+                                <div class="mb-4">
+                                    <label class="fw-bold my-2">Item</label>
+                                    <select name="item-name" class="form-select" id="item-name">
+                                      @foreach ($products as $item)
+                                          <option value="{{$item->id}}" @if ($product->id_produit == $item->id)
+                                              selected
+                                          @endif>{{$item->nom}}</option>
+                                      @endforeach
                                     </select>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <label class="fw-bold my-2">Return Date</label>
-                                    <input type="date" name="item-date-return" id="" class="form-control">
+                                <div class="row mb-4">
+                                    <div class="col-12 col-md-6">
+                                        <label class="fw-bold my-2">Customer</label>
+                                        <select name="item-customer" id="item-customer" class="form-select">
+                                            @foreach ($customers as $customer)
+                                              <option value="{{$customer->id}}" @if ($customer->id == $product->id_client)
+                                                  selected
+                                              @endif>{{$customer->nom_utilisateur}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="fw-bold my-2">Return Date</label>
+                                        <input type="date" name="item-date-return" value="{{$product->created_at->format('Y-m-d')}}" class="form-control">
+                                    </div>
                                 </div>
+                                <div class="mb-4">
+                                    <label class="fw-bold my-2">Total</label>
+                                    <input type="text" name="item-total" value="{{$product->total}}" class="form-control">
+                                </div>
+                              </form>
                             </div>
-                            <div class="mb-4">
-                                <label class="fw-bold my-2">Total</label>
-                                <input type="text" name="item-total" id="" class="form-control">
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary stock-return-btn" data-id="{{$product->id}}">Modifier</button>
                             </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Ajouter</button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <form action="" method="POST" class="d-inline-block">
-                    @csrf
-                    @method('DELTE')
-                    <a type="submit"  class="btn btn-sm btn-danger confirm-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer la catégorie">
-                        <i class="bi bi-trash"></i>
-                    </a>
-                  </form>
-                </td>
-            </tr>
+                      <form action="{{route('StocksRetour.destroy',$product->id)}}" method="POST" class="d-inline-block">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"  class="btn btn-sm btn-danger confirm-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer le produit">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+              @endforeach    
+            @else
+                <div class="text-center fw-bold">Il n y a aucune produit a retourne</div>
+            @endif
         </tbody>
     </table>
 </main>
@@ -172,6 +198,11 @@
           // submit ajouter un produit retourner
           $('#ajouter-produit-retourner').click(function(){
             $('#form-ajouter-produiter-retourner').submit();
+          })
+
+          // submit modifier un produit retourner
+          $('.stock-return-btn').click(function(){
+            $('#stock-return-'+$(this).data('id')).submit();
           })
 
         })

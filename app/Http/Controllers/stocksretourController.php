@@ -24,7 +24,9 @@ class stocksretourController extends Controller
                             ->select('id','nom_utilisateur')
                             ->get();
 
-        return view('/admin.stocks.retour',['products'=>$productsVented,'customers'=>$customers]);
+        $returnedProducts = retoure_produit::all();
+
+        return view('/admin.stocks.retour',['products'=>$productsVented,'customers'=>$customers,'returnedProducts'=>$returnedProducts]);
     }
 
     public function store(){
@@ -69,6 +71,39 @@ class stocksretourController extends Controller
             'qte_stock' => $getProduct->qte_stock + 1,
         ]);
 
-        return view('/admin.stocks.liste');
+        return to_route('StocksRetour');
+    }
+
+    public function update($product){
+
+        $getAncientProduct = retoure_produit::findOrFail($product);
+
+        $validated=request()->validate(
+            [
+                'item-name'=>'required|exists:produits,id',
+                'item-customer' => 'required|exists:clients,id',
+                'item-date-return' => 'required|date',
+                'item-total' => 'required',
+            ]
+        );
+
+        $getAncientProduct->update([
+            'id_produit'    => $validated['item-name'],
+            'id_client'     => $validated['item-customer'],
+            'total'         => $validated['item-total'],
+            'created_at'    => $validated['item-date-return']
+        ]);
+
+        // there are more instruction must do
+
+        return to_route('StocksRetour');
+    }
+
+    public function destroy($product){
+
+        $getProduct = retoure_produit::findOrFail($product);
+        $getProduct->delete();
+        
+        return to_route('StocksRetour');
     }
 }
