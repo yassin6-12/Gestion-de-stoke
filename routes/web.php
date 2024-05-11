@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RetourProduitController;
 use App\Http\Controllers\stocksretourController;
@@ -68,9 +69,9 @@ Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
 
 
 //----------------------Touts les Route du client----------------------
-Route::get('/client.index', function () {
-    return view('/client.index');
-})->name('Electro');
+Route::get('/client.index', [ClientSideController::class,'index'])->name('electro.index');
+Route::get('/client.product/{product}', [ClientSideController::class,'show'])->name('electro.show');
+Route::get('/client.stores', [ClientSideController::class,'stores'])->name('electro.stores');
 
 //---------------------Route pour clientele-------------------
 // Route::get('/admin.clientele.liste', function () {

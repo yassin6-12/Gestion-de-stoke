@@ -494,7 +494,6 @@ textarea.input {
 \*----------------------------*/
 
 .header-ctn {
-  float: right;
   padding: 15px 0px;
 }
 
@@ -551,7 +550,6 @@ textarea.input {
   z-index: 99;
   right: 0;
   opacity: 0;
-  visibility: hidden;
 }
 
 .dropdown.open>.cart-dropdown {
@@ -1166,6 +1164,7 @@ textarea.input {
 }
 
 .products-tabs>.tab-pane {
+  position:relative;
   display: block;
   height: 0;
   opacity: 0;
@@ -2188,3 +2187,15 @@ textarea.input {
     margin-top: 10px;
   }
 }
+
+/* start edit style */
+#dropdown-menu-mine{
+  position:absolute !important;
+  min-width:300px !important;
+  left:-200% !important;
+  top:100% !important;
+}
+#my-navigation a:hover{
+  color:#dc3545 !important;
+}
+/* end edit style */
