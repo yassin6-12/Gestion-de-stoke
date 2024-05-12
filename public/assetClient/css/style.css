@@ -784,16 +784,28 @@ textarea.input {
 ===========================================================*/
 
 #hot-deal.section {
-  padding: 60px 0px;
+  padding: 60px 20px;
   margin: 30px 0px;
   background-color: #E4E7ED;
-  background-image: url('../img/hotdeal.png');
-  background-position: center;
   background-repeat: no-repeat;
+  background-size: 500px 300px;
+}
+@media(min-width:768px){
+  #hot-deal.section{
+    background-position: 5rem;
+  }
 }
 
 .hot-deal {
-  text-align: center;
+  text-align:right;
+}
+@media(max-width:991px){
+  .hot-deal{
+    color:white;
+  }
+  .hot-deal h2{
+    color:white;
+  }
 }
 
 .hot-deal .hot-deal-countdown {

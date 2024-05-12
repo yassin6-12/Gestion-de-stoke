@@ -1,3 +1,10 @@
+@php
+    use App\Models\Categorie;
+
+    $last5Categories = Categorie::take(5)->get();
+    $allCategories = Categorie::all();
+@endphp
+
 <!-- HEADER -->
 <header>
     <!-- TOP HEADER -->
@@ -241,11 +248,9 @@
     <div class="container">
             <ul class="nav nav-underline justify-content-around justify-content-lg-start">
                 <li class="nav-item"><a href="{{route('electro.index')}}" class="text-danger nav-link active">Home</a></li>
-                <li class="nav-item mx-3"><a href="#" class="text-dark nav-link">Hot Deals</a></li>
-                <li class="nav-item mx-3"><a href="#" class="text-dark nav-link">Categories</a></li>
-                <li class="nav-item mx-3"><a href="#" class="text-dark nav-link">Laptops</a></li>
-                <li class="nav-item mx-3"><a href="#" class="text-dark nav-link">Smartphones</a></li>
-                <li class="nav-item mx-3"><a href="#" class="text-dark nav-link">Mouse</a></li>
+                @foreach ($last5Categories as $category)
+                    <li class="nav-item mx-3"><a href="#" class="text-dark nav-link text-capitalize">{{$category->nom}}</a></li>
+                @endforeach
             </ul>
     </div>
     <!-- /container -->

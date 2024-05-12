@@ -72,6 +72,7 @@ Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
 Route::get('/client.index', [ClientSideController::class,'index'])->name('electro.index');
 Route::get('/client.product/{product}', [ClientSideController::class,'show'])->name('electro.show');
 Route::get('/client.stores', [ClientSideController::class,'stores'])->name('electro.stores');
+Route::get('/client.layouts.header',[ClientSideController::class,'header'])->name('electro.header');
 
 //---------------------Route pour clientele-------------------
 // Route::get('/admin.clientele.liste', function () {
