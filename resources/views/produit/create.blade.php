@@ -152,7 +152,6 @@
                                                                 </div>
                                                                 <div id="produit-other-info" style="display:none;"></div>
                                                         </form>
-                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +181,7 @@
 
     Dropzone.autoDiscover = false; 
     var maxFilesizeVal = 12;
-    var maxFilesVal    = 10; 
+    var maxFilesVal    = 5; 
     var myDropzone = new Dropzone("#myDropzone", { 
         url: "{{route('Produit.store')}}", // specify your upload URL
         autoProcessQueue: false, // disable auto-upload  

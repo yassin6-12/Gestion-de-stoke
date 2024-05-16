@@ -138,7 +138,7 @@
             var form = document.getElementById('myDropzone');
             form.submit();
         }
-
+        
         document.getElementById("submit-add-produit").addEventListener("click", function(e) {
             e.preventDefault();inputSetting
             e.stopPropagation();

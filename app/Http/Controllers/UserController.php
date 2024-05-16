@@ -59,7 +59,7 @@ class UserController extends Controller
         $user->fill($validated);
         $user->save();
 
-        return response()->json(['success' => 'Profile updated successfully']);
+        return to_route('Profile');
     }
 
     public function profile()

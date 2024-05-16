@@ -146,7 +146,11 @@
 
 	<!-- HOT DEAL SECTION -->
 	@php
-		$firstImageTopDeal = json_decode($topDeal->images)[0];
+		$firstImageTopDeal 		= NULl;
+		if($topDeal){
+			$firstImageTopDeal = json_decode($topDeal->images)[0];
+		}
+		
 	@endphp
 	<div id="hot-deal" class="section px-5" style="background-image: url('{{$firstImageTopDeal}}');">
 		<!-- container -->
@@ -175,6 +179,7 @@
 			<div class="row">
 
 				<!-- section title -->
+				@if (count($topSelling))
 				<div class="col-md-12">
 					<div class="section-title">
 						<h3 class="title">Top selling</h3>
@@ -188,6 +193,7 @@
 						</div> --}}
 					</div>
 				</div>
+				@endif
 				<!-- /section title -->
 				
 				<!-- Products tab & slick -->
@@ -272,6 +278,8 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
+				@if (count($top12Selling))
+					
 				@for ($i = 0; $i < count($top12Selling); $i++)
 					@php
 						$getFirstImage = json_decode($top12Selling[$i]->images)[0];
@@ -279,7 +287,7 @@
 					@if ($i%6 == 0)
 						<div class="col-md-4 col-xs-6">
 							<div class="section-title">
-								<h4 class="title">Top selling</h4>
+								<h4 class="title amine mokeddem">Top selling</h4>
 								<div class="section-nav">
 									<div id="slicked-nav-{{$i}}" class="products-slick-nav"></div>
 								</div>
@@ -319,6 +327,7 @@
 						</div>
 					@endif
 				@endfor
+				@endif
 
 			</div>
 			<!-- /row -->

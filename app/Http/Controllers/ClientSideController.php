@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ClientSideController extends Controller
 {
     public function index(){
+        
         $bestCategories = Categorie::take(3)->get();
 
         // take the last 4 categories added in produit table
