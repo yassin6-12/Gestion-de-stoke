@@ -59,7 +59,8 @@ class UserController extends Controller
         $user->fill($validated);
         $user->save();
 
-        return to_route('Profile');
+
+         return redirect()->route('Profile');
     }
 
     public function profile()
