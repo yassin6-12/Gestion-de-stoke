@@ -93,7 +93,7 @@
 													$getCatName = Categorie::where('id',$item->categorie_id)->first();
 												@endphp
 												<p class="product-category">{{$getCatName->nom}}</p>
-												<h3 class="product-name"><a href="#" class="text-decoration-none">{{$item->nom}}</a></h3>
+												<h3 class="product-name"><a href="{{route('electro.show',$item->id)}}" class="text-decoration-none">{{$item->nom}}</a></h3>
 												@if ($item->remise)
 													<h4 class="product-price">${{$item->prix - ($item->prix * $item->remise /100)}} <del
 														class="product-old-price">${{$item->prix}}</del>
@@ -152,23 +152,25 @@
 		}
 		
 	@endphp
-	<div id="hot-deal" class="section px-5" style="background-image: url('{{$firstImageTopDeal}}');">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="hot-deal">
-						<h2 class="text-uppercase">hot deal this week</h2>
-						<p>New Collection Up to 50% OFF</p>
-						<a class="primary-btn cta-btn text-decoration-none" href="#">Shop now</a>
+	@if ($firstImageTopDeal)
+		<div id="hot-deal" class="section px-5" style="background-image: url('{{$firstImageTopDeal}}');">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hot-deal">
+							<h2 class="text-uppercase">hot deal this week</h2>
+							<p>New Collection Up to 50% OFF</p>
+							<a class="primary-btn cta-btn text-decoration-none" href="{{route('electro.show',$topDeal->id)}}">Shop now</a>
+						</div>
 					</div>
 				</div>
+				<!-- /row -->
 			</div>
-			<!-- /row -->
+			<!-- /container -->
 		</div>
-		<!-- /container -->
-	</div>
+	@endif
 	<!-- /HOT DEAL SECTION -->
 
 	<!-- SECTION -->
@@ -224,7 +226,7 @@
 													$getCatName = Categorie::where('id',$item->categorie_id)->first();
 												@endphp
 											<p class="product-category">{{$getCatName->nom}}</p>
-											<h3 class="product-name"><a href="#" class="text-decoration-none">{{$item->nom}}</a></h3>
+											<h3 class="product-name"><a href="{{route('electro.show',$item->id)}}" class="text-decoration-none">{{$item->nom}}</a></h3>
 											@if ($item->remise)
 												<h4 class="product-price">${{$item->prix - ($item->prix * $item->remise / 100)}} 
 													<del class="product-old-price">${{$item->prix}}</del>
@@ -306,7 +308,7 @@
 													$getCatName = Categorie::where('id',$item->categorie_id)->first();
 												@endphp
 											<p class="product-category">{{$getCatName->nom}}</p>
-											<h3 class="product-name"><a href="#" class="text-decoration-none">{{$top12Selling[$i]->nom}}</a></h3>
+											<h3 class="product-name"><a href="{{route('electro.show',$top12Selling[$i]->id)}}" class="text-decoration-none">{{$top12Selling[$i]->nom}}</a></h3>
 											@if ($top12Selling[$i]->remise)
 												<h4 class="product-price">${{$top12Selling[$i]->prix - ($top12Selling[$i]->prix * $top12Selling[$i]->remise / 100)}} <del class="product-old-price">${{$top12Selling[$i]->prix}}</del></h4>
 											@else 

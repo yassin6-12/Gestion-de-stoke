@@ -1,3 +1,7 @@
+
+<?php 
+	use Carbon\Carbon;
+?>
 @extends('client.layouts.master')
 @section('main')
 		<!-- BREADCRUMB -->
@@ -8,11 +12,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
-							<li><a href="#" class="text-decoration-none">Home</a></li>
+							<li><a href="{{route('electro.index')}}" class="text-decoration-none">Home</a></li>
 							<li><a href="#" class="text-decoration-none">All Categories</a></li>
-							<li><a href="#" class="text-decoration-none">Accessories</a></li>
-							<li><a href="#" class="text-decoration-none">Headphones</a></li>
-							<li class="active">Product name goes here</li>
+							<li><a href="{{route('electro.stores')}}" class="text-decoration-none">{{$category->nom}}</a></li>
+							<li class="active">{{$product->nom}}</li>
 						</ul>
 					</div>
 				</div>
@@ -30,42 +33,29 @@
 				<div class="row">
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product01.png')}}" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product03.png')}}" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product06.png')}}" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product08.png')}}" alt="">
-							</div>
+							@php
+								$images = json_decode($product->images);
+							@endphp
+							@if ($images && count($images))
+								@foreach ($images as $image)
+									<div class="product-preview">
+										<img src="{{asset($image)}}" alt="">
+									</div>
+								@endforeach
+							@endif
 						</div>
 					</div>
 					<!-- /Product thumb imgs -->
 					<!-- Product main img -->
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product01.png')}}" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product03.png')}}" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product06.png')}}" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="{{asset('assetClient/img/product08.png')}}" alt="">
-							</div>
+							@if ($images && count($images))
+								@foreach ($images as $image)
+									<div class="product-preview">
+										<img src="{{asset($image)}}" alt="">
+									</div>
+								@endforeach
+							@endif
 						</div>
 					</div>
 					<!-- /Product main img -->
@@ -74,7 +64,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">product name goes here</h2>
+							<h2 class="product-name">{{$product->nom}}</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -86,35 +76,20 @@
 								<a class="review-link text-decoration-none" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h3>
-								<span class="product-available">In Stock</span>
+								<h3 class="product-price">${{$product->prix - ($product->prix * $product->remise / 100)}} 
+									@if ($product->remise)
+										<del class="product-old-price">${{$product->prix}}</del>
+									@endif
+								</h3>
+								@if ($product->qte_stock)
+									<span class="product-available text-success">In Stock</span>
+								@else	
+									<span class="text-danger text-capitalize">non disponible</span>
+								@endif
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-							<div class="product-options">
-								<label>
-									Size
-									<select class="input-select">
-										<option value="0">X</option>
-									</select>
-								</label>
-								<label>
-									Color
-									<select class="input-select">
-										<option value="0">Red</option>
-									</select>
-								</label>
-							</div>
+							<p>{{$product->description}}</p>
 
 							<div class="add-to-cart">
-								<div class="qty-label">
-									Qty
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
 								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 							</div>
 
@@ -125,8 +100,7 @@
 
 							<ul class="product-links">
 								<li>Category:</li>
-								<li><a href="#" class="text-decoration-none">Headphones</a></li>
-								<li><a href="#" class="text-decoration-none">Accessories</a></li>
+								<li><a href="{{route('electro.stores')}}" class="text-decoration-none">{{$category->nom}}</a></li>
 							</ul>
 
 							<ul class="product-links">
@@ -161,7 +135,7 @@
 								<div id="tab1" class="collapse show">
 									<div class="row">
 										<div class="col-md-12">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<p>{{$product->description}}</p>
 										</div>
 									</div>
 								</div>
@@ -171,7 +145,7 @@
 								<div id="tab2" class="collapse">
 									<div class="row">
 										<div class="col-md-12">
-											<p>Lazaoui newfel</p>
+											<p>Product added at : {{$product->created_at}}</p>
 										</div>
 									</div>
 								</div>
@@ -371,129 +345,61 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-
+					@if ($relatedProducts && count($relatedProducts))
+	
 					<div class="col-md-12">
 						<div class="section-title text-center">
 							<h3 class="title">Related Products</h3>
 						</div>
 					</div>
-
 					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="{{asset('assetClient/img/product01.png')}}" alt="">
-								<div class="product-label">
-									<span class="sale">-30%</span>
+					@foreach ($relatedProducts as $product)
+						@php
+							$firstImage = json_decode($product->images)[0];
+						@endphp
+						<div class="col-md-3 col-xs-6">
+							<div class="product">
+								<div class="product-img">
+									<img src="{{asset($firstImage)}}" alt="">
+									<div class="product-label">
+										@if ($product->remise)
+											<span class="sale">-{{$product->remise}}%</span>
+										@endif
+										@php
+											$dateProduct = Carbon::parse($product->created_at);
+
+											if ($dateProduct->lt(!Carbon::now()->subWeek())) {
+												echo '<span class="new">NEW</span>';
+											}
+										@endphp	
+										
+									</div>
 								</div>
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#" class="text-decoration-none">product name goes here</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
+								<div class="product-body">
+									<p class="product-category">{{$category->nom}}</p>
+									<h3 class="product-name"><a href="{{route('electro.show',$product->id)}}" class="text-decoration-none">{{$product->nom}}</a></h3>
+									<h4 class="product-price">${{$product->prix - ($product->prix * $product->remise / 100)}} 
+										@if ($product->remise)
+											<del class="product-old-price">${{$product->prix}}</del>
+										@endif
+									</h4>
+									<div class="product-rating">
+									</div>
+									<div class="product-btns">
+										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+										<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+									</div>
 								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+								<div class="add-to-cart">
+									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 							</div>
 						</div>
-					</div>
+					@endforeach
+					
 					<!-- /product -->
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="{{asset('assetClient/img/product02.png')}}" alt="">
-								<div class="product-label">
-									<span class="new">NEW</span>
-								</div>
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#" class="text-decoration-none">product name goes here</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="{{asset('assetClient/img/product03.png')}}" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#" class="text-decoration-none">product name goes here</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
-					<!-- product -->
-					<div class="col-md-3 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="{{asset('assetClient/img/product04.png')}}" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#" class="text-decoration-none">product name goes here</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								<div class="product-rating">
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-								</div>
-							</div>
-							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
-						</div>
-					</div>
-					<!-- /product -->
-
+					@endif
 				</div>
 				<!-- /row -->
 			</div>

@@ -82,8 +82,18 @@ class ClientSideController extends Controller
     }
 
     public function show($product){
-        
-        return view('/client.product');
+        $getProduct     = produit::findOrFail($product);
+        $getCategory    = Categorie::find($getProduct->categorie_id);
+        $relatedProducts= produit::orderBy('id', 'desc')
+                            ->where('categorie_id',$getCategory->id)
+                            ->whereNot('id',$getProduct->id)
+                            ->take(4)
+                            ->get();
+        return view('/client.product',[
+            'product'           => $getProduct,
+            'category'          => $getCategory,
+            'relatedProducts'   => $relatedProducts,
+        ]);
     }
 
     public function stores(){
