@@ -129,3 +129,8 @@ var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 	return new bootstrap.Popover(popoverTriggerEl)
 })
+
+// delete 
+$('.confirm-delete').click(function(){
+	return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément ?');
+})

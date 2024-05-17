@@ -10,6 +10,10 @@ class produit extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'qte_stock',
+    ];
+
     public function categorie(){
         return $this->belongsTo(categorie::class);
     }

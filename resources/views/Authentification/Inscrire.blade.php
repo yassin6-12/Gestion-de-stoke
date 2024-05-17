@@ -13,23 +13,41 @@
 
 
 <div class="container mt-5">
-    <h2>Inscription Gestionnaire</h2>
-    <form action="#" method="post" enctype="multipart/form-data">
+    @if (Auth::user() && Auth::user()->type_user == 'admin')
+        <h2>Inscription Nouveau Utilisateur</h2>
+    @else
+        <h2>Inscription Client</h2>
+    @endif
+    
+    <form class="form mt-5" action="{{ route('Inscription.new') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email" required>
+            @error('email')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="password">Mot de passe:</label>
             <input type="password" class="form-control" id="password" name="password" required>
+            @error('password')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
-            <label for="nom">Nom:</label>
-            <input type="text" class="form-control" id="nom" name="nom" required>
+            <label for="name">name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            @error('name')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="prenom">Prénom:</label>
             <input type="text" class="form-control" id="prenom" name="prenom" required>
+            @error('prenom')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="civilite">Civilité:</label>
@@ -42,16 +60,40 @@
         <div class="form-group">
             <label for="tel">Téléphone:</label>
             <input type="tel" class="form-control" id="tel" name="tel" required>
+            @error('tel')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="adresse">Adresse:</label>
             <textarea class="form-control" id="adresse" name="adresse" rows="3" required></textarea>
+            @error('adresse')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
-        <div class="form-group">
+        @if (!Auth::user() || Auth::user()->type_user == 'admin')
+            <div class="form-group">
+                <label for="type_user">Type</label>
+                <select name="type_user" id="type_user" class="form-select">
+                    <option hidden>Chose the type</option>
+                    <option value="admin">Admin</option>
+                    <option value="gestionaire">Gestionaire</option>
+                </select>
+                @error('type_user')
+                    <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                @enderror
+            </div>
+        @else
+            <input type="hidden" name="type_user" value="client">
+        @endif
+        <div class="form-group mt-3">
             <label for="photo">Photo:</label>
             <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
+            @error('photo')
+                <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+            @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Inscrire</button>
+        <button type="submit" class="btn btn-primary mt-3">Inscrire</button>
     </form>
 </div>
 

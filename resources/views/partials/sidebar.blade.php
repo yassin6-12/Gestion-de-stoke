@@ -3,7 +3,7 @@
 				<!-- Sidebar brand starts -->
 				<div class="sidebar-brand">
 					<a href="/" class="logo">
-						<img src="assets/images/logo.svg" alt="Moonlight Admin Dashboard" />
+						<img src="{{asset('assets/images/logo.svg')}}" alt="Moonlight Admin Dashboard" />
 					</a>
 				</div>
 				<!-- Sidebar brand starts -->
@@ -65,7 +65,7 @@
 											<a href="{{route('catégorie.index')}}">Liste des catégories</a>
 										</li>
 										<li>
-											
+
 											<a href="{{route('catégorie.create')}}">Ajouter Catégorie</a>
 										</li>
 
@@ -80,28 +80,47 @@
 								</a>
 								<div class="sidebar-submenu">
 									<ul>
+                                        @guest
 										<li>
-											<a href="{{route('Seconnecter')}}">Login</a>
+											<a href="{{route('Seconnect')}}">Connexion</a>
 										</li>
+                                        @endguest
 										<li>
-											<a href="{{route('S’inscrire')}}">Signup</a>
+											<a href="{{route('Inscription')}}">Inscription</a>
 										</li>
-										
 									</ul>
 								</div>
 							</li>
+							{{-- Clientèle --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
-									<i class="bi bi-gem"></i>
-									<span class="menu-text">Widgets</span>
+									<i class="bi bi-people"></i>
+									<span class="menu-text">Clientèle</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul> 
+										<li>
+											<a href="{{route('clientele.index')}}">Liste des clients</a>
+										</li>
+										<li>
+											<a href="#">Inscription</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							{{-- Inventaire --}}
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="bi bi-bar-chart"></i>
+									<span class="menu-text">Inventaire</span>
 								</a>
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="widgets.html">Widgets</a>
+											<a href="{{route('StocksListe')}}">Liste des stocks</a>
 										</li>
 										<li>
-											<a href="graph-widgets.html">Graph Widgets</a>
+											<a href="{{route('StocksRetour')}}">Retours</a>
 										</li>
 									</ul>
 								</div>
@@ -319,7 +338,7 @@
 									</ul>
 								</div>
 							</li>
-							
+
 							<li>
 								<a href="starter-page.html">
 									<i class="bi bi-hand-index-thumb"></i>

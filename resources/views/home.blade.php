@@ -11,7 +11,7 @@
 @endsection
 @section('main')
 <div class="content-wrapper">
-
+    @include('shared.success-message')
 						<!-- Row start -->
 						<div class="row">
 							<div class="col-sm-4 col-12">
@@ -361,5 +361,5 @@
 						<!-- Row end -->
 
 					</div>
-	
+
 @endsection

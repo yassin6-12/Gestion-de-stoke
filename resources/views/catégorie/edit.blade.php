@@ -23,6 +23,7 @@
             <div class="card-body">
                 <form action="{{route('catégorie.update',$cat->id)}}" id="demo-upload" class="dropzone" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
@@ -51,7 +52,7 @@
 
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
-                            <a href="catégorie.index" type="button" class="btn btn-light">Annuler</a>                           
+                            <a href="{{route('catégorie.index')}}" type="button" class="btn btn-light">Annuler</a>                           
                             <button type="submit" class="btn btn-success" >Modifier</button>            
                         </div>
                     </div>

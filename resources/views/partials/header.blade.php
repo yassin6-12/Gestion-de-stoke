@@ -28,43 +28,48 @@
 	<ul class="header-actions">
 		<li class="dropdown d-none d-md-block">
 			<a href="#" id="countries" data-toggle="dropdown" aria-haspopup="true">
-				<img src="assets/images/flags/1x1/gb.svg" class="flag-img" alt="AI Admin Dashboards" />
+				<img src="{{asset('assets/images/flags/1x1/gb.svg')}}" class="flag-img" alt="AI Admin Dashboards" />
 			</a>
 			<div class="dropdown-menu dropdown-menu-end mini" aria-labelledby="countries">
 				<div class="country-container">
 					<a href="index.html">
-						<img src="assets/images/flags/1x1/us.svg" alt="Clean Admin Dashboards" />
+						<img src="{{asset('assets/images/flags/1x1/us.svg')}}" alt="Clean Admin Dashboards" />
 					</a>
 					<a href="index.html">
-						<img src="assets/images/flags/1x1/in.svg" alt="Google Dashboards" />
+						<img src="{{asset('assets/images/flags/1x1/in.svg')}}" alt="Google Dashboards" />
 					</a>
 					<a href="index.html">
-						<img src="assets/images/flags/1x1/br.svg" alt="Admin Panels" />
+						<img src="{{asset('assets/images/flags/1x1/br.svg')}}" alt="Admin Panels" />
 					</a>
 					<a href="index.html">
-						<img src="assets/images/flags/1x1/tr.svg" alt="Modern Dashboards" />
+						<img src="{{asset('assets/images/flags/1x1/tr.svg')}}" alt="Modern Dashboards" />
 					</a>
 					<a href="index.html">
-						<img src="assets/images/flags/1x1/ca.svg" alt="Best Admin Dashboards" />
+						<img src="{{asset('assets/images/flags/1x1/ca.svg')}}" alt="Best Admin Dashboards" />
 					</a>
 				</div>
 			</div>
 		</li>
 		<li class="dropdown">
 			<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-				<span class="user-name d-none d-md-block">Abigale Heaney</span>
+				<span class="user-name d-none d-md-block">{{Auth::user()?->name}}</span>
 				<span class="avatar">
-					<img src="assets/images/user.png" alt="Admin Templates">
+					<img src="{{asset('storage/' . (Auth::user() ? Auth::user()->photo : 'photos/default.png'))}}" alt="Admin Templates">
 					<span class="status online"></span>
 				</span>
 			</a>
-			<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
-				<div class="header-profile-actions">
+            @auth()
+			    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
+                    <div class="header-profile-actions">
 					<a href="{{route('Profile')}}">Profile</a>
-					<a href="{{route('Setting')}}">Settings</a>
-					<a href="{{route('Seconnecter')}}">Se déconnecter</a>
-				</div>
-			</div>
+					<a href="{{route('SettingShow')}}">Settings</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger btn-sm mt-2" type="submit">Logout</button>
+                    </form>
+				    </div>
+			    </div>
+            @endauth
 		</li>
 	</ul>
 	<!-- Header actions end -->

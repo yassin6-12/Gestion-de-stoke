@@ -53,9 +53,10 @@
 		<!-- Loading wrapper end -->
 
 		<!-- Login box start -->
-		<form action="index.html">
 			<div class="login-box">
-				<div class="login-form">
+                <form class="form mt-5" action="{{ route('Seconnect') }}" method="POST">
+                    @csrf
+				    <div class="login-form">
 					<a href="index.html" class="login-logo">
 						<img src="assets/images/logo.svg" alt="Vico Admin" />
 					</a>
@@ -63,27 +64,28 @@
 						Bienvenue à nouveau, <br />veuillez vous connecter à votre compte administrateur Moonlight.
 					</div>
 					<div class="mb-3">
-						<label class="form-label">Nom d’utilisateur</label>
-						<input type="text" class="form-control">
+						<label class="form-label" for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        @error('email')
+                            <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                        @enderror
 					</div>
-					<div class="mb-3">
-						<div class="d-flex justify-content-between">
-							<label class="form-label">Mot de passe</label>
-							
-						</div>
-						<input type="password" class="form-control">
-					</div>
-					
+					<div class="form-group mt-3">
+                        <label for="password" class="text-dark">Password:</label><br>
+                        <input type="password" name="password" id="password" class="form-control">
+                        @error('password')
+                            <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>
+                        @enderror
+                    </div>
 					<div class="login-form-actions">
 						<a href="forgot-password.html" class="btn-link ml-auto">Mot de passe oublié ?</a>
-						<a href="/"><button type="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
-							Connectez-vous</button></a>
-						
+						<button type="submit" name="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+							Connectez-vous</button>
 					</div>
-					
-				</div>
+				    </div>
+                </form>
+
 			</div>
-		</form>
 		<!-- Login box end -->
 
 		<!-- *************
