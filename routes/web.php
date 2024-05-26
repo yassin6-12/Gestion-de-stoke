@@ -70,8 +70,12 @@ Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
 
 //----------------------Touts les Route du client----------------------
 Route::get('/client.index', [ClientSideController::class,'index'])->name('electro.index');
+// show products
 Route::get('/client.product/{product}', [ClientSideController::class,'show'])->name('electro.show');
-Route::get('/client.stores', [ClientSideController::class,'stores'])->name('electro.stores');
+// show all categories
+Route::get('/client.stores', [ClientSideController::class,'showCat'])->name('electro.stores');
+
+// header
 Route::get('/client.layouts.header',[ClientSideController::class,'header'])->name('electro.header');
 
 //---------------------Route pour clientele-------------------
