@@ -98,7 +98,7 @@
 									<span class="menu-text">Clientèle</span>
 								</a>
 								<div class="sidebar-submenu">
-									<ul> 
+									<ul>
 										<li>
 											<a href="{{route('clientele.index')}}">Liste des clients</a>
 										</li>
