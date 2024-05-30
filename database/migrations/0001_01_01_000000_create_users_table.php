@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('zipcode')->nullable();
             $table->string('photo')->nullable();
-            $table->string('type_user',20);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
