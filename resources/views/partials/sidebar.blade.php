@@ -92,7 +92,8 @@
 								</div>
 							</li>
 							{{-- Clientèle --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-people"></i>
 									<span class="menu-text">Clientèle</span>
@@ -107,7 +108,8 @@
 										</li>
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- Inventaire --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
