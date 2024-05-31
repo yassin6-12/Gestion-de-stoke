@@ -21,20 +21,20 @@
 									</div>
 									<div class="sale-details">
 										<h5>Products</h5>
-										<h3 class="text-blue">2,567</h3>
-										<p class="growth text-blue">Increased 22%</p>
+										<h3 class="text-blue">{{$productcount}}</h3>
+										<p class="growth text-blue"></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4 col-12">
 								<div class="stats-tile">
 									<div class="sale-icon-bdr">
-										<i class="bi bi-emoji-smile"></i>
+										<i class="bi bi-person-fill-gear"></i>
 									</div>
 									<div class="sale-details">
-										<h5>Orders</h5>
-										<h3 class="text-blue">4,972</h3>
-										<p class="growth text-blue">Increased 12%</p>
+										<h5>Admins</h5>
+										<h3 class="text-blue">{{$admincount}}</h3>
+										<p class="growth text-blue"></p>
 									</div>
 								</div>
 							</div>
@@ -44,9 +44,9 @@
 										<i class="bi bi-box-seam"></i>
 									</div>
 									<div class="sale-details">
-										<h5>Revenue</h5>
-										<h3 class="text-blue">$65,950</h3>
-										<p class="growth text-red">Decreased 7%</p>
+										<h5>Gestionnaire</h5>
+										<h3 class="text-blue">{{$gestcount}}</h3>
+										<p class="growth text-red"></p>
 									</div>
 								</div>
 							</div>
@@ -118,7 +118,9 @@
 												</div>
 											</div>
 											<div class="col-sm-6 col-12">
-												<div id="customers"></div>
+												{!! $chart->container() !!}
+
+                                                {!! $chart->script() !!}
 											</div>
 										</div>
 										<!-- Row end -->
@@ -359,7 +361,7 @@
 							</div>
 						</div>
 						<!-- Row end -->
-
 					</div>
+
 
 @endsection
