@@ -90,10 +90,10 @@
 											<a href="{{route('Seconnect')}}">Connexion</a>
 										</li>
                                         @endguest
-                                        @auth
 										    <li>
 											    <a href="{{route('Inscription')}}">Inscription</a>
 										    </li>
+                                        @auth
 										    <li>
 											    <a href="{{route('ListeEmployes')}}">Employes</a>
 										    </li>
