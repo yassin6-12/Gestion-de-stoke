@@ -107,7 +107,7 @@
 											<a href="{{route('clientele.index')}}">Liste des clients</a>
 										</li>
 										<li>
-											<a href="#">Inscription</a>
+											<a href="#">Historique</a>
 										</li>
 									</ul>
 								</div>

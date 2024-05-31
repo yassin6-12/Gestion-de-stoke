@@ -25,18 +25,9 @@ Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit
 Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
 Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
 // panier
-// Route::get('/produit.Panier', function () {
-//     return view('/produit.Panier');
-// })->name('panier');
 Route::get('produit.Panier',[VenteController::class,'panier'])->name('panier');
-// Route::get('/produit.facture', function () {
-//     return view('/produit.facture');
-// })->name('facture');
-Route::post('/produit.facture',[VenteController::class,'facture'])->name('facture');
 
-// Route::get('/produit.Dfacture', function () {
-//     return view('/produit.Dfacture');
-// })->name('dfacture');
+Route::post('/produit.facture',[VenteController::class,'facture'])->name('facture');
 
 Route::post('/produit.Dfacture',[VenteController::class,'dfacture'])->name('dfacture');
 
