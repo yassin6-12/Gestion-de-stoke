@@ -5,8 +5,8 @@
             <i class="bi bi-house"></i>
             <a href="/">Domicile</a>
         </li>
-        <li class="breadcrumb-item">Catégorie</li>
-        <li class="breadcrumb-item breadcrumb-active" aria-current="page">retours</li>
+        <li class="breadcrumb-item">Clientele</li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="page">Liste des client</li>
     </ol>
 @endsection
 @section('main')

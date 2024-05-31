@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+   
     /**
      * Display the user's profile form.
      */
