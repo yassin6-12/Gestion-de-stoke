@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ClientSideController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RetourProduitController;
 use App\Http\Controllers\stocksretourController;
@@ -16,9 +17,7 @@ use App\Models\Vente;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function (){
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class,'Home'])->name('home');
 //produits
 Route::get('/produit', [ProduitController::class,'index'])->name('produit.index');
 Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit.create');
