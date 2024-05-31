@@ -15,6 +15,7 @@ use App\Models\Client;
 use App\Models\produit;
 use App\Models\Vente;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StockController;
 
 
 Route::get('/', [HomeController::class,'Home'])->name('home');
@@ -86,9 +87,10 @@ Route::post('/admin.clientele.liste',[ClientController::class,'store'])->name('c
 Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])->name('clientele.update');
 Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destroy'])->name('clientele.destroy');
 //---------------------Route pour inventaire-------------------
-Route::get('/admin.stocks.liste', function () {
-    return view('/admin.stocks.liste');
-})->name('StocksListe');
+// Route::get('/admin.stocks.liste', function () {
+//     return view('/admin.stocks.liste');
+// })->name('StocksListe');
+Route::get('/admin.stocks.liste', [StockController::class,'index'])->name('StocksListe');
 
 // Route::get('/admin.stocks.retour', function () {
 //     return view('/admin.stocks.retour');
