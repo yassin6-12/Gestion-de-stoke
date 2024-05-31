@@ -13,7 +13,8 @@
 					<div class="sidebarMenuScroll">
 						<ul>
 							{{-- Domicile --}}
-							<li class="sidebar-dropdown active">
+                            @auth
+							    <li class="sidebar-dropdown active">
 								<a href="#">
 									<i class="bi bi-house"></i>
 									<span class="menu-text">Domicile</span>
@@ -28,9 +29,11 @@
 										</li>
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- Produit --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-handbag"></i>
 									<span class="menu-text">Produit</span>
@@ -49,10 +52,11 @@
 
 									</ul>
 								</div>
-							</li>
-
+							    </li>
+                            @endauth
 							{{-- Catégorie --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 
 									<i class="bi bi-folder"></i>
@@ -71,7 +75,8 @@
 
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- Authentication --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
@@ -85,12 +90,14 @@
 											<a href="{{route('Seconnect')}}">Connexion</a>
 										</li>
                                         @endguest
-										<li>
-											<a href="{{route('Inscription')}}">Inscription</a>
-										</li>
-										<li>
-											<a href="{{route('ListeEmployes')}}">Employes</a>
-										</li>
+                                        @auth
+										    <li>
+											    <a href="{{route('Inscription')}}">Inscription</a>
+										    </li>
+										    <li>
+											    <a href="{{route('ListeEmployes')}}">Employes</a>
+										    </li>
+                                        @endauth
 									</ul>
 								</div>
 							</li>
@@ -114,7 +121,8 @@
 							    </li>
                             @endauth
 							{{-- Inventaire --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-bar-chart"></i>
 									<span class="menu-text">Inventaire</span>
@@ -129,7 +137,8 @@
 										</li>
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-collection"></i>
@@ -185,7 +194,8 @@
 									</ul>
 								</div>
 							</li> --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-stickies"></i>
 									<span class="menu-text">Pages</span>
@@ -215,7 +225,8 @@
 										</li>
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-calendar4"></i>
