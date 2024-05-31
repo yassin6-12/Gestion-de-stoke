@@ -68,6 +68,11 @@ Route::post('/Authentification.Seconnecter', [AuthController::class ,'authentica
 
 Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
 
+Route::get('/Authentification.liste', [AuthController::class, 'index'])->name('ListeEmployes');
+
+Route::resource('users', AuthController::class);
+
+Route::put('/users/{user}', [AuthController::class, 'update'])->name('users.update');
 
 //----------------------Touts les Route du client----------------------
 Route::get('/client.index', [ClientSideController::class,'index'])->name('electro.index');
@@ -80,9 +85,7 @@ Route::get('/client.stores', [ClientSideController::class,'showCat'])->name('ele
 Route::get('/client.layouts.header',[ClientSideController::class,'header'])->name('electro.header');
 
 //---------------------Route pour clientele-------------------
-// Route::get('/admin.clientele.liste', function () {
-//     return view('/admin.clientele.liste');
-// })->name('ListeClinet');
+
 Route::get('/admin.clientele.liste',[ClientController::class,'index'])->name('clientele.index');
 Route::post('/admin.clientele.liste',[ClientController::class,'store'])->name('clientele.store');
 Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])->name('clientele.update');

@@ -8,6 +8,44 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        $users = User::all();
+        return view('Authentification.liste', compact('users'));
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('ListeEmployes')->with('success', 'Utilisateur supprimé avec succès');
+    }
+    public function update(Request $request, User $user)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'prenom' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255',
+        'tel' => 'required|string|max:15',
+        'adresse' => 'required|string|max:255',
+        'type_user' => 'required|string',
+        'civilite' => 'required|string',
+    ]);
+
+    $user->update([
+        'name' => $request->name,
+        'prenom' => $request->prenom,
+        'email' => $request->email,
+        'tel' => $request->tel,
+        'adresse' => $request->adresse,
+        'type_user' => $request->type_user,
+        'civilite' => $request->civilite,
+    ]);
+
+    return redirect()->back()->with('success', 'Utilisateur mis à jour avec succès.');
+}
+
     public function register()
     {
         return view('Authentification.Inscrire');

@@ -85,8 +85,11 @@
 											<a href="{{route('Seconnect')}}">Connexion</a>
 										</li>
                                         @endguest
-										<li>
+										<li> 
 											<a href="{{route('Inscription')}}">Inscription</a>
+										</li>
+										<li> 
+											<a href="{{route('ListeEmployes')}}">Employes</a>
 										</li>
 									</ul>
 								</div>
