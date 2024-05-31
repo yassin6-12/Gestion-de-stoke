@@ -44,7 +44,7 @@
 											<a href="{{route('Produit.create')}}">Ajouter Produit</a>
 										</li>
 										<li>
-											<a href="#">Supprimer Produit</a>
+											<a href="{{route('EditeProduit')}}">Modifier Produit</a>
 										</li>
 
 									</ul>
@@ -107,7 +107,7 @@
 											<a href="{{route('clientele.index')}}">Liste des clients</a>
 										</li>
 										<li>
-											<a href="#">Inscription</a>
+											<a href="#">Historique</a>
 										</li>
 									</ul>
 								</div>
