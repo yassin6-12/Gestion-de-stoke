@@ -22,7 +22,7 @@
 									<div class="sale-details">
 										<h5>Products</h5>
 										<h3 class="text-blue">2,567</h3>
-										<p class="growth text-blue">Increased 21%</p>
+										<p class="growth text-blue">Increased 22%</p>
 									</div>
 								</div>
 							</div>
