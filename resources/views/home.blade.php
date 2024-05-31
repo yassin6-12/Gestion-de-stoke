@@ -17,7 +17,7 @@
 							<div class="col-sm-4 col-12">
 								<div class="stats-tile">
 									<div class="sale-icon-bdr">
-										<i class="bi bi-pie-chart"></i>
+										<i class="bi bi-bag"></i>
 									</div>
 									<div class="sale-details">
 										<h5>Products</h5>
@@ -41,7 +41,7 @@
 							<div class="col-sm-4 col-12">
 								<div class="stats-tile">
 									<div class="sale-icon-bdr">
-										<i class="bi bi-box-seam"></i>
+										<i class="bi bi-person-lines-fill"></i>
 									</div>
 									<div class="sale-details">
 										<h5>Gestionnaire</h5>
@@ -90,11 +90,11 @@
 												<div class="stats-tile2-container">
 													<div class="stats-tile2">
 														<div class="sale-icon">
-															<i class="bi bi-pie-chart text-blue"></i>
+															<i class="bi bi-pie-chart text-yellow"></i>
 														</div>
 														<div class="sale-details">
-															<h5>Current Customers</h5>
-															<p class="growth">Active 74%</p>
+															<h5>Clients</h5>
+															<p class="growth">{{$clientcount}}</p>
 														</div>
 													</div>
 													<div class="stats-tile2">
@@ -102,17 +102,17 @@
 															<i class="bi bi-pie-chart text-green"></i>
 														</div>
 														<div class="sale-details">
-															<h5>New Customers</h5>
-															<p class="growth">Increased 21%</p>
+															<h5>Gestionnaire</h5>
+															<p class="growth">{{$gestcount}}</p>
 														</div>
 													</div>
 													<div class="stats-tile2">
 														<div class="sale-icon">
-															<i class="bi bi-pie-chart text-red"></i>
+															<i class="bi bi-pie-chart text-blue"></i>
 														</div>
 														<div class="sale-details">
-															<h5>Targeted Customers</h5>
-															<p class="growth ">Increased 38%</p>
+															<h5>Admins</h5>
+															<p class="growth ">{{$admincount}}</p>
 														</div>
 													</div>
 												</div>
@@ -208,45 +208,19 @@
 									</div>
 									<div class="card-body">
 										<div id="tagscloud">
-											<a href="analytics.html" class="tagc1">Analytics</a>
-											<a href="tasks-html" class="tagc2">Tasks</a>
-											<a href="index.html" class="tagc3">Sales</a>
-											<a href="#" class="tagc4">Bootstrap</a>
-											<a href="#" class="tagc1">Scss</a>
-											<a href="#" class="tagc2">Bootstrap</a>
-											<a href="index.html" class="tagc3">Admin</a>
-											<a href="index.html" class="tagc4">Dashboard</a>
-											<a href="#" class="tagc1">Creative</a>
-											<a href="#" class="tagc2">Rising Stars</a>
-											<a href="analytics.html" class="tagc3">BS Admin</a>
-											<a href="#" class="tagc4">Top Rated</a>
-											<a href="#" class="tagc1">Admin</a>
-											<a href="#" class="tagc2">Creative</a>
-											<a href="#" class="tagc3">Best Selling</a>
-											<a href="#" class="tagc4">Awesome</a>
-											<a href="#" class="tagc1">jQuery</a>
-											<a href="#" class="tagc2">Hot Under $19</a>
-											<a href="tasks.html" class="tagc3">High</a>
-											<a href="#" class="tagc4">Low Price</a>
-											<a href="#" class="tagc1">Top Selling</a>
-											<a href="index.html" class="tagc2">Best Admin</a>
-											<a href="#" class="tagc3">Popular</a>
-											<a href="#" class="tagc1">Best Sellers</a>
-											<a href="ecommerce.html" class="tagc2">eCommerce</a>
-											<a href="analytics.html" class="tagc3">Analytics</a>
-											<a href="#" class="tagc4">Rising Stars</a>
-											<a href="tasks.html" class="tagc1">Crm</a>
-											<a href="#" class="tagc2">Sass</a>
-											<a href="#" class="tagc3">Template Monster</a>
-											<a href="index.html" class="tagc4">Dashboard</a>
-											<a href="#" class="tagc1">Admin</a>
-											<a href="analytics.html" class="tagc2">Creative</a>
-											<a href="#" class="tagc3">Template Monster</a>
-											<a href="#" class="tagc4">Theme</a>
-											<a href="#" class="tagc1">Dashboard</a>
-											<a href="#" class="tagc2">Rising stars</a>
-											<a href="#" class="tagc3">Template</a>
-											<a href="ecommerce.html" class="tagc4">Top Rated</a>
+											<a href="analytics.html" class="tagc1">Liste des clients</a>
+											<a href="/produit" class="tagc4">Liste des Produits</a>
+											<a href="/produit/create" class="tagc3">Ajouter Produit</a>
+											<a href="/catégorie" class="tagc4">Liste des catégories</a>
+											<a href="/catégorie/create" class="tagc5">Ajouter Catégorie</a>
+											<a href="/Authentification.Inscrire" class="tagc3">Inscription</a>
+											<a href="/" class="tagc2">Dashboard</a>
+                                            <a href="/Authentification.Inscrire" class="tagc3">Inscription</a>
+											<a href="/admin.stocks.liste" class="tagc1">Liste des stocks</a>
+											<a href="/Authentification.Seconnecter" class="tagc2">Connexion</a>
+                                            <a href="/" class="tagc2">Dashboard</a>
+											<a href="/Authentification.liste" class="tagc1">Employés</a>
+											<a href="/" class="tagc1">Dashboard</a>
 										</div>
 									</div>
 								</div>
