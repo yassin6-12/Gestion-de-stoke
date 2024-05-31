@@ -44,7 +44,7 @@
 											<a href="{{route('Produit.create')}}">Ajouter Produit</a>
 										</li>
 										<li>
-											<a href="#">Supprimer Produit</a>
+											<a href="{{route('EditeProduit')}}">Modifier Produit</a>
 										</li>
 
 									</ul>
