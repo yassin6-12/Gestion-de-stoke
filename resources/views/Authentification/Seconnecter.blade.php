@@ -78,7 +78,7 @@
                         @enderror
                     </div>
 					<div class="login-form-actions">
-						<a href="forgot-password.html" class="btn-link ml-auto">Mot de passe oublié ?</a>
+						<a href="forgot-password" class="btn-link ml-auto">Mot de passe oublié ?</a>
 						<button type="submit" name="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
 							Connectez-vous</button>
 					</div>

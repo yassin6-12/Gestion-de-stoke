@@ -110,4 +110,5 @@ Route::get('/admin.stocks.getCustomers',[ClientController::class,'getCustomers']
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
+
 //require __DIR__.'/auth.php';
