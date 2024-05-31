@@ -208,7 +208,7 @@
 									</div>
 									<div class="card-body">
 										<div id="tagscloud">
-											<a href="analytics.html" class="tagc1">Liste des clients</a>
+											<a href="/admin.clientele.liste" class="tagc1">Liste des clients</a>
 											<a href="/produit" class="tagc4">Liste des Produits</a>
 											<a href="/produit/create" class="tagc3">Ajouter Produit</a>
 											<a href="/catégorie" class="tagc4">Liste des catégories</a>
