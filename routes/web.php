@@ -29,13 +29,6 @@ Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store'
 Route::get('/produit.edite', [ProduitController::class, 'showProducts'])->name('EditeProduit');
 Route::put('/products/{id}', [ProduitController::class, 'updateProduct'])->name('products.update');
 Route::delete('/products/{id}', [ProduitController::class, 'destroyProduct'])->name('products.destroy');
-// Route::get('/produit.edite', function () {
-//     return view('/produit.edite');
-// })->name('EditeProduit');
-
-Route::get('/produit.edite', function () {
-    return view('/produit.edite');
-})->name('EditeProduit');
 Route::get('/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
 Route::get('/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
 
