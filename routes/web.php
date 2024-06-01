@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
@@ -24,6 +23,18 @@ Route::get('/produit', [ProduitController::class,'index'])->name('produit.index'
 Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit.create');
 Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
 Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
+Route::get('/produit.edite', [ProduitController::class,'showProducts'])->name('EditeProduit');
+Route::put('/products/{id}', [ProduitController::class,'updateProduct'])->name('products.update');
+Route::delete('/products/{id}', [ProduitController::class,'destroyProduct'])->name('products.destroy');
+// Route::get('/produit.edite', function () {
+//     return view('/produit.edite');
+// })->name('EditeProduit');
+// Route::get('/produit.edite', function () {
+//     return view('/produit.edite');
+// })->name('EditeProduit');
+Route::get('/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
+Route::get('/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
+
 Route::get('/produit.edite', [ProduitController::class, 'showProducts'])->name('EditeProduit');
 Route::put('/products/{id}', [ProduitController::class, 'updateProduct'])->name('products.update');
 Route::delete('/products/{id}', [ProduitController::class, 'destroyProduct'])->name('products.destroy');

@@ -16,7 +16,9 @@ class ProduitController extends Controller
     public function showProducts()
 {
     $products = Produit::paginate(10);
-    return view('produit.edite', compact('products'));
+    return view('/produit.edite',[
+        'products'=>$products
+    ]);
 }
     /**
      * Display a listing of the resource.
@@ -56,7 +58,7 @@ class ProduitController extends Controller
             'produit_min_qt'        =>['required'],
             'category_of_produit'   =>[Rule::notIn('0')],
             'images'                  =>['required'],
-        ]); 
+        ]);
 
         $images = NULL;
 
@@ -75,7 +77,7 @@ class ProduitController extends Controller
             }
 
             $images = json_encode($arrayImages);
-        
+
             $produit = new Produit();
             $produit->nom           = $request->input('product_name');
             $produit->prix          = $request->input('product_price');
@@ -94,18 +96,18 @@ class ProduitController extends Controller
             return to_route('produit.index');
       }
       else{
-        
+
         return to_route('Produit.create');
       }
-        
-        
+
+
         /*Gallery::create([
             'name'  => $name,
             'images' => $json,
         ]);*/
-        
-        
-        
+
+
+
     }
 
     /**
@@ -125,7 +127,7 @@ class ProduitController extends Controller
      */
     public function edit(string $id)
     {
-        $produit= produit::find($id);
+        $produit= Produit::find($id);
         return view('produit.edite' ,['prd'=>$produit]);
     }
 
@@ -143,7 +145,7 @@ class ProduitController extends Controller
         $product->remise = $request->input('product-discount');
         $product->save();
 
-        return redirect()->route('EditeProduit')->with('success', 'Produit mis à jour avec succès');
+        return redirect()->route('EditeProduit')->with('updateprod', 'Produit mis à jour avec succès');
     }
     /**
      * Remove the specified resource from storage.
@@ -153,7 +155,7 @@ class ProduitController extends Controller
         $product = Produit::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('EditeProduit')->with('success', 'Produit supprimé avec succès');
+        return redirect()->route('EditeProduit')->with('deletprod', 'Produit supprimé avec succès');
     }
     // method panier for produit.panier
 
@@ -182,5 +184,5 @@ class ProduitController extends Controller
             'detailsProduit'    => $detailsProduit
         ]);
     }
-    
+
 }

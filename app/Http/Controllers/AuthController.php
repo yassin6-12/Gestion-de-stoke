@@ -19,9 +19,9 @@ class AuthController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('ListeEmployes')->with('success', 'Utilisateur supprimé avec succès');
+        return redirect()->route('ListeEmployes')->with('deletemp', 'Utilisateur supprimé avec succès');
     }
-    public function update(Request $request, User $user)
+    public function update( User $user,Request $request,)
 {
     $request->validate([
         'name' => 'required|string|max:255',
@@ -43,7 +43,7 @@ class AuthController extends Controller
         'civilite' => $request->civilite,
     ]);
 
-    return redirect()->back()->with('success', 'Utilisateur mis à jour avec succès.');
+    return redirect()->back()->with('updateEmp', 'Utilisateur mis à jour avec succès.');
 }
 
     public function register()
