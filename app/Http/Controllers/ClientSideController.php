@@ -96,8 +96,45 @@ class ClientSideController extends Controller
         ]);
     }
 
-    public function stores(){
-       
-        return view('/client.stores');
+    public function showCat(Request $request){
+        $allCats = Categorie::all();
+        $allProducts = produit::all();
+
+        // get the category value
+        $category = NULL;
+        if($request->has('category')){
+            $category  = Categorie::find($request->input('category'));
+        }
+
+        // get the prices 
+        $min_price = NULL;
+        $max_price = NULL;
+        if($request->has('min_price') && $request->has('max_price')){
+            $min_price = $request->input('min_price');
+            $max_price = $request->input('max_price');
+        }
+        // filter the products with category type and prices 
+        $filterProducts = NULL;
+        if($category || $min_price || $max_price){
+            if($category && $min_price && $max_price){
+                $filterProducts = produit::where('categorie_id',$category->id)
+                        ->whereBetween('prix',[$min_price,$max_price])
+                        ->get();
+            }
+            elseif($category){
+                $filterProducts = produit::where('categorie_id',$category->id)->get();
+            }else if($min_price && $max_price){
+                $filterProducts = produit::whereBetween('prix',[$min_price,$max_price])->get();
+            }
+            
+        }
+
+        return view('/client.stores',[
+            'allCats'       => $allCats,
+            'allProducts'   => $allProducts,
+            'filterProducts'=> $filterProducts,
+            'category'      => $category
+            ]
+        );
     }
 }

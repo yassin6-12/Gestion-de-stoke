@@ -21,7 +21,7 @@
 								</div>
 								<div class="shop-body">
 									<h3 class="text-capitalize">{{$category->nom}}<br>Collection</h3>
-									<a href="" class="cta-btn text-decoration-none">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+									<a href="{{route('electro.stores',['category'=>$category->id])}}" class="cta-btn text-decoration-none">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>

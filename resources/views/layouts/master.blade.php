@@ -16,7 +16,11 @@
 		<meta property="og:type" content="Website">
 		<meta property="og:site_name" content="Bootstrap Gallery">
 		<link rel="shortcut icon" href="assets/images/favicon.svg">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-72x72-precomposed.png" sizes="72x72">
+        <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-114x114-precomposed.png" sizes="114x114">
+        <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-144x144-precomposed.png" sizes="144x144">
+        <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://public-assets.envato-static.com/icons/themeforest.net/apple-touch-icon-precomposed.png">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<!-- Title -->
@@ -41,7 +45,7 @@
 		<link rel="stylesheet" href="{{asset('assets/css/master.css')}}">
 
 
-		
+
 
 		<!-- *************
 			************ Vendor Css Files *************
@@ -56,7 +60,7 @@
 	</head>
 
 	<body>
-
+        @apexchartsScripts
 		<!-- Page wrapper start -->
 		<div class="page-wrapper">
 
@@ -85,9 +89,9 @@
 						</li>
 						<li class="breadcrumb-item breadcrumb-active" aria-current="page">eCommerce</li>
 					</ol> --}}
-                   
+
                         @yield('breadcrumb')
-                   
+
 					<!-- Breadcrumb end -->
 
 					<!-- Header actions ccontainer start -->
@@ -498,6 +502,7 @@
 		<script src="{{asset('assets/vendor/apex/custom/ecommerce/orders-visits.js')}}"></script>
 		<script src="{{asset('assets/vendor/apex/custom/ecommerce/visitors.js')}}"></script>
 		<script src="{{asset('assets/vendor/apex/custom/ecommerce/customers.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 		<!-- jQcloud Keywords -->
 		<script src="{{asset('assets/vendor/tagsCloud/tagsCloud.js')}}"></script>
@@ -509,12 +514,11 @@
 		<script src="{{asset('assets/vendor/jvectormap/custom/world-map-markers2.js')}}"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		
+
 		<!-- Main Js Required -->
 		<script src="{{asset('assets/js/main.js')}}"></script>
-		
-		@yield('script')
 
+		@yield('script')
 	</body>
 
 </html>

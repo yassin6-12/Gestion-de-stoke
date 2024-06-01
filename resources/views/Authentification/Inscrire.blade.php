@@ -18,7 +18,7 @@
     @else
         <h2>Inscription Client</h2>
     @endif
-    
+
     <form class="form mt-5" action="{{ route('Inscription.new') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -75,9 +75,9 @@
             <div class="form-group">
                 <label for="type_user">Type</label>
                 <select name="type_user" id="type_user" class="form-select">
-                    <option hidden>Chose the type</option>
+                    <option hidden>Choisissez le type d'utilisateur</option>
                     <option value="admin">Admin</option>
-                    <option value="gestionaire">Gestionaire</option>
+                    <option value="gestionaire">Gestionnaire</option>
                 </select>
                 @error('type_user')
                     <span class="d-block fs-6 text-danger mt-2">{{ $message }} </span>

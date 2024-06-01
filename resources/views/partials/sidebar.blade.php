@@ -13,7 +13,8 @@
 					<div class="sidebarMenuScroll">
 						<ul>
 							{{-- Domicile --}}
-							<li class="sidebar-dropdown active">
+                            @auth
+							    <li class="sidebar-dropdown active">
 								<a href="#">
 									<i class="bi bi-house"></i>
 									<span class="menu-text">Domicile</span>
@@ -28,9 +29,11 @@
 										</li>
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- Produit --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-handbag"></i>
 									<span class="menu-text">Produit</span>
@@ -44,15 +47,19 @@
 											<a href="{{route('Produit.create')}}">Ajouter Produit</a>
 										</li>
 										<li>
-											<a href="#">Supprimer Produit</a>
+											<a href="{{route('EditeProduit')}}">Modifier Produit</a>
+										</li>
+										<li>
+											<a href="{{route('produit.ventes')}}">Ventes Produit</a>
 										</li>
 
 									</ul>
 								</div>
-							</li>
-
+							    </li>
+                            @endauth
 							{{-- Catégorie --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 
 									<i class="bi bi-folder"></i>
@@ -71,7 +78,8 @@
 
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- Authentication --}}
 							<li class="sidebar-dropdown">
 								<a href="#">
@@ -85,31 +93,39 @@
 											<a href="{{route('Seconnect')}}">Connexion</a>
 										</li>
                                         @endguest
-										<li>
-											<a href="{{route('Inscription')}}">Inscription</a>
-										</li>
+										    <li>
+											    <a href="{{route('Inscription')}}">Inscription</a>
+										    </li>
+                                        @auth
+										    <li>
+											    <a href="{{route('ListeEmployes')}}">Employes</a>
+										    </li>
+                                        @endauth
 									</ul>
 								</div>
 							</li>
 							{{-- Clientèle --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-people"></i>
 									<span class="menu-text">Clientèle</span>
 								</a>
 								<div class="sidebar-submenu">
-									<ul> 
+									<ul>
 										<li>
 											<a href="{{route('clientele.index')}}">Liste des clients</a>
 										</li>
 										<li>
-											<a href="#">Inscription</a>
+											<a href="#">Historique</a>
 										</li>
 									</ul>
 								</div>
-							</li>
+							    </li>
+                            @endauth
 							{{-- Inventaire --}}
-							<li class="sidebar-dropdown">
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-bar-chart"></i>
 									<span class="menu-text">Inventaire</span>
@@ -124,8 +140,9 @@
 										</li>
 									</ul>
 								</div>
-							</li>
-							<li class="sidebar-dropdown">
+							    </li>
+                            @endauth
+							{{-- <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-collection"></i>
 									<span class="menu-text">UI Elements</span>
@@ -179,8 +196,9 @@
 										</li>
 									</ul>
 								</div>
-							</li>
-							<li class="sidebar-dropdown">
+							</li> --}}
+                            @auth
+							    <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-stickies"></i>
 									<span class="menu-text">Pages</span>
@@ -188,33 +206,31 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="create-invoice.html">Create Invoice</a>
+											<a href="pricing.html">Profile</a>
 										</li>
 										<li>
-											<a href="view-invoice.html">View Invoice</a>
+											<a href="/Profile">Account Settings</a>
 										</li>
 										<li>
-											<a href="invoice-list.html">Invoice List</a>
+											<a href="/admin.clientele.liste">Clients</a>
 										</li>
 										<li>
-											<a href="subscribers.html">Subscribers</a>
+											<a href="/Authentification.liste">Employes</a>
 										</li>
 										<li>
-											<a href="contacts.html">Contacts</a>
+											<a href="/admin.stocks.liste">Stocks</a>
 										</li>
 										<li>
-											<a href="pricing.html">Pricing</a>
+											<a href="/produit">Products</a>
 										</li>
 										<li>
-											<a href="profile.html">Profile</a>
-										</li>
-										<li>
-											<a href="account-settings.html">Account Settings</a>
+											<a href="/catégorie">Categories</a>
 										</li>
 									</ul>
 								</div>
-							</li>
-							<li class="sidebar-dropdown">
+							    </li>
+                            @endauth
+							{{-- <li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-calendar4"></i>
 									<span class="menu-text">Calendars</span>
@@ -347,4 +363,4 @@
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div> --}}

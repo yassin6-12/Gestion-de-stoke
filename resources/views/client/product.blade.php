@@ -13,8 +13,8 @@
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
 							<li><a href="{{route('electro.index')}}" class="text-decoration-none">Home</a></li>
-							<li><a href="#" class="text-decoration-none">All Categories</a></li>
-							<li><a href="{{route('electro.stores')}}" class="text-decoration-none">{{$category->nom}}</a></li>
+							<li><a href="{{route('electro.stores')}}" class="text-decoration-none">All Categories</a></li>
+							<li><a href="{{route('electro.stores',['category'=>'phone'])}}" class="text-decoration-none">{{$category->nom}}</a></li>
 							<li class="active">{{$product->nom}}</li>
 						</ul>
 					</div>

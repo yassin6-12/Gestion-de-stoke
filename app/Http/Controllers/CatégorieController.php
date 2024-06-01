@@ -8,17 +8,17 @@ use App\Http\Controllers\view;
 class CatégorieController extends Controller
 {
 //     /
-     
+
 // Display a listing of the resource.*/
   public function index(){
-      
+
     $categories = Categorie::all();
-      
+
     return view('catégorie.index',compact('categories'));
   }
 
 //     /
-     
+
 // Show the form for creating a new resource.*/
   public function create(){
 
@@ -26,18 +26,18 @@ class CatégorieController extends Controller
   }
 
 //     /
-     
+
 // Store a newly created resource in storage./
   public function store(Request $request)
   {
       request()->validate([
-        'categorie_name'=>['required','min:3']
+        'categorie_name'=>['required','min:2']
       ]);
     //   /$cat= $request->input('categorie_name');
     //   dd($cat );*/
-      
 
-        
+
+
       $image = NULL;
 
       if($request->hasFile('file')){
@@ -50,13 +50,13 @@ class CatégorieController extends Controller
         $filename = time().'-'.rand(0,99).'.'.$extension;
         $file->move($uploadPath,$filename);
         $filename = "uploads/gallery/".$filename;
-             
+
         $image = $filename;
-        
+
       }
-        
+
       $name = $request->input('categorie_name');
-        
+
         /*Gallery::create([
             'name'  => $name,
             'images' => $json,
@@ -65,17 +65,17 @@ class CatégorieController extends Controller
         $categorie->nom = $name;
         $categorie->photo = $image;
         $categorie->save();
-        
+
         return to_route('catégorie.index');
       }
-     
+
 // Display the specified resource.
   public function show(string $id){
-    
+
   }
 
-    
-     
+
+
 // Show the form for editing the specified resource.
   public function edit(string $id){
     $categorie= categorie::find($id);
@@ -83,7 +83,7 @@ class CatégorieController extends Controller
     }
 
 
-     
+
 // Update the specified resource in storage.
   public function update(Request $request, string $id){
     $categorie = categorie::find($id);$categorie->id = $request -> input('categorie_Id');$categorie->nom = $request -> input('categorie_name');$categorie -> save();
@@ -91,10 +91,10 @@ class CatégorieController extends Controller
 
     }
 
-    
-     
+
+
 // Remove the specified resource from storage.
-   
+
   public function destroy(string $id)
   {
 

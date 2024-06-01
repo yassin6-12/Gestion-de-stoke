@@ -5,8 +5,8 @@
             <i class="bi bi-house"></i>
             <a href="/">Domicile</a>
         </li>
-        <li class="breadcrumb-item">Catégorie</li>
-        <li class="breadcrumb-item breadcrumb-active" aria-current="page">retours</li>
+        <li class="breadcrumb-item">Clientele</li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="page">Liste des client</li>
     </ol>
 @endsection
 @section('main')
@@ -36,17 +36,17 @@
               <form action="{{route('clientele.store')}}" method="POST" id="form-add-client" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
-                    <label class="fw-bold my-2">Nom d'utilisateur</label>
+                    <label class="fw-bold my-2">Nom de Client</label>
                     <input type="text" name="client-username" class="form-control">
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-md-6">
-                        <label class="fw-bold my-2">Profil des clients</label>
+                        <label class="fw-bold my-2">Photo de Client</label>
                         <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label class="fw-bold my-2">Villes</label>
+                    <label class="fw-bold my-2">Ville</label>
                     <input type="text" name="ville" id="ville" class="form-control">
                 </div>
                 <div class="row mb-4">
@@ -63,7 +63,7 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
               <button type="button" id="submit-add-client" class="btn btn-primary">Ajouter</button>
             </div>
           </div>
@@ -96,7 +96,7 @@
                         @endphp
                         <img src="{{$imageUrl}}" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
                       @endif
-                      
+
                       <span>
                           @if (!empty($client->name))
                             {{$client->name}}
@@ -113,10 +113,10 @@
               <td style="vertical-align: middle;">{{$client->tel}}</td>
               <td style="vertical-align: middle;">{{$client->city}}</td>
               <td style="vertical-align: middle;">0</td>
-              <td style="vertical-align: middle;"> 
+              <td style="vertical-align: middle;">
                 <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditClient-{{$client->id}}">
                   <i class="bi bi-pencil"></i>
-                </button> 
+                </button>
 
                 <div class="modal fade mt-5" id="ModalEditClient-{{$client->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -146,7 +146,7 @@
                           <div class="row mb-4">
                               <div class="col-12 col-md-6">
                                   <label class="fw-bold my-2">Email</label>
-                                  
+
                                   <input type="email" name="email" id="email" value="@if (!empty($client->email))
                                       {{$client->email}}
                                   @endif" class="form-control">
@@ -156,7 +156,7 @@
                                   <input type="tel" name="phone" id="phone" value="{{$client->tel}}" class="form-control">
                               </div>
                           </div>
-          
+
                         </form>
                       </div>
                       <div class="modal-footer">

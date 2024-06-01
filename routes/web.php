@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ClientSideController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RetourProduitController;
 use App\Http\Controllers\stocksretourController;
@@ -14,29 +15,34 @@ use App\Models\Client;
 use App\Models\produit;
 use App\Models\Vente;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StockController;
 
 
-Route::get('/', function (){
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class,'Home'])->name('home');
 //produits
 Route::get('/produit', [ProduitController::class,'index'])->name('produit.index');
 Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit.create');
 Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
 Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
-// panier
-// Route::get('/produit.Panier', function () {
-//     return view('/produit.Panier');
-// })->name('panier');
-Route::get('produit.Panier',[VenteController::class,'panier'])->name('panier');
-// Route::get('/produit.facture', function () {
-//     return view('/produit.facture');
-// })->name('facture');
-Route::post('/produit.facture',[VenteController::class,'facture'])->name('facture');
+<<<<<<< Updated upstream
 
-// Route::get('/produit.Dfacture', function () {
-//     return view('/produit.Dfacture');
-// })->name('dfacture');
+Route::get('/produit.edite', [ProduitController::class, 'showProducts'])->name('EditeProduit');
+Route::put('/products/{id}', [ProduitController::class, 'updateProduct'])->name('products.update');
+Route::delete('/products/{id}', [ProduitController::class, 'destroyProduct'])->name('products.destroy');
+// Route::get('/produit.edite', function () {
+//     return view('/produit.edite');
+// })->name('EditeProduit');
+=======
+Route::get('/produit.edite', function () {
+    return view('/produit.edite');
+})->name('EditeProduit');
+Route::get('/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
+Route::get('/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
+>>>>>>> Stashed changes
+// panier
+Route::get('produit.Panier',[VenteController::class,'panier'])->name('panier');
+
+Route::post('/produit.facture',[VenteController::class,'facture'])->name('facture');
 
 Route::post('/produit.Dfacture',[VenteController::class,'dfacture'])->name('dfacture');
 
@@ -67,25 +73,33 @@ Route::post('/Authentification.Seconnecter', [AuthController::class ,'authentica
 
 Route::post('/logout', [AuthController::class ,'logout'])->name('logout');
 
+Route::get('/Authentification.liste', [AuthController::class, 'index'])->name('ListeEmployes');
+
+Route::resource('users', AuthController::class);
+
+Route::put('/users/{user}', [AuthController::class, 'update'])->name('users.update');
 
 //----------------------Touts les Route du client----------------------
 Route::get('/client.index', [ClientSideController::class,'index'])->name('electro.index');
+// show products
 Route::get('/client.product/{product}', [ClientSideController::class,'show'])->name('electro.show');
-Route::get('/client.stores', [ClientSideController::class,'stores'])->name('electro.stores');
+// show all categories
+Route::get('/client.stores', [ClientSideController::class,'showCat'])->name('electro.stores');
+
+// header
 Route::get('/client.layouts.header',[ClientSideController::class,'header'])->name('electro.header');
 
 //---------------------Route pour clientele-------------------
-// Route::get('/admin.clientele.liste', function () {
-//     return view('/admin.clientele.liste');
-// })->name('ListeClinet');
+
 Route::get('/admin.clientele.liste',[ClientController::class,'index'])->name('clientele.index');
 Route::post('/admin.clientele.liste',[ClientController::class,'store'])->name('clientele.store');
 Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])->name('clientele.update');
 Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destroy'])->name('clientele.destroy');
 //---------------------Route pour inventaire-------------------
-Route::get('/admin.stocks.liste', function () {
-    return view('/admin.stocks.liste');
-})->name('StocksListe');
+// Route::get('/admin.stocks.liste', function () {
+//     return view('/admin.stocks.liste');
+// })->name('StocksListe');
+Route::get('/admin.stocks.liste', [StockController::class,'index'])->name('StocksListe');
 
 // Route::get('/admin.stocks.retour', function () {
 //     return view('/admin.stocks.retour');
@@ -110,5 +124,6 @@ Route::get('/admin.stocks.getCustomers',[ClientController::class,'getCustomers']
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
+
 
 //require __DIR__.'/auth.php';
