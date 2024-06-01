@@ -107,7 +107,7 @@
 															$firstImage = json_decode($product->images)[0];
 														@endphp
 														<div class="product-list-block">
-															<img class="product-list-img" style="width:100px;" src="{{asset($firstImage)}}" alt="Moonlight Admin">
+															<img src="{{asset('storage/' .$firstImage)}}" alt="Admin Templates" class="product-list-img" style="width:100px;">
 															<div class="product-list-details">
 																<h5 class="product-list-title">{{$product->nom}}</h5>
 																<div class="product-list-price">${{$product->prix - ($product->prix * $product->remise/100)}} * {{$quantities[$i]}}</div>

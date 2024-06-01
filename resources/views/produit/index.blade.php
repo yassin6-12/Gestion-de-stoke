@@ -29,7 +29,8 @@
                                <div class="card">
                                 <div class="card-body">
                                     <a href="{{route('Produit.show',$cat->nom)}}" class="gallery-item card-img-top mb-3">
-                                        <img src="{{asset($cat->photo)}}" alt="Image {{$cat->id}}" style="height:200px;object-fit:contain" />
+                                        {{-- <img src="{{asset($cat->photo)}}" alt="Image {{$cat->id}}" style="height:200px;object-fit:contain" /> --}}
+                                        <img src="{{asset('storage/' . ($cat->photo ? $cat->photo : 'photos/default.png'))}}" alt="Admin Templates" style="height:200px;object-fit:contain">
                                     </a>
                                     <h3 class="card-title text-center text-capitalize">{{$cat->nom}}</h3>
                                 </div>

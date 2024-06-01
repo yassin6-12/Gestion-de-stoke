@@ -64,15 +64,11 @@ class ProduitController extends Controller
 
       if($request->hasFile('images')){
 
-            $uploadPath = 'uploads/gallery/';
 
             $files = $request->file('images');
             $arrayImages = array();
             foreach($files as $file){
-                $extension = $file->getClientOriginalExtension();
-                $filename = time().'-'.rand(0,99).'.'.$extension;
-                $file->move($uploadPath,$filename);
-                $filename = "uploads/gallery/".$filename;
+                $filename = $file->store('uploads','public');
                 array_push($arrayImages,$filename);
             }
 
