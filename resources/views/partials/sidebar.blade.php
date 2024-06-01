@@ -49,6 +49,9 @@
 										<li>
 											<a href="{{route('EditeProduit')}}">Modifier Produit</a>
 										</li>
+										<li>
+											<a href="{{route('produit.ventes')}}">Ventes Produit</a>
+										</li>
 
 									</ul>
 								</div>
