@@ -33,9 +33,9 @@ Route::delete('/products/{id}', [ProduitController::class, 'destroyProduct'])->n
 //     return view('/produit.edite');
 // })->name('EditeProduit');
 
-Route::get('/produit.edite', function () {
-    return view('/produit.edite');
-})->name('EditeProduit');
+// Route::get('/produit.edite', function () {
+//     return view('/produit.edite');
+// })->name('EditeProduit');
 Route::get('/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
 Route::get('/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
 
