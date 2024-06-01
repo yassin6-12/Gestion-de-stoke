@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\view;
 use App\Http\Controllers\save;
 use App\Models\Categorie;
+<<<<<<< Updated upstream
+=======
+use App\Models\LigneVente;
+>>>>>>> Stashed changes
 use Illuminate\Validation\Rule;
 // use WpOrg\Requests\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -154,5 +158,31 @@ class ProduitController extends Controller
         return redirect()->route('EditeProduit')->with('success', 'Produit supprimé avec succès');
     }
     // method panier for produit.panier
+
+    // methode ventes pour les details de vente de chaque produit
+    public function ventes(){
+        // tous les produits vendus
+        $produitsVentes = LigneVente::select('id_produit')->distinct()->get();
+
+        $produits = Produit::whereIn('id', $produitsVentes)->get();
+
+        return view('/produit.ventes',[
+            'produits' => $produits
+        ]);
+    }
+
+    public function venteDetails($produit){
+        $produit = Produit::find($produit);
+        $detailsProduit = LigneVente::select('ligne_ventes.id as ligne_id','ligne_ventes.quantite', 'ligne_ventes.created_at as ligne_at', 'clients.nom_utilisateur')
+            ->join('ventes', 'ligne_ventes.id_vente', '=', 'ventes.id')
+            ->join('clients', 'ventes.id_client', '=', 'clients.id')
+            ->where('ligne_ventes.id_produit',$produit->id)
+            ->get();
+
+        return view('/produit.venteDetails',[
+            'produit'   => $produit,
+            'detailsProduit'    => $detailsProduit
+        ]);
+    }
     
 }
