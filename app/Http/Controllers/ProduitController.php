@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\view;
 use App\Http\Controllers\save;
 use App\Models\Categorie;
-<<<<<<< Updated upstream
-=======
 use App\Models\LigneVente;
->>>>>>> Stashed changes
 use Illuminate\Validation\Rule;
 // use WpOrg\Requests\Auth;
 use Illuminate\Support\Facades\Auth;
