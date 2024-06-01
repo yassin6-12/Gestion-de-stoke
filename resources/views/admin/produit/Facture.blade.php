@@ -110,7 +110,7 @@
 															<img src="{{asset('storage/' .$firstImage)}}" alt="Admin Templates" class="product-list-img" style="width:100px;">
 															<div class="product-list-details">
 																<h5 class="product-list-title">{{$product->nom}}</h5>
-																<div class="product-list-price">${{$product->prix - ($product->prix * $product->remise/100)}} * {{$quantities[$i]}}</div>
+																<div class="product-list-price"> {{$product->prix - ($product->prix * $product->remise/100)}} DA * {{$quantities[$i]}}</div>
 															</div>
 														</div>
 														@php

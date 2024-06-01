@@ -31,7 +31,7 @@
                                 <img src="{{asset('storage/' .$firstImage)}}" alt="Admin Templates">
                                 <div class="product-added-card-body">
                                     <h5 class="product-added-title">{{$produit->nom}}</h5>
-                                    <div class="product-added-price">$<span class="product-prix-unitaire">{{$produit->prix - ($produit->prix * $produit->remise/100)}}</span>
+                                    <div class="product-added-price">DA<span class="product-prix-unitaire">{{$produit->prix - ($produit->prix * $produit->remise/100)}}</span>
                                     </div>
                                     <div class="product-added-description">
                                         {{$produit->description}}
@@ -52,7 +52,7 @@
                     @endforeach
                     <div class="col-sm-12 col-12">
                         <div class="sub-total-container">
-                            <div class="total" >Order Total: $<span id="total-panier"></span></div>
+                            <div class="total" >Order Total: DA<span id="total-panier"></span></div>
                             
                             <form action="{{route('facture')}}" method="POST" id="form-panier-to-facture">
                                 @csrf
