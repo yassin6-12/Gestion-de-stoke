@@ -16,7 +16,9 @@ class ProduitController extends Controller
     public function showProducts()
 {
     $products = Produit::paginate(10);
-    return view('produit.edite', compact('products'));
+    return view('/produit.edite',[
+        'products'=>$products
+    ]);
 }
     /**
      * Display a listing of the resource.
