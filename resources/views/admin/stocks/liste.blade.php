@@ -39,9 +39,6 @@
                                 @php
                                     $image = json_decode($produit->images)[0];
                                 @endphp
-                                <pre>
-                                    {{$image}}
-                                </pre>
                                 <img src="{{asset('storage/' . $image)}}" alt="{{$produit->nom}}" class="img-thumbnail" width="50" style="margin-right: 10px;">
                             </div>
                         </td>
