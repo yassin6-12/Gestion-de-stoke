@@ -14,7 +14,7 @@
 
 @section('main')
 <div class="container">
-    <h2>Liste des achats de client</h2> 
+    <h2>Liste des achats de {{ $client->nom_utilisateur }}</h2> 
     <main class="container mt-5">
         <table class="table table-striped table-bordered">
             <thead>

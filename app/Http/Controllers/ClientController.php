@@ -10,6 +10,7 @@ class ClientController extends Controller
 {
     public function showAchats($clientId)
     {
+        $client = Client::findOrFail($clientId);
         $achats = LigneVente::join('ventes', 'ligne_ventes.id_vente', '=', 'ventes.id')
             ->join('produits', 'ligne_ventes.id_produit', '=', 'produits.id')
             ->join('categories', 'produits.categorie_id', '=', 'categories.id')
@@ -19,11 +20,12 @@ class ClientController extends Controller
                 'produits.nom as produit_nom',
                 'categories.nom as categorie_nom',
                 'ligne_ventes.created_at as date_achat',
-                'ligne_ventes.prix'
+                'ligne_ventes.prix',
+                'produits.images'
             )
             ->get();
 
-        return view('/admin.clientele.show', compact('achats'));
+        return view('/admin.clientele.show', compact('achats','client'));
     }
 
     public function index2(){
