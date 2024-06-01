@@ -16,7 +16,7 @@ class VenteController extends Controller
         $idProduits = json_decode($request->query('id_products'));
         $products = produit::whereIn('id',$idProduits)->get();
 
-        return view('/produit.Panier',['produits'=>$products]);
+        return view('/admin/produit.Panier',['produits'=>$products]);
 
     }
     public function facture(Request $request){
@@ -30,7 +30,7 @@ class VenteController extends Controller
         // get the last facture id from vente table
         $lastFacture = 0;
 
-        return view('/produit.facture',['products'=>$products,'quantities'=>$quantities,'clients'=>$clients,'lastFactureid'=>$lastFacture]);
+        return view('/admin/produit.facture',['products'=>$products,'quantities'=>$quantities,'clients'=>$clients,'lastFactureid'=>$lastFacture]);
 
     }
     public function dfacture(Request $request){
@@ -81,7 +81,7 @@ class VenteController extends Controller
             $i++;
         }
     
-        return view('/produit.Dfacture', ['products' => $products, 'quantities' => $quantities, 'dataClient' => $dataClient, 'date' => $vente->created_at, 'commande' => $vente->id]);
+        return view('/admin/produit.Dfacture', ['products' => $products, 'quantities' => $quantities, 'dataClient' => $dataClient, 'date' => $vente->created_at, 'commande' => $vente->id]);
     }
     
 }

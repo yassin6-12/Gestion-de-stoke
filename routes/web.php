@@ -19,36 +19,27 @@ use App\Http\Controllers\StockController;
 
 Route::get('/', [HomeController::class,'Home'])->name('home');
 //produits
-Route::get('/produit', [ProduitController::class,'index'])->name('produit.index');
-Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit.create');
-Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
-Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
-
-Route::get('/produit.edite', [ProduitController::class,'showProducts'])->name('EditeProduit');
-Route::put('/products/{id}', [ProduitController::class,'updateProduct'])->name('products.update');
-Route::delete('/products/{id}', [ProduitController::class,'destroyProduct'])->name('products.destroy');
-// Route::get('/produit.edite', function () {
-//     return view('/produit.edite');
-// })->name('EditeProduit');
-// Route::get('/produit.edite', function () {
-//     return view('/produit.edite');
-// })->name('EditeProduit');
-Route::get('/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
-Route::get('/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
-
-
-Route::get('/produit.edite', [ProduitController::class, 'showProducts'])->name('EditeProduit');
-Route::put('/products/{id}', [ProduitController::class, 'updateProduct'])->name('products.update');
-Route::delete('/products/{id}', [ProduitController::class, 'destroyProduct'])->name('products.destroy');
-Route::get('/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
-Route::get('/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
+Route::get('/admin/produit', [ProduitController::class,'index'])->name('produit.index');
+Route::get('/admin/produit/create',[ProduitController::class,'create'])->name('Produit.create');
+Route::get('/admin/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
+Route::post('/admin/produit',[ProduitController::class,'store'])->name('Produit.store');
+Route::get('/admin/produit.edite', [ProduitController::class,'showProducts'])->name('EditeProduit');
+Route::put('/admin/products/{id}', [ProduitController::class,'updateProduct'])->name('products.update');
+Route::delete('/admin/products/{id}', [ProduitController::class,'destroyProduct'])->name('products.destroy');
+Route::get('/admin/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
+Route::get('/admin/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
+Route::get('/admin/produit.edite', [ProduitController::class, 'showProducts'])->name('EditeProduit');
+Route::put('/admin/products/{id}', [ProduitController::class, 'updateProduct'])->name('products.update');
+Route::delete('/admin/products/{id}', [ProduitController::class, 'destroyProduct'])->name('products.destroy');
+Route::get('/admin/produit.ventes',[ProduitController::class,'ventes'])->name('produit.ventes');
+Route::get('/admin/produit.ventes/{produit}',[ProduitController::class,'venteDetails'])->name('produit.venteDetails');
 
 // panier
-Route::get('produit.Panier',[VenteController::class,'panier'])->name('panier');
+Route::get('/admin/produit.Panier',[VenteController::class,'panier'])->name('panier');
 
-Route::post('/produit.facture',[VenteController::class,'facture'])->name('facture');
+Route::post('/admin/produit.facture',[VenteController::class,'facture'])->name('facture');
 
-Route::post('/produit.Dfacture',[VenteController::class,'dfacture'])->name('dfacture');
+Route::post('/admin/produit.Dfacture',[VenteController::class,'dfacture'])->name('dfacture');
 
 // Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');
 

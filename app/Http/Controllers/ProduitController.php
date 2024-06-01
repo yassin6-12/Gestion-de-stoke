@@ -16,7 +16,7 @@ class ProduitController extends Controller
     public function showProducts()
 {
     $products = Produit::paginate(10);
-    return view('/produit.edite',[
+    return view('/admin/produit.edite',[
         'products'=>$products
     ]);
 }
@@ -26,7 +26,7 @@ class ProduitController extends Controller
     public function index()
     {
         $getCategories = Categorie::all();
-        return view('produit.index',['get_cats'=>$getCategories]);
+        return view('/admin/produit.index',['get_cats'=>$getCategories]);
     }
 
     // public function panier()
@@ -41,7 +41,7 @@ class ProduitController extends Controller
     public function create()
     {
         $categories = Categorie::all();
-        return view('produit.create',['categories'=>$categories]);
+        return view('/admin/produit.create',['categories'=>$categories]);
     }
 
     /**
@@ -89,11 +89,11 @@ class ProduitController extends Controller
             $produit->images        = $images;
             $produit->save();
 
-            return to_route('produit.index')->with('success', 'Produit ajouté avec succès');
+            return to_route('/admin/produit.index')->with('success', 'Produit ajouté avec succès');
       }
       else{
 
-        return to_route('Produit.create');
+        return to_route('/admin/Produit.create');
       }
 
 
@@ -112,11 +112,11 @@ class ProduitController extends Controller
     public function show($nom)
     {
         $produitsOfCat  = Produit::join('categories','produits.categorie_id','=','categories.id')->where('categories.nom',$nom)->select('Produits.*')->get();
-        return view('Produit.show',['produits'=>$produitsOfCat,'nomCat'=>$nom]);
+        return view('/admin/Produit.show',['produits'=>$produitsOfCat,'nomCat'=>$nom]);
     }
     public function showProduit($cat,$produit){
         $getProduit = Produit::findOrFail($produit);
-        return view('Produit.produit',['nomCat'=>$cat,'produit'=>$getProduit]);
+        return view('/admin/Produit.produit',['nomCat'=>$cat,'produit'=>$getProduit]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -124,7 +124,7 @@ class ProduitController extends Controller
     public function edit(string $id)
     {
         $produit= Produit::find($id);
-        return view('produit.edite' ,['prd'=>$produit]);
+        return view('/admin/produit.edite' ,['prd'=>$produit]);
     }
 
     /**
@@ -162,7 +162,7 @@ class ProduitController extends Controller
 
         $produits = Produit::whereIn('id', $produitsVentes)->get();
 
-        return view('/produit.ventes',[
+        return view('/admin/produit.ventes',[
             'produits' => $produits
         ]);
     }
@@ -175,7 +175,7 @@ class ProduitController extends Controller
             ->where('ligne_ventes.id_produit',$produit->id)
             ->get();
 
-        return view('/produit.venteDetails',[
+        return view('/admin/produit.venteDetails',[
             'produit'   => $produit,
             'detailsProduit'    => $detailsProduit
         ]);
