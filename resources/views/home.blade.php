@@ -52,10 +52,8 @@
 							</div>
 						</div>
 						<!-- Row end -->
-
-						<!-- Row start -->
-						<div class="row">
-							<div class="col-xxl-9  col-sm-12 col-12">
+                        <div class="row">
+							<div class="col-xxl-9  col-sm-12 col-12" style="width:2000px;margin-left:auto;margin-right:auto">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Orders &amp; Revenue</div>
@@ -65,7 +63,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-xxl-3  col-sm-12 col-12">
+							{{-- <div class="col-xxl-3  col-sm-12 col-12">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Visitors</div>
@@ -74,8 +72,9 @@
 										<div id="visitors"></div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
+						<!-- Row start -->
 						<!-- Row end -->
 
 						<!-- Row start -->
@@ -128,7 +127,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-xxl-3 col-sm-6 col-12">
+							{{-- <div class="col-xxl-3 col-sm-6 col-12">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Logs</div>
@@ -200,8 +199,8 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xxl-3 col-sm-6 col-12">
+							</div> --}}
+							<div class="col-xxl-3 col-sm-6 col-12" style="width:750px;margin-left:5%;margin-right:auto">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Keywords</div>
@@ -230,7 +229,7 @@
 
 						<!-- Row start -->
 						<div class="row">
-							<div class="col-xxl-8 col-sm-12 col-12">
+							{{-- <div class="col-xxl-8 col-sm-12 col-12">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Earnings</div>
@@ -253,7 +252,8 @@
 										<!-- Row end -->
 									</div>
 								</div>
-							</div>
+							</div> --}}
+
 							<div class="col-xxl-4 col-sm-12 col-12">
 								<div class="card">
 									<div class="card-header">

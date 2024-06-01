@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ClientController extends Controller
 {
+    public function index2(){
+        $clients = Client::all();
+        return view('/admin.clientele.historique',['clients'=>$clients]);
+    }
     public function index(){
         $clients = Client::all();
         return view('/admin.clientele.liste',['clients'=>$clients]);

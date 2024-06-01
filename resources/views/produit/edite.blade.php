@@ -13,12 +13,14 @@
 
 @section('main')
 <div class="container">
+    @include('shared.updateprod-success-message')
+    @include('shared.delprod-success-message')
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h2 class="mb-3">Informations sur les Produits</h2>
         <a href="{{route('Produit.create')}}"><button type="button" class="btn btn-primary" id="add-product" data-bs-toggle="modal" data-bs-target="#ModalAddProduct">Ajouter des produits</button></a>
-        
+
     </div>
-    
+
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
@@ -45,15 +47,15 @@
                 <td style="vertical-align: middle;">
                     {{ \Illuminate\Support\Str::words($product->description, 2, '...') }}
                 </td>
-                
+
                 <td style="vertical-align: middle;">{{ $product->prix }}DA</td>
                 <td style="vertical-align: middle;">{{ $product->qte_stock }}</td>
                 <td style="vertical-align: middle;">{{ $product->qte_min }}</td>
                 <td style="vertical-align: middle;">{{ $product->remise }}%</td>
-                <td style="vertical-align: middle;"> 
+                <td style="vertical-align: middle;">
                     <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#ModalEditItem-{{ $product->id }}">
                         <i class="bi bi-pencil"></i>
-                    </button> 
+                    </button>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline-block">
                         @csrf
                         @method('DELETE')
@@ -93,7 +95,7 @@
                                         <label class="fw-bold my-2">Remise %</label>
                                         <input type="text" name="product-discount" class="form-control" value="{{ $product->remise }}">
                                     </div>
-                                   
+
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-12 col-md-6">
@@ -104,7 +106,7 @@
                                         <label class="fw-bold my-2">Quantité en stock</label>
                                         <input type="text" name="product-stock" class="form-control" value="{{ $product->qte_stock }}">
                                     </div>
-                                   
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -141,7 +143,7 @@
             </form>
         </div>
 
-        
+
     </div>
 </div>
 @endsection
