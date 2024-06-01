@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\view;
 use App\Http\Controllers\save;
 use App\Models\Categorie;
-<<<<<<< Updated upstream
-=======
 use App\Models\LigneVente;
->>>>>>> Stashed changes
 use Illuminate\Validation\Rule;
 // use WpOrg\Requests\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +16,9 @@ class ProduitController extends Controller
     public function showProducts()
 {
     $products = Produit::paginate(10);
-    return view('produit.edite', compact('products'));
+    return view('/produit.edite',[
+        'products'=>$products
+    ]);
 }
     /**
      * Display a listing of the resource.

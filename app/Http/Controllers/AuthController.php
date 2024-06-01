@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         return redirect()->route('ListeEmployes')->with('success', 'Utilisateur supprimé avec succès');
     }
-    public function update(Request $request, User $user)
+    public function update( User $user,Request $request,)
 {
     $request->validate([
         'name' => 'required|string|max:255',

@@ -61,6 +61,15 @@
                 @endforeach
             </tbody>
         </table>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <div class="modal fade mt-5" id="ModalEditItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -69,14 +78,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="editUserForm" action="" method="POST">
+                        <form id="editUserForm" action="{{route('users.update',$user->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <input type="hidden" name="user_id" id="editUserId">
                             <div class="row mb-4">
                                 <div class="col-12 col-md-6">
                                     <label class="fw-bold my-2">Nom</label>
-                                    <input type="text" name="nom" id="editNom" class="form-control">
+                                    <input type="text" name="name" id="editNom" class="form-control">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label class="fw-bold my-2">Prenom</label>
@@ -90,7 +99,7 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label class="fw-bold my-2">Téléphone</label>
-                                    <input type="text" name="telephone" id="editTelephone" class="form-control">
+                                    <input type="text" name="tel" id="editTelephone" class="form-control">
                                 </div>
                             </div>
                             <div class="mb-4">
@@ -100,7 +109,7 @@
                             <div class="row mb-4">
                                 <div class="col-12 col-md-6">
                                     <label class="fw-bold my-2">Type</label>
-                                    <select name="type" id="editType" class="form-select">
+                                    <select name="type_user" id="editType" class="form-select">
                                         <option value="admin">admin</option>
                                         <option value="gestionaire">gestionaire</option>
                                     </select>
