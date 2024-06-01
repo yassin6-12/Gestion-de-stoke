@@ -19,7 +19,8 @@ class ClientController extends Controller
                 'produits.nom as produit_nom',
                 'categories.nom as categorie_nom',
                 'ligne_ventes.created_at as date_achat',
-                'ligne_ventes.prix'
+                'ligne_ventes.prix',
+                'produits.images'
             )
             ->get();
 

@@ -100,7 +100,7 @@ Route::post('/admin.clientele.liste',[ClientController::class,'store'])->name('c
 Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])->name('clientele.update');
 Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destroy'])->name('clientele.destroy');
 Route::get('/admin.clientele.historique',[ClientController::class,'index2'])->name('historique');
-Route::get('/admin.clientele/{id}/show', [ClientController::class, 'showAchats'])->name('showachats');
+Route::get('/admin.clientele.show/{id}/show', [ClientController::class, 'showAchats'])->name('showachats');
 
 // Route::get('/admin.clientele.show', function () {
 //     return view('/admin.clientele.show');
