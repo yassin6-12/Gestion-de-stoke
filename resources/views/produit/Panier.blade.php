@@ -28,7 +28,7 @@
                                 @php
                                     $firstImage = json_decode($produit->images)[0];
                                 @endphp
-                                <img class="product-added-img" src="{{asset($firstImage)}}" alt="">
+                                <img src="{{asset('storage/' .$firstImage)}}" alt="Admin Templates">
                                 <div class="product-added-card-body">
                                     <h5 class="product-added-title">{{$produit->nom}}</h5>
                                     <div class="product-added-price">$<span class="product-prix-unitaire">{{$produit->prix - ($produit->prix * $produit->remise/100)}}</span>

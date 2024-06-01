@@ -13,11 +13,12 @@
 
 @section('main')
 <div class="container">
+    @include('shared.success-message')
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h2 class="mb-3">Liste des catégories</h2>
         <a href="{{ Route('catégorie.create')}}" type="button" class="btn btn-primary" id="add-category">Ajouter une catégorie</a>
     </div>
-    
+
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
@@ -28,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($categories as $cat)  
+            @foreach($categories as $cat)
             <tr>
                 <td>{{$cat->id}}</td>
                 <td>{{$cat->nom}}</td>
@@ -39,11 +40,11 @@
                             @csrf
                             <button class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier la catégorie">
                                 <i class="bi bi-pencil"></i>
-                            </button>            
+                            </button>
                         </form>
                         <form action="{{Route('catégorie.destroy', $cat->id)}}" method = "POST">
                             @csrf
-                            @method("DELETE")   
+                            @method("DELETE")
                             <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer la catégorie">
                                 <i class="bi bi-trash"></i>
                             </button>
@@ -55,4 +56,4 @@
         </tbody>
     </table>
 </div>
-@endsection 
+@endsection

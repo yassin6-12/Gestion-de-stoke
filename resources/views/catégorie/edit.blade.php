@@ -17,6 +17,7 @@
     }
 </style>
 <div class="row">
+    @include('shared.success-message')
     <div class="col-sm-12 col-12">
         <div class="card">
 
@@ -52,8 +53,8 @@
 
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
-                            <a href="{{route('catégorie.index')}}" type="button" class="btn btn-light">Annuler</a>                           
-                            <button type="submit" class="btn btn-success" >Modifier</button>            
+                            <a href="{{route('catégorie.index')}}" type="button" class="btn btn-light">Annuler</a>
+                            <button type="submit" class="btn btn-success" >Modifier</button>
                         </div>
                     </div>
                 </div>
