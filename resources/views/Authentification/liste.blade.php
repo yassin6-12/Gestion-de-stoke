@@ -13,6 +13,8 @@
 
 @section('main')
 <div class="container">
+    @include('shared.delEmp-success-message')
+    @include('shared.updateEmp-success-message')
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h2 class="mb-3">Informations sur les employés</h2>
         <a href="{{route("Inscription")}}">
@@ -132,7 +134,7 @@
                 </div>
             </div>
         </div>
-        
+
     </main>
 </div>
 <script>
