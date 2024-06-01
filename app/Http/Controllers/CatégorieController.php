@@ -33,11 +33,6 @@ class CatégorieController extends Controller
       request()->validate([
         'categorie_name'=>['required','min:2']
       ]);
-    //   /$cat= $request->input('categorie_name');
-    //   dd($cat );*/
-
-
-
       $image = NULL;
 
       if($request->hasFile('file')){
@@ -54,7 +49,6 @@ class CatégorieController extends Controller
         $image = $filename;
 
       }
-
       $name = $request->input('categorie_name');
 
         /*Gallery::create([
@@ -66,7 +60,7 @@ class CatégorieController extends Controller
         $categorie->photo = $image;
         $categorie->save();
 
-        return to_route('catégorie.index');
+        return redirect()->route('catégorie.index')->with('success', 'Catégorie créée avec succès');
       }
 
 // Display the specified resource.

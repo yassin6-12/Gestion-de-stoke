@@ -17,12 +17,10 @@
     }
 </style>
 <div class="row">
+    @include('shared.success-message')
     <div class="col-sm-12 col-12">
         <div class="card">
-
             <div class="card-body">
-                
-                
                 <div class="row">
                     <div class="col-sm-12 col-12">
                         <div class="card-border">
@@ -39,14 +37,13 @@
                                 </div>
                             @endif
                             <div class="card-border-body">
-
                                 <div class="row">
                                     <div class="col-sm-4 col-12">
                                         <div class="mb-3">
                                             <label for="categorie_name" class="form-label">Nom de la Catégorie <span class="text-red">*</span></label>
                                             <input id="form-cat-name" name="categorie_name" type="text" class="form-control" placeholder="Entrez le nom de la catégorie"  >
                                         </div>
-                                        
+
                                     </div>
                                     <form action="{{route('catégorie.store')}}" id="myDropzone" class="dropzone" method="POST" enctype="multipart/form-data">
                                         @csrf
@@ -89,8 +86,8 @@
                     </div> --}}
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
-                            <a href="catégorie.index" type="button" class="btn btn-light">Annuler</a>                           
-                            <button type="submit" id="submit-add-category" class="btn btn-success" >ajouter</button>            
+                            <a href="catégorie.index" type="button" class="btn btn-light">Annuler</a>
+                            <button type="submit" id="submit-add-category" class="btn btn-success" >ajouter</button>
                         </div>
                     </div>
                 </div>
@@ -105,15 +102,15 @@
 
 <!-- Dropzone JS -->
 @section('script')
-    
+
 <script type="text/javascript">
 
-    Dropzone.autoDiscover = false; 
+    Dropzone.autoDiscover = false;
     var maxFilesizeVal = 12;
-    var maxFilesVal    = 1; 
-    var myDropzone = new Dropzone("#myDropzone", { 
+    var maxFilesVal    = 1;
+    var myDropzone = new Dropzone("#myDropzone", {
         url: "{{route('catégorie.store')}}", // specify your upload URL
-        autoProcessQueue: false, // disable auto-upload  
+        autoProcessQueue: false, // disable auto-upload
         method:'POST',
         paramName:'file',
         maxFilesize: maxFilesizeVal,
@@ -156,7 +153,7 @@
             window.location.reload(1);
         }, 1);
     });
-    
+
 
 </script>
 @endsection

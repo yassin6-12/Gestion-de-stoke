@@ -93,11 +93,11 @@ class ProduitController extends Controller
             $produit->images        = $images;
             $produit->save();
 
-            return to_route('produit.index');
+            return to_route('produit.index')->with('success', 'Produit ajouté avec succès');
       }
       else{
 
-        return to_route('Produit.create')->with('success', 'Produit ajouté avec succès');
+        return to_route('Produit.create');
       }
 
 

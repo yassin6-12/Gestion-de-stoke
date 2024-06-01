@@ -16,6 +16,7 @@
     }
 </style>
 						<div class="row">
+                            @include('shared.success-message')
                             <div class="col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-header">
