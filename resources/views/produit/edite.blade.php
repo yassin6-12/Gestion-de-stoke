@@ -39,7 +39,10 @@
                 <td style="vertical-align: middle;">{{ $product->id }}</td>
                 <td style="vertical-align: middle;">
                     <div class="d-flex align-items-center">
-                        <img src="{{ asset('assets/images/products/' . $product->images) }}"  class="img-thumbnail" width="50" style="margin-right: 10px;">
+                        @php
+                            $image = json_decode($product->images)[0];
+                        @endphp
+                        <img src="{{ asset('storage/'. $image) }}"  class="img-thumbnail" width="50" style="margin-right: 10px;">
                         <span>{{ $product->nom }}</span>
                     </div>
                 </td>

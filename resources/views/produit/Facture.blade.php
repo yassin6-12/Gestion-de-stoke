@@ -139,7 +139,7 @@
 										<div class="row">
 											<div class="col-xxl-12">
 												<div class="sub-total-container">
-													<div class="total">Total de la commande: ${{$total}}</div>
+													<div class="total">Total de la commande: {{$total}}DA</div>
 													<button type="submit" class="btn btn-success btn-lg" id="btn-form-facture">Passer la commande</button>
 												</div>
 											</div>

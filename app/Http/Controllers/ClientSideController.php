@@ -19,7 +19,6 @@ class ClientSideController extends Controller
         ->distinct('categorie_id')
         ->take(4)
         ->pluck('categorie_id');
-
         $lastCats = array();
         foreach($last4Categories as $cat){
             $lastCats[] = $cat;

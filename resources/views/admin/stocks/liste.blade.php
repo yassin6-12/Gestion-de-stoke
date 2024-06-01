@@ -34,7 +34,16 @@
                         <td style="vertical-align: middle;">{{ $produit->id }}</td>
                         <td style="vertical-align: middle;">
                             <div class="d-flex align-items-center">
+<<<<<<< HEAD
+                                {{-- <img src="{{ Storage::url($produit->images) }}" alt="{{ $produit->nom }}" class="img-thumbnail" width="50" style="margin-right: 10px;"> --}}
+                              
+                                @php
+                                    $image = json_decode($produit->images)[0];
+                                @endphp
+                                <img src="{{asset('storage/' . $image)}}" alt="{{$produit->nom}}" class="img-thumbnail" width="50" style="margin-right: 10px;">
+=======
                                 <img src="{{ Storage::url($produit->images) }}" alt="{{ $produit->nom }}" class="img-thumbnail" width="50" style="margin-right: 10px;">
+>>>>>>> 5de5655a886c28e277e85a7a34ff395e8718ab9a
                             </div>
                         </td>
                         <td style="vertical-align: middle;">{{ $produit->nom }}</td>
