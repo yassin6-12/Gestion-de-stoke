@@ -57,23 +57,30 @@
         .profile-box .contact-info i {
             margin-right: 10px;
         }
+        .profile-link {
+            text-decoration: none; /* Remove default underline */
+            color: inherit; /* Inherit text color */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
     </style>
 </head>
 <body>
     <div class="gallery">
         @foreach ($clients as $client)
-            <div class="profile-box text-center">
-                <img src="{{ Storage::url($client->photo) }}" alt="Profile Picture">
-                <div class="info">
-                    <h5>{{ $client->nom_utilisateur }}</h5>
+            <a href="{{ route('showachats', $client->id) }}" class="profile-link">
+                <div class="profile-box text-center">
+                    <img src="{{ Storage::url($client->photo) }}" alt="Profile Picture">
+                    <div class="info">
+                        <h5>{{ $client->nom_utilisateur }}</h5>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone-alt"></i>{{ $client->tel }}</p>
+                        <p><i class="fas fa-envelope"></i>{{ $client->email }}</p>
+                        <p><i class="fas fa-map-marker-alt"></i>{{ $client->city }}</p>
+                        <p><i class="fas fa-calendar-alt"></i>{{ $client->date_naissance }}</p>
+                    </div>
                 </div>
-                <div class="contact-info">
-                    <p><i class="fas fa-phone-alt"></i>{{ $client->tel }}</p>
-                    <p><i class="fas fa-envelope"></i>{{ $client->email }}</p>
-                    <p><i class="fas fa-map-marker-alt"></i>{{ $client->city }}</p>
-                    <p><i class="fas fa-calendar-alt"></i>{{ $client->date_naissance }}</p>
-                </div>
-            </div>
+            </a>
         @endforeach
     </div>
 </body>

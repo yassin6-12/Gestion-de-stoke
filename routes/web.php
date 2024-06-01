@@ -99,10 +99,10 @@ Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])
 Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destroy'])->name('clientele.destroy');
 Route::get('/admin.clientele.historique',[ClientController::class,'index2'])->name('historique');
 
-// Route::get('/admin.clientele.historique', function () {
-//     return view('/admin.clientele.historique');
-// })->name('historique');
-Route::get('/admin.stocks.liste', [StockController::class,'index'])->name('StocksListe');
+Route::get('/admin.clientele.show', function () {
+    return view('/admin.clientele.show');
+})->name('showachats');
+Route::get('/admin.stocks.liste',[StockController::class,'index'])->name('StocksListe');
 Route::get('/admin.stocks.retour',[stocksretourController::class,'index'])->name('StocksRetour');
 Route::post('/admin.stocks.retour',[stocksretourController::class,'store'])->name('StocksRetour.store');
 Route::put('/admin.stocks.retour/{product}',[stocksretourController::class,'update'])->name('StocksRetour.update');

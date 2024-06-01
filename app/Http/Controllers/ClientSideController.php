@@ -15,11 +15,10 @@ class ClientSideController extends Controller
         $bestCategories = Categorie::take(3)->get();
 
         // take the last 4 categories added in produit table
-        $last4Categories = produit::orderBy('id', 'desc')
+        $last4Categories = produit::orderBy('categorie_id', 'desc')
         ->distinct('categorie_id')
         ->take(4)
         ->pluck('categorie_id');
-
         $lastCats = array();
         foreach($last4Categories as $cat){
             $lastCats[] = $cat;
