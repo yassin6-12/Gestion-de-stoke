@@ -5,9 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\LigneVente;
 class ClientController extends Controller
 {
+    public function showAchats($clientId)
+    {
+        $achats = LigneVente::join('ventes', 'ligne_ventes.id_vente', '=', 'ventes.id')
+            ->join('produits', 'ligne_ventes.id_produit', '=', 'produits.id')
+            ->join('categories', 'produits.categorie_id', '=', 'categories.id')
+            ->where('ventes.id_client', $clientId)
+            ->select(
+                'ligne_ventes.id',
+                'produits.nom as produit_nom',
+                'categories.nom as categorie_nom',
+                'ligne_ventes.created_at as date_achat',
+                'ligne_ventes.prix'
+            )
+            ->get();
+
+        return view('/admin.clientele.show', compact('achats'));
+    }
+
     public function index2(){
         $clients = Client::all();
         return view('/admin.clientele.historique',['clients'=>$clients]);

@@ -14,40 +14,37 @@
 
 @section('main')
 <div class="container">
-    <h2>Liste des achats de client: BELGACEM YASSINE</h2> 
-  <main class="container mt-5">
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Image</th>
-                <th scope="col">PRODUITS</th>
-                <th scope="col">CATEGORIE</th>
-                <th scope="col">DATE ACHATS</th>
-                <th scope="col">COULEUR</th>
-                <th scope="col">TOTAL</th>
-                <th scope="col">ÉTAT</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="vertical-align: middle;">#SKUN111</td>
-                <td style="vertical-align: middle;">
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/flags/1x1/gb.svg" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;">
-                        <span>Oculus VR</span>
-                    </div>
-                </td>
-                <td style="vertical-align: middle;">Oculus VR</td>
-                <td style="vertical-align: middle;">Accessoire de jeu</td>
-                <td style="vertical-align: middle;">13 juin 2021</td>
-                <td style="vertical-align: middle;">1455</td>
-                <td style="vertical-align: middle;">Jaune</td>
-                <td style="vertical-align: middle;">En traitement</td>
-            </tr>
-        </tbody>
-    </table>
-</main>
-  </div>
-  
+    <h2>Liste des achats de client</h2> 
+    <main class="container mt-5">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">IMAGE</th>
+                    <th scope="col">PRODUITS</th>
+                    <th scope="col">CATEGORIE</th>
+                    <th scope="col">DATE ACHATS</th>
+                    <th scope="col">PRIX</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($achats as $achat)
+                    <tr>
+                        <td style="vertical-align: middle;">{{$achat->id}}</td>
+                        <td style="vertical-align: middle;">
+                            @php
+                                $firstImage = json_decode($achat->images)[0];
+                            @endphp
+                            <img src="{{asset('storage/' . $firstImage)}}" alt="{{$achat->produit_nom}}" class="img-thumbnail" width="50" style="margin-right: 10px;">
+                        </td>
+                        <td style="vertical-align: middle;">{{$achat->produit_nom}}</td>
+                        <td style="vertical-align: middle;">{{$achat->categorie_nom}}</td>
+                        <td style="vertical-align: middle;">{{$achat->date_achat}}</td>
+                        <td style="vertical-align: middle;">{{$achat->prix}} DA</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </main>
+</div>
 @endsection
