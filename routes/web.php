@@ -24,8 +24,6 @@ Route::get('/produit', [ProduitController::class,'index'])->name('produit.index'
 Route::get('/produit/create',[ProduitController::class,'create'])->name('Produit.create');
 Route::get('/produit/{cat}/',[ProduitController::class,'show'])->name('Produit.show');
 Route::post('/produit',[ProduitController::class,'store'])->name('Produit.store');
-
-
 Route::get('/produit.edite', [ProduitController::class, 'showProducts'])->name('EditeProduit');
 Route::put('/products/{id}', [ProduitController::class, 'updateProduct'])->name('products.update');
 Route::delete('/products/{id}', [ProduitController::class, 'destroyProduct'])->name('products.destroy');
@@ -88,16 +86,12 @@ Route::get('/admin.clientele.liste',[ClientController::class,'index'])->name('cl
 Route::post('/admin.clientele.liste',[ClientController::class,'store'])->name('clientele.store');
 Route::put('/admin.clientele.liste/{client}',[ClientController::class,'update'])->name('clientele.update');
 Route::delete('/admin.clientele.liste/{client}',[ClientController::class,'destroy'])->name('clientele.destroy');
-//---------------------Route pour inventaire-------------------
-// Route::get('/admin.stocks.liste', function () {
-//     return view('/admin.stocks.liste');
-// })->name('StocksListe');
+Route::get('/admin.clientele.historique',[ClientController::class,'index2'])->name('historique');
+
+// Route::get('/admin.clientele.historique', function () {
+//     return view('/admin.clientele.historique');
+// })->name('historique');
 Route::get('/admin.stocks.liste', [StockController::class,'index'])->name('StocksListe');
-
-// Route::get('/admin.stocks.retour', function () {
-//     return view('/admin.stocks.retour');
-// })->name('StocksRetour');
-
 Route::get('/admin.stocks.retour',[stocksretourController::class,'index'])->name('StocksRetour');
 Route::post('/admin.stocks.retour',[stocksretourController::class,'store'])->name('StocksRetour.store');
 Route::put('/admin.stocks.retour/{product}',[stocksretourController::class,'update'])->name('StocksRetour.update');

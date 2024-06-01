@@ -117,7 +117,7 @@
 											<a href="{{route('clientele.index')}}">Liste des clients</a>
 										</li>
 										<li>
-											<a href="#">Historique</a>
+											<a href="{{route('historique')}}">Historique</a>
 										</li>
 									</ul>
 								</div>
