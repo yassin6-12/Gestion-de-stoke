@@ -34,7 +34,7 @@
                         <td style="vertical-align: middle;">{{ $produit->id }}</td>
                         <td style="vertical-align: middle;">
                             <div class="d-flex align-items-center">
-                                <img src="{{ asset('/storage'.$produit->images) }}" alt="{{ $produit->nom }}" class="img-thumbnail" width="50" style="margin-right: 10px;">
+                                <img src="{{ Storage::url($produit->images) }}" alt="{{ $produit->nom }}" class="img-thumbnail" width="50" style="margin-right: 10px;">
                             </div>
                         </td>
                         <td style="vertical-align: middle;">{{ $produit->nom }}</td>
