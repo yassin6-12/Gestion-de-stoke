@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ClientSideController extends Controller
 {
     public function index(){
-        
+
         $bestCategories = Categorie::take(3)->get();
 
         // take the last 4 categories added in produit table
@@ -48,7 +48,7 @@ class ClientSideController extends Controller
         foreach($topVente as $vente){
             $top4Vente[] = $vente->id_produit;
         }
-         
+
         $top4Selling = produit::whereIn('id',$top4Vente)->get();
 
         // get the top deal
@@ -105,14 +105,14 @@ class ClientSideController extends Controller
             $category  = Categorie::find($request->input('category'));
         }
 
-        // get the prices 
+        // get the prices
         $min_price = NULL;
         $max_price = NULL;
         if($request->has('min_price') && $request->has('max_price')){
             $min_price = $request->input('min_price');
             $max_price = $request->input('max_price');
         }
-        // filter the products with category type and prices 
+        // filter the products with category type and prices
         $filterProducts = NULL;
         if($category || $min_price || $max_price){
             if($category && $min_price && $max_price){
@@ -125,7 +125,7 @@ class ClientSideController extends Controller
             }else if($min_price && $max_price){
                 $filterProducts = produit::whereBetween('prix',[$min_price,$max_price])->get();
             }
-            
+
         }
 
         return view('/client.stores',[

@@ -50,8 +50,8 @@ class CatégorieController extends Controller
         $categorie->photo = $uploadPath;
         $categorie->save();
 
-        return redirect()->route('catégorie.index')->with('success', 'Catégorie créée avec succès');
-      }
+     return to_route('catégorie.index')->with('success', 'Catégorie créée avec succès');
+   }
 
 // Display the specified resource.
   public function show(string $id){
@@ -72,7 +72,7 @@ class CatégorieController extends Controller
   public function update(Request $request, string $id){
 
       $categorie = categorie::find($id);$categorie->id = $request -> input('categorie_Id');$categorie->nom = $request -> input('categorie_name');$categorie -> save();
-      return  redirect() -> Route('catégorie.index') -> with('success','categorie a jour ') ;
+      return  redirect() -> Route('catégorie.index') -> with('success','catégorie mise à jour avec succès ') ;
     $categorie = categorie::find($id);$categorie->id = $request -> input('categorie_Id');$categorie->nom = $request -> input('categorie_name');$categorie -> save();
       return  redirect() -> Route('catégorie.index') -> with('success','catégorie mise à jour avec succès') ;
 

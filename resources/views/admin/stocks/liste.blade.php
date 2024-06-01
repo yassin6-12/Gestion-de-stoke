@@ -35,7 +35,7 @@
                         <td style="vertical-align: middle;">
                             <div class="d-flex align-items-center">
                                 {{-- <img src="{{ Storage::url($produit->images) }}" alt="{{ $produit->nom }}" class="img-thumbnail" width="50" style="margin-right: 10px;"> --}}
-                              
+
                                 @php
                                     $image = json_decode($produit->images)[0];
                                 @endphp
