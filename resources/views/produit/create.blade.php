@@ -32,11 +32,11 @@
                                                 </div>
                                             </div>
                                         @endif
-                                    
+
                                         <div class="card-body">
-                                       
+
                                         <div class="row">
-                                           
+
                                             <div class="col-sm-12 col-12 produit-other-external-info">
                                                 <div class="card-border">
                                                     <div class="card-border-title">Informations générales</div>
@@ -57,7 +57,7 @@
                                                                         @foreach ($categories as $category)
                                                                             <option value="{{$category->id}}">{{$category->nom}}</option>
                                                                         @endforeach
-                        
+
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -95,7 +95,7 @@
                                                                               placeholder="Entrez la description du produit">{{old('product_description')}}</textarea>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
 
                                                     </div>
@@ -142,13 +142,13 @@
                                                     <div class="card-border-body">
                                                         <form action="{{route('Produit.store')}}" id="myDropzone" class="dropzone" method="POST" enctype="multipart/form-data">
                                                             @csrf
-                                                        
+
                                                                 <div class="needsclick dz-message">
-                                                                    
+
                                                                         <button type="button" class="dz-button">Déposez des fichiers ici ou cliquez pour les télécharger.</button><br>
                                                                         <span class="note needsclick">(Vous pouvez télécharger jusqu'à 5 photos à la fois. Les fichiers sélectionnés
                                                                             <strong>ne sont pas</strong> réellement téléchargés.)</span>
-                                                                    
+
                                                                 </div>
                                                                 <div id="produit-other-info" style="display:none;"></div>
                                                         </form>
@@ -161,17 +161,17 @@
                                                     <button type="submit" class="btn btn-success" id="submit-add-produit">Ajouter produit</button>
                                                 </div>
                                             </div>
-                                            
-                                          
+
+
                                         </div>
-                                    
+
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
 
 @endsection
 
@@ -179,12 +179,12 @@
     <!-- Dropzone JS -->
 <script type="text/javascript">
 
-    Dropzone.autoDiscover = false; 
+    Dropzone.autoDiscover = false;
     var maxFilesizeVal = 12;
-    var maxFilesVal    = 5; 
-    var myDropzone = new Dropzone("#myDropzone", { 
+    var maxFilesVal    = 5;
+    var myDropzone = new Dropzone("#myDropzone", {
         url: "{{route('Produit.store')}}", // specify your upload URL
-        autoProcessQueue: false, // disable auto-upload  
+        autoProcessQueue: false, // disable auto-upload
         method:'POST',
         paramName:'images',
         maxFilesize: maxFilesizeVal,
@@ -227,7 +227,7 @@
         myDropzone.processQueue(); // trigger file upload
         submitForm();
     });
-    
+
 
 </script>
 @endsection

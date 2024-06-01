@@ -87,7 +87,7 @@ class CatégorieController extends Controller
 // Update the specified resource in storage.
   public function update(Request $request, string $id){
     $categorie = categorie::find($id);$categorie->id = $request -> input('categorie_Id');$categorie->nom = $request -> input('categorie_name');$categorie -> save();
-      return  redirect() -> Route('catégorie.index') -> with('success','categorie a jour ') ;
+      return  redirect() -> Route('catégorie.index') -> with('success','catégorie mise à jour avec succès') ;
 
     }
 
@@ -106,7 +106,7 @@ class CatégorieController extends Controller
       }
      $categorie -> delete();
 
-     return redirect() -> Route('catégorie.index') -> with('success', 'catégorie supprimer avec succèss');
+     return redirect() -> Route('catégorie.index') -> with('success', 'catégorie supprimer avec succès');
   }
 
   }
