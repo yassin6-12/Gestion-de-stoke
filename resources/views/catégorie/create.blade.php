@@ -87,6 +87,7 @@
                     <div class="col-sm-12 col-12">
                         <div class="custom-btn-group flex-end">
                             <a href="catégorie.index" type="button" class="btn btn-light">Annuler</a>
+                            <a href=""></a>
                             <button type="submit" id="submit-add-category" class="btn btn-success" >ajouter</button>
                         </div>
                     </div>
