@@ -33,19 +33,12 @@ class CatégorieController extends Controller
       request()->validate([
         'categorie_name'=>['required','min:2']
       ]);
-    //   /$cat= $request->input('categorie_name');
-    //   dd($cat );*/
-
-
-
-      $uploadPath = NULL;
 
       if($request->hasFile('file')){
 
         $uploadPath = request('file')->store('uploads', 'public');
 
       }
-
       $name = $request->input('categorie_name');
 
         /*Gallery::create([
@@ -57,7 +50,7 @@ class CatégorieController extends Controller
         $categorie->photo = $uploadPath;
         $categorie->save();
 
-        return to_route('catégorie.index');
+        return redirect()->route('catégorie.index')->with('success', 'Catégorie créée avec succès');
       }
 
 // Display the specified resource.
@@ -77,8 +70,11 @@ class CatégorieController extends Controller
 
 // Update the specified resource in storage.
   public function update(Request $request, string $id){
+
       $categorie = categorie::find($id);$categorie->id = $request -> input('categorie_Id');$categorie->nom = $request -> input('categorie_name');$categorie -> save();
       return  redirect() -> Route('catégorie.index') -> with('success','categorie a jour ') ;
+    $categorie = categorie::find($id);$categorie->id = $request -> input('categorie_Id');$categorie->nom = $request -> input('categorie_name');$categorie -> save();
+      return  redirect() -> Route('catégorie.index') -> with('success','catégorie mise à jour avec succès') ;
 
     }
 
@@ -97,7 +93,7 @@ class CatégorieController extends Controller
       }
      $categorie -> delete();
 
-     return redirect() -> Route('catégorie.index') -> with('success', 'catégorie supprimer avec succèss');
+     return redirect() -> Route('catégorie.index') -> with('success', 'catégorie supprimer avec succès');
   }
 
   }

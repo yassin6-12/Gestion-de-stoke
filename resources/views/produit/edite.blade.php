@@ -13,8 +13,7 @@
 
 @section('main')
 <div class="container">
-    @include('shared.updateprod-success-message')
-    @include('shared.delprod-success-message')
+    @include('shared.success-message')
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h2 class="mb-3">Informations sur les Produits</h2>
         <a href="{{route('Produit.create')}}"><button type="button" class="btn btn-primary" id="add-product" data-bs-toggle="modal" data-bs-target="#ModalAddProduct">Ajouter des produits</button></a>

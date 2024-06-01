@@ -89,7 +89,7 @@ class ProduitController extends Controller
             $produit->images        = $images;
             $produit->save();
 
-            return to_route('produit.index');
+            return to_route('produit.index')->with('success', 'Produit ajouté avec succès');
       }
       else{
 
@@ -141,7 +141,7 @@ class ProduitController extends Controller
         $product->remise = $request->input('product-discount');
         $product->save();
 
-        return redirect()->route('EditeProduit')->with('updateprod', 'Produit mis à jour avec succès');
+        return redirect()->route('EditeProduit')->with('success', 'Produit mis à jour avec succès');
     }
     /**
      * Remove the specified resource from storage.
@@ -151,7 +151,7 @@ class ProduitController extends Controller
         $product = Produit::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('EditeProduit')->with('deletprod', 'Produit supprimé avec succès');
+        return redirect()->route('EditeProduit')->with('success', 'Produit supprimé avec succès');
     }
     // method panier for produit.panier
 
