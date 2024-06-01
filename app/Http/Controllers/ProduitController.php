@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\view;
 use App\Http\Controllers\save;
 use App\Models\Categorie;
-
 use Illuminate\Validation\Rule;
 // use WpOrg\Requests\Auth;
 use Illuminate\Support\Facades\Auth;
 
 class ProduitController extends Controller
 {
+    public function showProducts()
+{
+    $products = Produit::paginate(10);
+    return view('produit.edite', compact('products'));
+}
     /**
      * Display a listing of the resource.
      */
@@ -126,17 +130,28 @@ class ProduitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateProduct(Request $request, $id)
     {
-        //
-    }
+        $product = Produit::findOrFail($id);
+        $product->nom = $request->input('product-name');
+        $product->description = $request->input('product-description');
+        $product->prix = $request->input('product-price');
+        $product->qte_stock = $request->input('product-stock');
+        $product->qte_min = $request->input('product-min');
+        $product->remise = $request->input('product-discount');
+        $product->save();
 
+        return redirect()->route('EditeProduit')->with('success', 'Produit mis à jour avec succès');
+    }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyProduct($id)
     {
-        //return view('SupprimerProduit');
+        $product = Produit::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('EditeProduit')->with('success', 'Produit supprimé avec succès');
     }
     // method panier for produit.panier
     
