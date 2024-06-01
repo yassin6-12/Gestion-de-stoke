@@ -127,7 +127,8 @@ class ProduitController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produit= produit::find($id);
+        return view('produit.edite' ,['prd'=>$produit]);
     }
 
     /**
