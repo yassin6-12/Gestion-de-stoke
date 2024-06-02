@@ -1,7 +1,6 @@
 @php
     use App\Models\Categorie;
 
-    $last5Categories = Categorie::take(5)->get();
     $allCategories = Categorie::all();
 @endphp
 
@@ -17,124 +16,10 @@
             </ul>
             <ul class="header-links my-2 my-md-0 text-center text-md-left">
                 <li><a href="#" class="text-decoration-none"><i class="fa fa-dollar"></i> USD</a></li>
-                <li><a href="#" class="text-decoration-none"><i class="fa fa-user-o"></i> My Account</a></li>
+                <li><a href="{{route('client.profile')}}" class="text-decoration-none"><i class="fa fa-user-o"></i> My Account</a></li>
             </ul>
         </div>
     </div>
-    <!-- /TOP HEADER -->
-
-    <!-- MAIN HEADER -->
-    {{-- <div id="header">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- LOGO -->
-                <div class="col-md-3">
-                    <div class="header-logo">
-                        <a href="{{route('electro.index')}}" class="logo">
-                            <img src="{{asset('assetClient/img/logo.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!-- /LOGO -->
-
-                <!-- SEARCH BAR -->
-                <div class="col-md-6">
-                    <div class="header-search">
-                        <form class="row">
-                            @csrf
-                            <div class="col-3">
-                                <select class="form-select" name="category-name">
-                                    <option value="0">All Categories</option>
-                                    @foreach ($allCategories as $category)
-                                        <option value="{{$category->id}}">{{$category->nom}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-7">
-                                <input type="text" class="form-control" placeholder="Search here">
-                            </div>
-                            <div class="col-2">
-                                <button type="sumbit" class="search-btn">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- /SEARCH BAR -->
-
-                <!-- ACCOUNT -->
-                <div class="col-md-3 clearfix">
-                    <div class="header-ctn">
-                        <!-- Wishlist -->
-                        <div>
-                            <a href="#">
-                                <i class="fa fa-heart-o"></i>
-                                <span>Your Wishlist</span>
-                                <div class="qty">2</div>
-                            </a>
-                        </div>
-                        <!-- /Wishlist -->
-
-                        <!-- Cart -->
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Your Cart</span>
-                                <div class="qty">3</div>
-                            </a>
-                            <div class="cart-dropdown">
-                                <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="{{asset('assetClient/img/product01.png')}}" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="{{asset('assetClient/img/product02.png')}}" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-                                </div>
-                                <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
-                                </div>
-                                <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Cart -->
-
-                        <!-- Menu Toogle -->
-                        <div class="menu-toggle">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
-                        </div>
-                        <!-- /Menu Toogle -->
-                    </div>
-                </div>
-                <!-- /ACCOUNT -->
-            </div>
-            <!-- row -->
-        </div>
-        <!-- container -->
-    </div> --}}
     <nav class="navbar navbar-dark  navbar-expand-lg" style="background-color: #15161D">
         <div class="container">
             <a href="{{route('electro.index')}}" class="navbar-brand pe-lg-5 me-lg-5">
@@ -242,17 +127,4 @@
 </header>
 <!-- /HEADER -->
 
-<!-- NAVIGATION -->
-<nav id="my-navigation" class="py-3">
-    <!-- container -->
-    <div class="container">
-            <ul class="nav nav-underline justify-content-around justify-content-lg-start">
-                <li class="nav-item"><a href="{{route('electro.index')}}" class="text-danger nav-link active">Home</a></li>
-                @foreach ($last5Categories as $category)
-                    <li class="nav-item mx-3"><a href="{{route('electro.stores',['category'=>$category->id])}}" class="text-dark nav-link text-capitalize">{{$category->nom}}</a></li>
-                @endforeach
-            </ul>
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+

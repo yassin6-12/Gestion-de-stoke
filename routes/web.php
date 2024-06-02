@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\AuthClientController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatégorieController;
 use App\Http\Controllers\ClientController;
@@ -76,7 +77,16 @@ Route::get('/client.index', [ClientSideController::class,'index'])->name('electr
 Route::get('/client.product/{product}', [ClientSideController::class,'show'])->name('electro.show');
 // show all categories
 Route::get('/client.stores', [ClientSideController::class,'showCat'])->name('electro.stores');
+// Authentication profile client
+Route::get('/client.profile',[AuthClientController::class,'index'])->name('client.profile');
 
+Route::get('/client.profile.login', [AuthClientController::class ,'login'])->name('client.connect');
+
+// Route::middleware('auth:client')->get('/client.profile', 'AuthClientController@index');
+Route::middleware('guest:client')->group(function () {
+    Route::view('/client/login', 'auth.client_login')->name('client.login');
+    Route::post('/client/login', 'Auth\ClientLoginController@login')->name('client.login.submit');
+});
 // header
 Route::get('/client.layouts.header',[ClientSideController::class,'header'])->name('electro.header');
 

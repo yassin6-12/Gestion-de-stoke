@@ -1,5 +1,6 @@
 <?php 
 	use App\Models\Categorie;
+	$nav = 'include';
 ?>
 
 @extends('client.layouts.master')

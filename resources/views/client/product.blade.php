@@ -1,6 +1,7 @@
 
 <?php 
 	use Carbon\Carbon;
+	$nav = 'include';
 ?>
 @extends('client.layouts.master')
 @section('main')
