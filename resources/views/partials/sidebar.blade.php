@@ -22,11 +22,11 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="index.html" class="current-page">Commerce électronique</a>
+											<a href="/" class="current-page">Commerce électronique</a>
 										</li>
-										<li>
+										{{-- <li>
 											<a href="analytics.html">Analytics</a>
-										</li>
+										</li> --}}
 									</ul>
 								</div>
 							    </li>
