@@ -58,7 +58,7 @@
 							    </li>
                             @endauth
 							{{-- Catégorie --}}
-                            @auth
+                            @if (Auth::user() && Auth::user()->type_user == 'admin')
 							    <li class="sidebar-dropdown">
 								<a href="#">
 
@@ -79,9 +79,10 @@
 									</ul>
 								</div>
 							    </li>
-                            @endauth
+							@endif
 							{{-- Authentication --}}
-							<li class="sidebar-dropdown">
+							@if (Auth::user() && Auth::user()->type_user == 'admin')
+								<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-x-diamond"></i>
 									<span class="menu-text">Authentication</span>
@@ -103,7 +104,8 @@
                                         @endauth
 									</ul>
 								</div>
-							</li>
+								</li>
+							@endif
 							{{-- Clientèle --}}
                             @auth
 							    <li class="sidebar-dropdown">
