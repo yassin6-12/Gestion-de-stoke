@@ -98,7 +98,7 @@
                       </div>
                     </td>
                     <td style="vertical-align: middle;">{{$product->created_at->format('Y-m-d')}}</td>
-                    <td style="vertical-align: middle;">${{$product->total}}</td>
+                    <td style="vertical-align: middle;">{{$product->total}}DA</td>
                     <td style="vertical-align: middle;"> 
                       <button type="button" class="btn btn-sm btn-info"  data-bs-toggle="modal" data-bs-target="#ModalEditProduct-{{$product->id}}">
                         <i class="bi bi-pencil"></i>

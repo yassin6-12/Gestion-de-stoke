@@ -22,10 +22,10 @@
 								<div class="sidebar-submenu">
 									<ul>
 										<li>
-											<a href="index.html" class="current-page">Commerce électronique</a>
+											<a href="/" class="current-page">Commerce électronique</a>
 										</li>
 										<li>
-											<a href="analytics.html">Analytics</a>
+											<a href="/client.index">Site Client</a>
 										</li>
 									</ul>
 								</div>
@@ -58,7 +58,7 @@
 							    </li>
                             @endauth
 							{{-- Catégorie --}}
-                            @auth
+                            @if (Auth::user() && Auth::user()->type_user == 'admin')
 							    <li class="sidebar-dropdown">
 								<a href="#">
 
@@ -79,9 +79,10 @@
 									</ul>
 								</div>
 							    </li>
-                            @endauth
+							@endif
 							{{-- Authentication --}}
-							<li class="sidebar-dropdown">
+							@if (Auth::user() && Auth::user()->type_user == 'admin')
+								<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="bi bi-x-diamond"></i>
 									<span class="menu-text">Authentication</span>
@@ -103,7 +104,8 @@
                                         @endauth
 									</ul>
 								</div>
-							</li>
+								</li>
+							@endif
 							{{-- Clientèle --}}
                             @auth
 							    <li class="sidebar-dropdown">
@@ -117,7 +119,7 @@
 											<a href="{{route('clientele.index')}}">Liste des clients</a>
 										</li>
 										<li>
-											<a href="{{route('historique')}}">Historique</a>
+											<a href="{{route('historique')}}">Historique D'achats</a>
 										</li>
 									</ul>
 								</div>

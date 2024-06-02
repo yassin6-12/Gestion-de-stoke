@@ -38,7 +38,7 @@
                                                 @php
                                                     $firstImage = json_decode($produit->images)[0];
                                                 @endphp
-                                                <img class="product-card-img-top" src="{{asset($firstImage)}}" alt="Image of product" style="height:200px;object-fit:contain">
+                                                <img src="{{asset('storage/' .$firstImage)}}" alt="Admin Templates" style="height:200px;object-fit:contain">
                                                 <div class="product-card-body">
                                                     
                                                     <h3 class="product-title text-capitalize">{{$produit->nom}}</h3>

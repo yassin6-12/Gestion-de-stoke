@@ -1,6 +1,7 @@
 
-<?php 
+<?php
 	use Carbon\Carbon;
+	$nav = 'include';
 ?>
 @extends('client.layouts.master')
 @section('main')
@@ -52,14 +53,14 @@
 							@if ($images && count($images))
 								@foreach ($images as $image)
 									<div class="product-preview">
-										<img src="{{asset($image)}}" alt="">
+										<img src="{{asset('storage/' . $image)}}" alt="">
 									</div>
 								@endforeach
 							@endif
 						</div>
 					</div>
 					<!-- /Product main img -->
-					
+
 
 					<!-- Product details -->
 					<div class="col-md-5">
@@ -76,14 +77,14 @@
 								<a class="review-link text-decoration-none" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">${{$product->prix - ($product->prix * $product->remise / 100)}} 
+								<h3 class="product-price">${{$product->prix - ($product->prix * $product->remise / 100)}}
 									@if ($product->remise)
 										<del class="product-old-price">${{$product->prix}}</del>
 									@endif
 								</h3>
 								@if ($product->qte_stock)
 									<span class="product-available text-success">In Stock</span>
-								@else	
+								@else
 									<span class="text-danger text-capitalize">non disponible</span>
 								@endif
 							</div>
@@ -126,8 +127,8 @@
 								<li><a href="#tab3" class="text-decoration-none collapse-btn-product">Reviews (3)</a></li>
 							</ul>
 							<!-- /product tab nav -->
-							
-							
+
+
 
 							<!-- product tab content -->
 							<div class="tab-content">
@@ -346,7 +347,7 @@
 				<!-- row -->
 				<div class="row">
 					@if ($relatedProducts && count($relatedProducts))
-	
+
 					<div class="col-md-12">
 						<div class="section-title text-center">
 							<h3 class="title">Related Products</h3>
@@ -371,14 +372,14 @@
 											if ($dateProduct->lt(!Carbon::now()->subWeek())) {
 												echo '<span class="new">NEW</span>';
 											}
-										@endphp	
-										
+										@endphp
+
 									</div>
 								</div>
 								<div class="product-body">
 									<p class="product-category">{{$category->nom}}</p>
 									<h3 class="product-name"><a href="{{route('electro.show',$product->id)}}" class="text-decoration-none">{{$product->nom}}</a></h3>
-									<h4 class="product-price">${{$product->prix - ($product->prix * $product->remise / 100)}} 
+									<h4 class="product-price">${{$product->prix - ($product->prix * $product->remise / 100)}}
 										@if ($product->remise)
 											<del class="product-old-price">${{$product->prix}}</del>
 										@endif
@@ -397,7 +398,7 @@
 							</div>
 						</div>
 					@endforeach
-					
+
 					<!-- /product -->
 					@endif
 				</div>
@@ -406,7 +407,7 @@
 			<!-- /container -->
 		</div>
 		<!-- /Section -->
-	
+
 @endsection
 @section('script')
 	<script>

@@ -1,7 +1,8 @@
 
-<?php 
+<?php
 	use App\Models\produit;
 	use App\Models\Categorie;
+	$nav = 'include';
 ?>
 @extends('client.layouts.master')
 @section('main')
@@ -21,7 +22,7 @@
 										<span style="font-size:.8rem;" class="text-danger d-inline-block ms-5"><?php echo $_GET['min_price'] ?> < price < <?php echo $_GET['max_price'] ?></span>
 									@endif
 							@endif
-							
+
 						</ul>
 					</div>
 				</div>
@@ -84,7 +85,7 @@
 						<div class="d-grid gap-2 my-3">
 							<input type="submit" class="btn btn-danger text-capitalize" value="filter">
 						  </div>
-						
+
 						<!-- /aside Widget -->
 						</form>
 					</div>
@@ -124,8 +125,8 @@
 							@php
 								$products = $filterProducts?$filterProducts:$allProducts;
 							@endphp
-								
-							
+
+
 							@foreach ($products as $product)
 								@php
 									$getCat = Categorie::find($product->categorie_id);
@@ -135,13 +136,13 @@
 									<div class="product">
 										<div class="product-img">
 											<div style="height:200px">
-												<img src="{{asset($getFirstImage)}}" alt="image of {{$product->nom}}" class="img-responsive" style="max-width:100%;object-fit: contain;" />
+												<img src="{{asset('storage/' . $getFirstImage)}}" alt="image of {{$product->nom}}" class="img-responsive" style="max-width:100%;object-fit: contain;" />
 											</div>
 											<div class="product-label">
 												@if ($product->remise)
 													<span class="sale">-{{$product->remise}}%</span>
 												@endif
-												
+
 												{{-- <span class="new">NEW</span> --}}
 											</div>
 										</div>
@@ -149,14 +150,14 @@
 											<p class="product-category">{{$getCat->nom}}</p>
 											<h3 class="product-name"><a href="{{route('electro.show',$product->id)}}" class="text-decoration-none">{{$product->nom}}</a></h3>
 											<h4 class="product-price">
-										
-												${{$product->prix - ($product->prix * $product->remise / 100)}} 
+
+												${{$product->prix - ($product->prix * $product->remise / 100)}}
 												@if ($product->remise)
 													<del class="product-old-price">
 														${{$product->prix}}
 													</del>
 												@endif
-												
+
 											</h4>
 											<div class="product-rating">
 												<i class="fa fa-star"></i>

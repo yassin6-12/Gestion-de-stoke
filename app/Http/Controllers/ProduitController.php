@@ -16,7 +16,7 @@ class ProduitController extends Controller
     public function showProducts()
 {
     $products = Produit::paginate(10);
-    return view('/produit.edite',[
+    return view('/admin/produit.edite',[
         'products'=>$products
     ]);
 }
@@ -26,24 +26,13 @@ class ProduitController extends Controller
     public function index()
     {
         $getCategories = Categorie::all();
-        return view('produit.index',['get_cats'=>$getCategories]);
+        return view('/admin/produit.index',['get_cats'=>$getCategories]);
     }
-
-    // public function panier()
-    // {
-    //     return view('produit.Panier');
-    // }
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories = Categorie::all();
-        return view('produit.create',['categories'=>$categories]);
+        return view('/admin/produit.create',['categories'=>$categories]);
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -64,15 +53,11 @@ class ProduitController extends Controller
 
       if($request->hasFile('images')){
 
-            $uploadPath = 'uploads/gallery/';
 
             $files = $request->file('images');
             $arrayImages = array();
             foreach($files as $file){
-                $extension = $file->getClientOriginalExtension();
-                $filename = time().'-'.rand(0,99).'.'.$extension;
-                $file->move($uploadPath,$filename);
-                $filename = "uploads/gallery/".$filename;
+                $filename = $file->store('uploads','public');
                 array_push($arrayImages,$filename);
             }
 
@@ -93,34 +78,21 @@ class ProduitController extends Controller
             $produit->images        = $images;
             $produit->save();
 
-            return to_route('produit.index');
+            return to_route('/admin/produit.index')->with('success', 'Produit ajouté avec succès');
       }
       else{
 
-        return to_route('Produit.create');
+        return to_route('/admin/Produit.create');
       }
-
-
-        /*Gallery::create([
-            'name'  => $name,
-            'images' => $json,
-        ]);*/
-
-
-
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show($nom)
     {
         $produitsOfCat  = Produit::join('categories','produits.categorie_id','=','categories.id')->where('categories.nom',$nom)->select('Produits.*')->get();
-        return view('Produit.show',['produits'=>$produitsOfCat,'nomCat'=>$nom]);
+        return view('/admin/Produit.show',['produits'=>$produitsOfCat,'nomCat'=>$nom]);
     }
     public function showProduit($cat,$produit){
         $getProduit = Produit::findOrFail($produit);
-        return view('Produit.produit',['nomCat'=>$cat,'produit'=>$getProduit]);
+        return view('/admin/Produit.produit',['nomCat'=>$cat,'produit'=>$getProduit]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -128,7 +100,7 @@ class ProduitController extends Controller
     public function edit(string $id)
     {
         $produit= Produit::find($id);
-        return view('produit.edite' ,['prd'=>$produit]);
+        return view('/admin/produit.edite' ,['prd'=>$produit]);
     }
 
     /**
@@ -145,7 +117,7 @@ class ProduitController extends Controller
         $product->remise = $request->input('product-discount');
         $product->save();
 
-        return redirect()->route('EditeProduit')->with('updateprod', 'Produit mis à jour avec succès');
+        return redirect()->route('EditeProduit')->with('success', 'Produit mis à jour avec succès');
     }
     /**
      * Remove the specified resource from storage.
@@ -155,7 +127,7 @@ class ProduitController extends Controller
         $product = Produit::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('EditeProduit')->with('deletprod', 'Produit supprimé avec succès');
+        return redirect()->route('EditeProduit')->with('success', 'Produit supprimé avec succès');
     }
     // method panier for produit.panier
 
@@ -166,7 +138,7 @@ class ProduitController extends Controller
 
         $produits = Produit::whereIn('id', $produitsVentes)->get();
 
-        return view('/produit.ventes',[
+        return view('/admin/produit.ventes',[
             'produits' => $produits
         ]);
     }
@@ -179,7 +151,7 @@ class ProduitController extends Controller
             ->where('ligne_ventes.id_produit',$produit->id)
             ->get();
 
-        return view('/produit.venteDetails',[
+        return view('/admin/produit.venteDetails',[
             'produit'   => $produit,
             'detailsProduit'    => $detailsProduit
         ]);

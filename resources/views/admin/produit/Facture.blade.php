@@ -107,10 +107,10 @@
 															$firstImage = json_decode($product->images)[0];
 														@endphp
 														<div class="product-list-block">
-															<img class="product-list-img" style="width:100px;" src="{{asset($firstImage)}}" alt="Moonlight Admin">
+															<img src="{{asset('storage/' .$firstImage)}}" alt="Admin Templates" class="product-list-img" style="width:100px;">
 															<div class="product-list-details">
 																<h5 class="product-list-title">{{$product->nom}}</h5>
-																<div class="product-list-price">${{$product->prix - ($product->prix * $product->remise/100)}} * {{$quantities[$i]}}</div>
+																<div class="product-list-price"> {{$product->prix - ($product->prix * $product->remise/100)}} DA * {{$quantities[$i]}}</div>
 															</div>
 														</div>
 														@php
@@ -139,7 +139,7 @@
 										<div class="row">
 											<div class="col-xxl-12">
 												<div class="sub-total-container">
-													<div class="total">Total de la commande: ${{$total}}</div>
+													<div class="total">Total de la commande: {{$total}}DA</div>
 													<button type="submit" class="btn btn-success btn-lg" id="btn-form-facture">Passer la commande</button>
 												</div>
 											</div>

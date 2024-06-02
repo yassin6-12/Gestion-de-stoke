@@ -1,5 +1,6 @@
 <?php 
 	use App\Models\Categorie;
+	$nav = 'include';
 ?>
 
 @extends('client.layouts.master')
@@ -17,7 +18,8 @@
 						<div class="col-md-4 col-xs-6">
 							<div class="shop" style="height:300px;">
 								<div class="shop-img h-100">
-									<img src="{{asset($category->photo)}}" alt="image {{$category->nom}}" class="h-100">
+									{{-- <img src="{{asset($category->photo)}}" alt="image {{$category->nom}}" class="h-100"> --}}
+									<img src="{{asset('storage/' .$category->photo)}}" alt="image {{$category->nom}}" class="h-100">
 								</div>
 								<div class="shop-body">
 									<h3 class="text-capitalize">{{$category->nom}}<br>Collection</h3>
@@ -80,7 +82,8 @@
 										?>
 										<div class="product">
 											<div class="product-img">
-												<img src="{{asset($firstImage)}}" alt="image of {{$item->nom}}" style="height:220px;">
+												{{-- <img src="{{asset($firstImage)}}" alt="image of {{$item->nom}}" style="height:220px;"> --}}
+												<img src="{{asset('storage/' .$firstImage)}}" alt="image {{$category->nom}}"style="height:220px;">
 												<div class="product-label">
 													@if ($item->remise)
 													<span class="sale">-{{$item->remise}}%</span>
@@ -213,7 +216,8 @@
 									?>
 									<div class="product">
 										<div class="product-img">
-											<img src="{{asset($firstImage)}}" alt="image of {{$item->nom}}" style="height:220px">
+											{{-- <img src="{{asset($firstImage)}}" alt="image of {{$item->nom}}" style="height:220px"> --}}
+											<img src="{{asset('storage/' .$firstImage)}}" alt="image {{$category->nom}}" style="height:220px">
 											@if ($item->remise)
 												<div class="product-label">
 													<span class="sale">-{{$item->remise}}%</span>
@@ -301,7 +305,8 @@
 							@endif
 									<div class="product-widget">
 										<div class="product-img">
-											<img src="{{$getFirstImage}}" alt="image of {{$top12Selling[$i]->nom}}">
+											
+											<img src="{{asset('storage/' .$getFirstImage)}}" alt="image of {{$top12Selling[$i]->nom}}" style="height:220px" />
 										</div>
 										<div class="product-body">
 											@php
@@ -351,7 +356,7 @@
 	})
 
 	// remove buttons
-	$('.products-tabs .products-slick-nav').each(function(index,ele){
+	$('.products-tabs .products-slick-nav').each(function(inex,ele){
 		if(index == 2 || index == 3){
 			var childs = $(this).children();
 			childs[0].remove();
