@@ -24,9 +24,9 @@
 										<li>
 											<a href="/" class="current-page">Commerce électronique</a>
 										</li>
-										{{-- <li>
-											<a href="analytics.html">Analytics</a>
-										</li> --}}
+										<li>
+											<a href="/client.index">Site Client</a>
+										</li>
 									</ul>
 								</div>
 							    </li>
