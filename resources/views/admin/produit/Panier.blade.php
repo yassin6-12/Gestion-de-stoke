@@ -44,9 +44,6 @@
                                     <div class="product-added-description">
                                         {{ $produit->description }}
                                     </div>
-                                    <div class="product-added-actions">
-                                        <button class="btn btn-light remove-from-cart">Retirer du panier</button>
-                                    </div>
                                     <div class="product-added-quantity my-2">
                                         <div class="d-flex align-items-center">
                                             <label for="quantity" class="label-control fw-bold me-3">Quantité: </label>
