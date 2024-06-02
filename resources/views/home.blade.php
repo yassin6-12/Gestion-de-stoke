@@ -21,7 +21,7 @@
 									</div>
 									<div class="sale-details">
 										<h5>Products</h5>
-										<h3 class="text-blue">{{$productcount}}</h3>
+										<h3 class="text-blue">{{$productCount}}</h3>
 										<p class="growth text-blue"></p>
 									</div>
 								</div>
@@ -33,7 +33,7 @@
 									</div>
 									<div class="sale-details">
 										<h5>Admins</h5>
-										<h3 class="text-blue">{{$admincount}}</h3>
+										<h3 class="text-blue">{{$adminCount}}</h3>
 										<p class="growth text-blue"></p>
 									</div>
 								</div>
@@ -45,7 +45,7 @@
 									</div>
 									<div class="sale-details">
 										<h5>Gestionnaire</h5>
-										<h3 class="text-blue">{{$gestcount}}</h3>
+										<h3 class="text-blue">{{$gestCount}}</h3>
 										<p class="growth text-red"></p>
 									</div>
 								</div>
@@ -56,10 +56,12 @@
 							<div class="col-xxl-9  col-sm-12 col-12" style="width:2000px;margin-left:auto;margin-right:auto">
 								<div class="card">
 									<div class="card-header">
-										<div class="card-title">Orders &amp; Revenue</div>
+										<div class="card-title">Sales &amp; Orders</div>
 									</div>
 									<div class="card-body">
-										<div id="ordersVisits"></div>
+										{!! $chart2->container() !!}
+
+                                        {{ $chart2->script() }}
 									</div>
 								</div>
 							</div>
@@ -93,7 +95,7 @@
 														</div>
 														<div class="sale-details">
 															<h5>Clients</h5>
-															<p class="growth">{{$clientcount}}</p>
+															<p class="growth">{{$clientCount}}</p>
 														</div>
 													</div>
 													<div class="stats-tile2">
@@ -102,7 +104,7 @@
 														</div>
 														<div class="sale-details">
 															<h5>Gestionnaire</h5>
-															<p class="growth">{{$gestcount}}</p>
+															<p class="growth">{{$gestCount}}</p>
 														</div>
 													</div>
 													<div class="stats-tile2">
@@ -111,7 +113,7 @@
 														</div>
 														<div class="sale-details">
 															<h5>Admins</h5>
-															<p class="growth ">{{$admincount}}</p>
+															<p class="growth ">{{$adminCount}}</p>
 														</div>
 													</div>
 												</div>
@@ -220,6 +222,9 @@
                                             <a href="/" class="tagc2">Dashboard</a>
 											<a href="/Authentification.liste" class="tagc1">Employés</a>
 											<a href="/" class="tagc1">Dashboard</a>
+                                            <a href="/admin.stocks.retour" class="tagc1">Retours</a>
+                                            <a href="/admin/produit.ventes" class="tagc4">Ventes Produit</a>
+                                            <a href="/admin.clientele.historique" class="tagc3">Historique d'achats</a>
 										</div>
 									</div>
 								</div>
@@ -254,7 +259,7 @@
 								</div>
 							</div> --}}
 
-							<div class="col-xxl-4 col-sm-12 col-12">
+							{{-- <div class="col-xxl-4 col-sm-12 col-12">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Top Items Sold</div>
@@ -332,7 +337,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 						<!-- Row end -->
 					</div>
