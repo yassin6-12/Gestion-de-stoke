@@ -57,3 +57,17 @@
     </table>
 </div>
 @endsection
+{{-- @section('script')
+    <script>
+      $(document).ready(function(){
+        $('#submit-add-client').click(function(){
+            $('#form-add-client').submit();
+        })
+
+        $('.submit-update-client').click(function(){
+            $('.form-update-client-'+$(this).data('id')).submit();
+        })
+      })
+    </script>
+@endsection --}}
+
