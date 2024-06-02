@@ -36,12 +36,8 @@ Route::get('/admin/produit.ventes/{produit}',[ProduitController::class,'venteDet
 
 // panier
 Route::get('/admin/produit.Panier',[VenteController::class,'panier'])->name('panier');
-
 Route::post('/admin/produit.facture',[VenteController::class,'facture'])->name('facture');
-
 Route::post('/admin/produit.Dfacture',[VenteController::class,'dfacture'])->name('dfacture');
-
-// Route::delete('/SupprimerProduit/{id}',[ProduitController::class,'destroy'])->name('SupprimerProduit');
 
 // categories
 Route::get('/catégorie', [CatégorieController::class,'index'])->name('catégorie.index');
