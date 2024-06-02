@@ -39,7 +39,7 @@
                                 <img src="{{ asset('storage/' . $firstImage) }}" alt="Admin Templates" class="img-fluid product-image">
                                 <div class="product-added-card-body">
                                     <h5 class="product-added-title">{{ $produit->nom }}</h5>
-                                    <div class="product-added-price">DA<span class="product-prix-unitaire">{{ $produit->prix - ($produit->prix * $produit->remise / 100) }}</span>
+                                    <div class="product-added-price"><span class="product-prix-unitaire">{{ $produit->prix - ($produit->prix * $produit->remise / 100) }}DA</span>
                                     </div>
                                     <div class="product-added-description">
                                         {{ $produit->description }}
@@ -56,7 +56,7 @@
                     @endforeach
                     <div class="col-sm-12 col-12">
                         <div class="sub-total-container">
-                            <div class="total">Total de la commande: DA<span id="total-panier"></span></div>
+                            <div class="total">Total de la commande: <span id="total-panier"></span>DA</div>
                             <form action="{{ route('facture') }}" method="POST" id="form-panier-to-facture">
                                 @csrf
                                 <button type="submit" id="submit-panier" class="btn btn-success btn-lg">Caisse</button>
