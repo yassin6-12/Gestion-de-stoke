@@ -57,11 +57,12 @@ class ClientController extends Controller
 
         Client::create(
             [
-                'nom_utilisateur' => $validated['client-username'],
-                'photo' => $photoPath,
-                'tel' => $validated['phone'],
-                'email' => $validated['email'],
-                'city'  => $validated['ville'],
+                'nom_utilisateur'   => $validated['client-username'],
+                'photo'             => $photoPath,
+                'tel'               => $validated['phone'],
+                'email'             => $validated['email'],
+                'city'              => $validated['ville'],
+                'password'          => 'admin'
             ]
         );
 

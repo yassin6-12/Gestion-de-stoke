@@ -95,7 +95,7 @@
                             $imageUrl = Storage::url($client->photo);
                         @endphp
                         {{-- <img src="{{$imageUrl}}" alt="Oculus VR" class="img-thumbnail" width="50" style="margin-right: 10px;"> --}}
-                        <img src="{{asset('storage/' . $imageUrl)}}" alt="{{$achat->produit_nom}}" class="img-thumbnail" width="50" style="margin-right: 10px;">
+                        <img src="{{asset('storage/' . $imageUrl)}}" alt="" class="img-thumbnail" width="50" style="margin-right: 10px;">
                       @endif
 
                       <span>

@@ -41,6 +41,10 @@
 
     @include('client.layouts.header')
 
+	@if (isset($nav))
+	@include('client.layouts.nav')
+	@endif
+
     @yield('main')
 
     @include('client.layouts.footer')

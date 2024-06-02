@@ -136,4 +136,9 @@ class ClientSideController extends Controller
             ]
         );
     }
+
+    public function profile(){
+        
+        return view('/client.profile');
+    }
 }

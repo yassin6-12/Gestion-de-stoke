@@ -2,6 +2,7 @@
 <?php 
 	use App\Models\produit;
 	use App\Models\Categorie;
+	$nav = 'include';
 ?>
 @extends('client.layouts.master')
 @section('main')
