@@ -13,7 +13,7 @@
       .product-image {
         max-width: 100%;
         height: auto;
-        max-height: 300px; /* Adjust the max-height as needed */
+        max-height: 150px; /* Adjust the max-height as needed */
         object-fit: cover; /* Ensures the image covers the box and maintains aspect ratio */
     }
 </style>
@@ -31,7 +31,7 @@
                 <!-- Row start -->
                 <div class="row">
                     @foreach ($produits as $produit)
-                        <div class="col-xxl-6 col-sm-12 col-12">
+                        <div class="col-xxl-6 col-sm-12 col-10">
                             <div class="product-added-card">
                                 @php
                                     $firstImage = json_decode($produit->images)[0];
