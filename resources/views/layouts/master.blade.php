@@ -61,6 +61,7 @@
 
 	<body>
         @apexchartsScripts
+
 		<!-- Page wrapper start -->
 		<div class="page-wrapper">
 
@@ -503,7 +504,6 @@
 		<script src="{{asset('assets/vendor/apex/custom/ecommerce/visitors.js')}}"></script>
 		<script src="{{asset('assets/vendor/apex/custom/ecommerce/customers.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
 		<!-- jQcloud Keywords -->
 		<script src="{{asset('assets/vendor/tagsCloud/tagsCloud.js')}}"></script>
 

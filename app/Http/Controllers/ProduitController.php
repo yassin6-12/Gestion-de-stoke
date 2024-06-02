@@ -28,22 +28,11 @@ class ProduitController extends Controller
         $getCategories = Categorie::all();
         return view('/admin/produit.index',['get_cats'=>$getCategories]);
     }
-
-    // public function panier()
-    // {
-    //     return view('produit.Panier');
-    // }
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories = Categorie::all();
         return view('/admin/produit.create',['categories'=>$categories]);
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -95,20 +84,7 @@ class ProduitController extends Controller
 
         return to_route('/admin/Produit.create');
       }
-
-
-        /*Gallery::create([
-            'name'  => $name,
-            'images' => $json,
-        ]);*/
-
-
-
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show($nom)
     {
         $produitsOfCat  = Produit::join('categories','produits.categorie_id','=','categories.id')->where('categories.nom',$nom)->select('Produits.*')->get();
